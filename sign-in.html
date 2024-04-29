@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<title>Urban Graffiti</title>
+        <link rel="icon" type="image/x-icon" href="assets/image/favicon.svg">
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1"
+		/>
+		<link
+			rel="stylesheet"
+			href="assets/css/bootstrap.min.css"
+		/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link
+			rel="stylesheet"
+			href="assets/css/style.css"
+		/>
+	</head>
+	<body>
+		<section class="sign-in-main">
+            <div class="centered">
+                <form class="sign-bg">
+                     <h3 class="sign-text eudoxus-bold">Sign in</h3>
+					<p class="text-muted mb-4 eudoxus-medium">Don't have an account? <a href="index.html" class="sign-link eudoxus-bold text-decoration-underline">Sign up</a></p>
+                    <label
+                        for="email"
+                        class="form-label"
+                        >Email address <span class="text-danger">*</span></label
+                    >
+                    <div class="input-group">
+                        <span class="icon-mail me-2"
+                          ><img src="assets/image/email.png" alt=""
+                        /></span>
+                        <input
+                          type="email"
+                          placeholder="Enter Email"
+                          class="inpt"
+                          required
+                        />
+                      </div>
+                    <label
+                        for="Password"
+                        class="form-label"
+                        >Password <span class="text-danger">*</span></label
+                    >
+                    <div class="input-group">
+                        <span class="icon-mail me-2"
+                          ><img src="assets/image/Union.png" alt=""
+                        /></span>
+                        <input
+                          type="email"
+                          placeholder="Enter Password"
+                          class="inpt"
+                          required
+                        />
+                        <span class="toggle-password-icon" onclick="togglePasswordVisibility(this)">
+                            <img src="assets/image/pass-hide.svg" alt="Show Password">
+                      </div>
+                      <div class="rem-forgot d-flex justify-content-between">
+                        <div class="rem">
+                          <input type="checkbox" for="rem-tik">
+                          <label for="rem-tik" class="eudoxus-medium">Remember me</label>
+                        </div>
+                        <span class="forgot-pw"><a href="forgot_pw.html" class="eudoxus-bold text-decoration-none">Forgot password?</a></span>
+                      </div>
+                   
+                    <button
+                        type="submit"
+                        class="free-acoun-btn eudoxus-bold"
+                    >
+                    Sign up
+                    </button>
+                </form>
+            </div>
+        </section>
+
+		<!-- script link -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+		<script src="assets/js/bootstrap.min.js"></script>
+		<script src="assets/js/custom.js"></script>
+	</body>
+</html>
