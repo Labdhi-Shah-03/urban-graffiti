@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Urban Graffiti Dashboard</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="icon" type="image/ico" href="./assets/images/urban-graffiti.ico">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css"/>
+    <!-- Datepicker CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css"/>
+</head>
+<body class="order-dashboard">
+    <div class="work-order-section d-flex" id="work-order">
+        <nav class="side-navbar">
+            <div class="nav-top d-flex align-items-center">
+                <div class="nav-logo d-flex align-items-center flex-grow-1">
+                    <a href="javascript:void(0)" title="Urban Graffiti" class="logo d-flex align-items-center">
+                        <img src="./assets/images/urban-graffiti-logo.svg" alt="Urban Graffiti" title="Urban Graffiti" width="40" height="40" class="logo-img">
+                        <p class="nav-title">Urban Graffiti</p>
+                    </a>
+                </div>
+                <div class="nav-back-arrow">
+                    <img src="./assets/images/left-circle-arrow.svg" alt="BacK" title="Back" width="24" height="24" class="collapsed-arrow" id="collapsed-arrow">
+                    <img src="./assets/images/hamburger-menu.svg" alt="Menu" title="Menu" width="24" height="24" class="menu-arrow" id="menu-arrow">
+                </div>
+            </div>
+            <div class="nav-bottom">
+                <ul class="nav-list">
+                    <li class="nav-items">
+                        <a href="javascript:void(0)" class="nav-links d-flex align-items-center" title="Dashboard">
+                            <img src="./assets/images/home.svg" alt="Dashboard" title="Dashboard" width="20" height="20" class="list-icons">
+                            <span class="flex-grow-1">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-items ">
+                        <a href="javascript:void(0)" class="nav-links d-flex align-items-center" title="Account">
+                            <img src="./assets/images/file-plus.svg" alt="Account" title="Account" width="20" height="20" class="list-icons">
+                            <span class="flex-grow-1">Account</span>
+                        </a>
+                    </li>
+                    <li class="nav-items nav-items-sub-dropdown">
+                        <a href="javascript:void(0)" class="nav-links d-flex align-items-center" title="Work Orders" id="work-orders-trigger">
+                            <img src="./assets/images/briefcase.svg" alt="Work Orders" title="Work Orders" width="20" height="20" class="list-icons">
+                            <span class="flex-grow-1">Work Orders</span>
+                            <img src="./assets/images/chevron-light-grey.svg" alt="Work Orders" title="Work Orders" width="20" height="20" class="dropdown-arrow">
+                        </a>
+                        <ul class="nav-list-dropdown">
+                            <li class="dropdown-list">
+                                <a href="javascript:void(0)" title="Graffiti">Graffiti</a>
+                            </li>
+                            <li class="dropdown-list">
+                                <a href="javascript:void(0)" title="Transit">Transit</a>
+                            </li>
+                            <li class="dropdown-list">
+                                <a href="javascript:void(0)" title="Public"> Public</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-items ">
+                        <a href="javascript:void(0)" class="nav-links d-flex align-items-center" title="Service Routes">
+                            <img src="./assets/images/server.svg" alt="Service Routes" title="Service Routes" width="20" height="20" class="list-icons">
+                            <span class="flex-grow-1">Service Routes</span>
+                        </a>
+                    </li>
+                    <li class="nav-items">
+                        <a href="javascript:void(0)" class="nav-links d-flex align-items-center" title="Admin">
+                            <img src="./assets/images/user.svg" alt="Admin" title="Admin" width="20" height="20" class="list-icons">
+                            <span class="flex-grow-1">Admin</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <section class="dashboard-wrapper flex-grow-1">
+            <div class="dashboard-topbar d-flex align-items-center">
+                <div class="topbar-logo">
+                    <a href="javascript:void(0)" title="Urban Graffiti" class="logo d-flex align-items-center">
+                        <img src="./assets/images/urban-graffiti-logo.svg" alt="Urban Graffiti" title="Urban Graffiti" width="40" height="40" class="logo-img">
+                        <p class="nav-title">Urban Graffiti</p>
+                    </a>
+                </div>
+                <div class="profile-wrapper d-flex align-items-center justify-content-end flex-grow-1">
+                    <div class="tool-box">
+                        <img src="./assets/images/settings.svg" alt="Settings" title="Settings" width="20" height="20" class="tool-box-image">
+                    </div>
+                    <div class="tool-box">
+                        <img src="./assets/images/bell.svg" alt="Notification" title="Notificaion" width="20" height="20" class="tool-box-image">
+                    </div>
+                    <div class="user-profile-box d-flex align-items-center">
+                        <div class="user-avatar">
+                            <img src="./assets/images/Avatar.png" alt="User" title="User" width="40" height="40" class="user-image">
+                        </div>
+                        <div class="user-info flex-grow-1">
+                            <p class="user-name">John Doe</p>
+                            <span class="user-title">Premium User</span>
+                        </div>
+                        <div class="user-dropdown">
+                            <img src="./assets/images/chevron-grey.svg" alt="Profile" title="Profile" width="24" height="24">
+                        </div>
+                        <ul class="profile-dropdown-list">
+                            <li class="profile-dropdown-list-item">
+                                <a href="javascript:void(0)" title="Profile">Profile</a>
+                            </li>
+                            <li class="profile-dropdown-list-item">
+                                <a href="javascript:void(0)" title="Settings">Advanced Settings</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="dashboard-detailed-section">
+                <div class="detail-section-wrapper">
+                    <div class="order-title d-flex align-items-center">
+                        <h1 class="heading-title flex-grow-1">Graffiti Work Order</h1>
+                        <div class="order-title-right d-flex align-items-center">
+                            <a href="javascript:void(0)" title="Next" class="detailed-btn btn-cta">Next</a>
+                            <a href="javascript:void(0)" title="Back" class="detailed-btn btn-cta btn-cta-back">Back</a>
+                            <a href="javascript:void(0)" title="Save" class="detailed-btn btn-cta btn-cta-save">Save</a>
+                        </div>
+                    </div>
+
+                    <!-- form design start with accordion -->
+                    <div class="expandable-section">
+                        <div class="accordion-wrapper">
+                            <div class="accordion-box order-details-accordion">
+                                <div class="accordion-inner-box">
+                                    <h3 class="child-heading-title">Order Details</h3>
+                                    <div class="accordion-arrow">
+                                        <img src="./assets/images/chevron-default.svg" alt="Order Details" title="Order Details" width="24" height="24">
+                                    </div>
+                                </div>
+                                <div class="accordion-sub-box order-details-section-acc">
+                                    <div class="accordion-sub-box-title">
+                                        <div class="acordion-subtitle">
+                                            <img src="./assets/images/order-details.svg" alt="Order Details" title="Order Details" width="24" height="24">
+                                            <h4 class="sub-child-heading">Order Details Section:</h4>
+                                        </div>
+                                        <div class="accordion-arrow">
+                                            <img src="./assets/images/chevron-default.svg" alt="Order Details" title="Order Details" width="24" height="24">
+                                        </div>
+                                    </div>
+                                    <div class="form-wrapper">
+                                        <form action="" class="form">
+                                            <div class="form-group form-group-filled">
+                                                <label for="id" class="label">Id</label>
+                                                <input type="text" name="" id="id" placeholder="COV-95029">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="priority" class="label">Priority</label>
+                                                <select name="" id="priority">
+                                                    <option value="None">None</option>
+                                                    <option value="All">All</option>
+                                                    <option value="Other">Other</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="Agency" class="label">Agency</label>
+                                                <select name="" id="Agency">
+                                                    <option value="None">City Of Covina</option>
+                                                    <option value="All">All</option>
+                                                    <option value="Other">Other</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group form-group-filled">
+                                                <label for="latitude" class="label">Latitude</label>
+                                                <input type="text" name="" id="latitude" placeholder="38.869434">
+                                            </div>
+                                            <div class="form-group form-group-filled">
+                                                <label for="longitude" class="label">Longitude</label>
+                                                <input type="text" name="" id="longitude" placeholder="-117.8898613">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="agency-ref" class="label">Agency Ref #</label>
+                                                <input type="text" name="" id="agency-ref" placeholder="-">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="source" class="label">Source</label>
+                                                <input type="text" name="" id="source" placeholder="Agency Portal">
+                                            </div>
+                                            <div class="form-group form-group-filled">
+                                                <label for="job-type" class="label">Job Type</label>
+                                                <input type="text" name="" id="job-type" placeholder="Agency">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="assign-type" class="label">Assign To</label>
+                                                <input type="text" name="" id="assign-type" placeholder="Jose Gomar">
+                                            </div>
+                                            <div class="form-group from-group-fullwidth">
+                                                <label for="status" class="label">Status</label>
+                                                <input type="text" name="" id="status" placeholder="Open">
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+
+                                <div class="accordion-sub-box location-details-section-acc">
+                                    <div class="accordion-sub-box-title">
+                                        <div class="acordion-subtitle">
+                                            <img src="./assets/images/location-pin.svg" alt="Location Details" title="Location Details" width="24" height="24">
+                                            <h4 class="sub-child-heading">Location Details Section:</h4>
+                                        </div>
+                                        <div class="accordion-arrow">
+                                            <img src="./assets/images/chevron-default.svg" alt="Order Details" title="Order Details" width="24" height="24">
+                                        </div>
+                                    </div>
+                                    <div class="form-wrapper">
+                                        <form action="" class="form">
+                                            <div class="form-group">
+                                                <label for="address" class="label">Address</label>
+                                                <input type="text" name="" id="address" placeholder="126 North Citrus Avenue, Covina, CA, USA">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="contract" class="label">Contract</label>
+                                                <select name="" id="contract">
+                                                    <option value="Covina Graffiti">Covina Graffiti</option>
+                                                    <option value="All">All</option>
+                                                    <option value="Other">Other</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="zone" class="label">Zone</label>
+                                                <select name="" id="zone">
+                                                    <option value="Covina Citywide">Covina Citywide</option>
+                                                    <option value="All">All</option>
+                                                    <option value="Other">Other</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group form-group-halfwidth">
+                                                <label for="moniker">Moniker</label>
+                                                <input type="text" id="moniker" placeholder="-">
+                                            </div>
+                                            <div class="form-group form-group-halfwidth">
+                                                <label for="datepicker">Received</label>
+                                                <input type="text" id="datepicker" class="date-picker" placeholder="Select date">
+                                            </div>
+                                            <div class="form-group from-group-fullwidth">
+                                                <label for="request">Request Comment</label>
+                                                <textarea name="" id="request" cols="30" rows="10" placeholder="Pipe on Building on the side of alley way."></textarea>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+
+                                <div class="accordion-sub-box location-details-section-acc">
+                                    <div class="accordion-sub-box-title">
+                                        <div class="acordion-subtitle">
+                                            <img src="./assets/images/image-upload.svg" alt="Image Upload" title="Image Upload" width="24" height="24">
+                                            <h4 class="sub-child-heading">Image Before and After Section:</h4>
+                                        </div>
+                                        <div class="accordion-arrow">
+                                            <img src="./assets/images/chevron-default.svg" alt="Order Details" title="Order Details" width="24" height="24">
+                                        </div>
+                                    </div>
+                                    <div class="form-wrapper">
+                                        <form action="" class="form">
+                                            <div class="form-group">
+                                                <label for="address" class="label">Address</label>
+                                                <input type="text" name="" id="address" placeholder="126 North Citrus Avenue, Covina, CA, USA">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="contract" class="label">Contract</label>
+                                                <select name="" id="contract">
+                                                    <option value="Covina Graffiti">Covina Graffiti</option>
+                                                    <option value="All">All</option>
+                                                    <option value="Other">Other</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="zone" class="label">Zone</label>
+                                                <select name="" id="zone">
+                                                    <option value="Covina Citywide">Covina Citywide</option>
+                                                    <option value="All">All</option>
+                                                    <option value="Other">Other</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group form-group-halfwidth">
+                                                <label for="moniker">Moniker</label>
+                                                <input type="text" id="moniker" placeholder="-">
+                                            </div>
+                                            <div class="form-group form-group-halfwidth">
+                                                <label for="datepicker">Received</label>
+                                                <input type="text" id="datepicker" class="date-picker" placeholder="Select date">
+                                            </div>
+                                            <div class="form-group from-group-fullwidth">
+                                                <label for="request">Request Comment</label>
+                                                <textarea name="" id="request" cols="30" rows="10" placeholder="Pipe on Building on the side of alley way."></textarea>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+
+                                <div class="accordion-sub-box location-details-section-acc">
+                                    <div class="accordion-sub-box-title">
+                                        <div class="acordion-subtitle">
+                                            <img src="./assets/images/location-pin.svg" alt="Map" title="Map" width="24" height="24">
+                                            <h4 class="sub-child-heading">Map Section:</h4>
+                                        </div>
+                                        <div class="accordion-arrow">
+                                            <img src="./assets/images/chevron-default.svg" alt="Order Details" title="Order Details" width="24" height="24">
+                                        </div>
+                                    </div>
+                                    <div class="form-wrapper">
+                                        <form action="" class="form">
+                                            <div class="form-group">
+                                                <label for="address" class="label">Address</label>
+                                                <input type="text" name="" id="address" placeholder="126 North Citrus Avenue, Covina, CA, USA">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="contract" class="label">Contract</label>
+                                                <select name="" id="contract">
+                                                    <option value="Covina Graffiti">Covina Graffiti</option>
+                                                    <option value="All">All</option>
+                                                    <option value="Other">Other</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="zone" class="label">Zone</label>
+                                                <select name="" id="zone">
+                                                    <option value="Covina Citywide">Covina Citywide</option>
+                                                    <option value="All">All</option>
+                                                    <option value="Other">Other</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group form-group-halfwidth">
+                                                <label for="moniker">Moniker</label>
+                                                <input type="text" id="moniker" placeholder="-">
+                                            </div>
+                                            <div class="form-group form-group-halfwidth">
+                                                <label for="datepicker">Received</label>
+                                                <input type="text" id="datepicker" class="date-picker" placeholder="Select date">
+                                            </div>
+                                            <div class="form-group from-group-fullwidth">
+                                                <label for="request">Request Comment</label>
+                                                <textarea name="" id="request" cols="30" rows="10" placeholder="Pipe on Building on the side of alley way."></textarea>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-box order-details-accordion">
+                                <div class="accordion-inner-box">
+                                    <h3 class="child-heading-title">Source Information</h3>
+                                    <div class="accordion-arrow">
+                                        <img src="./assets/images/chevron-default.svg" alt="Order Details" title="Order Details" width="24" height="24">
+                                    </div>
+                                </div>
+                                <div class="accordion-sub-box order-details-section-acc">
+                                    <div class="accordion-sub-box-title">
+                                        <div class="acordion-subtitle">
+                                            <img src="./assets/images/order-details.svg" alt="Order Details" title="Order Details" width="24" height="24">
+                                            <h4 class="sub-child-heading">Order Details Section:</h4>
+                                        </div>
+                                        <div class="accordion-arrow">
+                                            <img src="./assets/images/chevron-default.svg" alt="Order Details" title="Order Details" width="24" height="24">
+                                        </div>
+                                    </div>
+                                    <div class="form-wrapper">
+                                        <form action="" class="form">
+                                            <div class="form-group">
+                                                <label for="id" class="label">Id</label>
+                                                <input type="text" name="" id="id" placeholder="COV-95029">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="priority" class="label">Priority</label>
+                                                <select name="" id="priority">
+                                                    <option value="None">None</option>
+                                                    <option value="All">All</option>
+                                                    <option value="Other">Other</option>
+                                                </select>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- form design end with accordion -->
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- script link -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="./assets/js/global.js"></script>   
+</body>
+</html>
