@@ -295,6 +295,13 @@ label{
 }
 
 /* Work Order design start */
+.order-dashboard{
+  min-height: 100vh;
+}
+.order-dashboard .work-order-section{
+  min-height: 100vh;
+  position: relative;
+}
 .work-order-section .side-navbar{
   max-width: 256px;
   flex: 0 0 256px;
@@ -305,6 +312,12 @@ label{
   line-height: var(--secondary-line-height);
   font-weight: var(--font-weight-medium);
   transition: max-width 0.5s ease, flex 0.5s ease;
+  position: sticky;
+  height: 100vh;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  overflow: auto;
 }
 
 .work-order-section .side-navbar .nav-top{
@@ -632,6 +645,81 @@ label{
 }
 .accordion-wrapper .accordion-box .accordion-sub-box .edit-button-div a + a{
   margin-left: 10px;
+}
+.image-upload-section .image-upload-detailed{
+  margin-bottom: 10px;
+}
+.image-upload-section .child-heading{
+  color: var(--dashboard-fonts-primary);
+  font-size: var(--primary-font-size);
+  line-height: var(--primary-line-height);
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: 10px;
+}
+.image-upload-section .upload-wrapper .add-image-box{
+  margin-right: 20px;
+}
+.image-upload-section .upload-wrapper .add-image-box .upload-btn{
+  width: 160px;
+  height: 160px;
+  border: 2px dashed var(--border-color-dasboard);
+  border-radius: 8px;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  cursor: pointer;
+}
+.image-upload-section .upload-wrapper .add-image-box .upload-btn .add-iamge-text{
+  display: block;
+  margin-top: 8px;
+}
+.image-upload-section .upload-wrapper .upload-image-box{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.image-upload-section .upload-wrapper .upload-image-box .image-container{
+  max-width: calc(50% - 10px);
+  flex: 0 0 calc(50% - 10px);
+  height: 160px;  
+  margin-bottom: 10px;
+  border-radius: 8px;
+  border: 2px dashed var(--border-color-dasboard);
+  position: relative;
+}
+.image-upload-section .upload-wrapper .upload-image-box .image-container img{
+  height: 100%;
+  object-fit: cover;
+  overflow: hidden;
+  border-radius: 8px;
+}
+.image-upload-section .upload-wrapper .upload-image-box .image-container .custom-icon{
+  background-color: rgb(25, 25, 25, 0.5);
+  width: 36px;
+  height: 36px;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  cursor: pointer;
+}
+.image-upload-section .upload-wrapper .upload-image-box .image-container .custom-icon.delete-icon{
+  right: 44px;
+}
+.image-upload-section .upload-wrapper .upload-image-box .image-container .custom-icon img{
+  height: 24px;
+}
+.map-details-section-acc .google-map iframe{
+  width: 100%;
+  max-height: 500px;
 }
 /* form design */
 

@@ -12,6 +12,21 @@ $(document).ready(function() {
         }
     });
 
+    // for multiple dropdowns
+    // $('.nav-items-sub-dropdown .nav-links').click(function(){
+    //     //Expand or collapse this panel
+    //     var isActive = $(this).hasClass("active");
+    //     $('.nav-items-sub-dropdown .nav-links').removeClass('active')
+    //     if (!isActive) {
+    //         $(this).toggleClass('active');
+    //     }
+        
+    //     $(this).next().slideToggle('fast');     
+    //     //Hide the other panels
+    //     $(".nav-list-dropdown").not($(this).next()).slideUp('fast');
+  
+    // });
+
     // //for user profile dropdown
     $('.user-profile-box .user-dropdown').click(function(){
         // Toggle visibility of the dropdown
@@ -81,14 +96,80 @@ $(document).ready(function() {
         e.stopPropagation(); // Prevent event from bubbling up
     });
 
-    // Close .accordion-sub-box and remove active class when clicking outside of it
-    $(document).click(function(event) {
-        if (!$(event.target).closest('.accordion-box').length) {
-            $('.accordion-sub-box').slideUp().removeClass('active');
-            $('.accordion-inner-box').removeClass('active');
-        }
+    // // Close .accordion-sub-box and remove active class when clicking outside of it
+    // $(document).click(function(event) {
+    //     if (!$(event.target).closest('.accordion-box').length) {
+    //         $('.accordion-sub-box').slideUp().removeClass('active');
+    //         $('.accordion-inner-box').removeClass('active');
+    //     }
+    // });
+
+    // // images upload functionality
+    //    // Initialize Slick Slider for the main image
+    // $('.main-slider').slick({
+    //     slidesToShow: 1,
+    //     slidesToScroll: 1,
+    //     arrows: true,
+    //     fade: false,
+    //     asNavFor: '.thumbnail-slider'
+    // });
+  
+    //   // Initialize Slick Slider for the thumbnail carousel
+    // $('.thumbnail-slider').slick({
+    //     slidesToShow: 3,
+    //     slidesToScroll: 1,
+    //     asNavFor: '.main-slider',
+    //     dots: false,
+    //     centerMode: true,
+    //     focusOnSelect: true
+    // });
+  
+    //   // Click event for zoom icons
+    // $('.zoom-icon').on('click', function() {
+    //     var imageSrc = $(this).data('image');
+    //     openPopup(imageSrc);
+    // });
+
+    // zoom functionality
+    //full screen view
+    $('.zoom-icon').click(function(e){
+        e.preventDefault();
+
+        // Click event for Full Screen
+        $('.upload-image-box').removeClass('card-full-screen');
+        
+        $(this).closest('.upload-image-box').addClass('card-full-screen');
+
+        // Add overlay class to the body
+        $('body').addClass('overlay-class-view');
+
+        // // Smooth scroll to the top of the body
+        // $('html, body').animate({
+        //     scrollTop: 0
+        // }, .5);
+    })
+
+     // Click event for Full Screen Close
+     $('.full-view-close').click(function(e) {
+        e.preventDefault(); // Prevent default behavior of anchor tag
+        
+        $(this).closest('.upload-image-box').removeClass('card-full-screen');
+
+        // Remove overlay class from the body
+        $('body').removeClass('overlay-class-view');
     });
 });
+
+// function openPopup(imageSrc) {
+//     // Set main slider content
+//     $('.main-slider').html('<div><img src="' + imageSrc + '" alt="Main Image"></div>');
+
+//     // Set thumbnail slider content (same as main for simplicity)
+//     $('.thumbnail-slider').html('<div><img src="' + imageSrc + '" alt="Thumbnail Image"></div>');
+
+//     // Display the popup
+//     $('#imagePopup').css('display', 'block');
+//   }
 
 document.addEventListener("DOMContentLoaded", function() {
     const collapsedArrow = document.getElementById('collapsed-arrow');

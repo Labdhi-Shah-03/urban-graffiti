@@ -62,11 +62,23 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="nav-items ">
-                        <a href="javascript:void(0)" class="nav-links d-flex align-items-center" title="Service Routes">
+                    <li class="nav-items nav-items-sub-dropdown">
+                        <a href="javascript:void(0)" class="nav-links d-flex align-items-center" title="Service Routes" id="work-orders-trigger">
                             <img src="./assets/images/server.svg" alt="Service Routes" title="Service Routes" width="20" height="20" class="list-icons">
                             <span class="flex-grow-1">Service Routes</span>
+                            <img src="./assets/images/chevron-light-grey.svg" alt="Work Orders" title="Work Orders" width="20" height="20" class="dropdown-arrow">
                         </a>
+                        <ul class="nav-list-dropdown">
+                            <li class="dropdown-list">
+                                <a href="javascript:void(0)" title="Graffiti">Graffiti</a>
+                            </li>
+                            <li class="dropdown-list">
+                                <a href="javascript:void(0)" title="Transit">Transit</a>
+                            </li>
+                            <li class="dropdown-list">
+                                <a href="javascript:void(0)" title="Public"> Public</a>
+                            </li>
+                        </ul>
                     </li>
                     <li class="nav-items">
                         <a href="javascript:void(0)" class="nav-links d-flex align-items-center" title="Admin">
@@ -260,49 +272,106 @@
                                     </div>
                                     <div class="form-wrapper">
                                         <div class="image-upload-section">
-                                            <h5 class="child-heading">Before</h5>
-                                            <div class="upload-wrapper">
-                                                <div class="add-image-box">
-                                                    <input type="file" id="upload-file" hidden />
-                                                    <label class="btn-up upload-btn" for="upload-file">
-                                                        <span class="upload-icon">
-                                                            <img src="./assets/images/image-upload.svg" alt="Upload" title="Upload" width="24" height="24">
-                                                        </span>
-                                                        <span class="add-iamge-text">Add Image</span>
-                                                    </label>
-                                                </div>
-                                                <div class="upload-image-box">
-                                                    <div class="image-container">
-                                                        <img src="./assets/images/image-1.png" alt="Image 1" title="Image 1" width="280" height="160">
+                                            <div class="image-upload-detailed">
+                                                <h5 class="child-heading">Before</h5>
+                                                <div class="upload-wrapper d-flex align-items-center flex-wrap">
+                                                    <div class="add-image-box">
+                                                        <input type="file" id="upload-file" hidden />
+                                                        <label class="btn-up upload-btn" for="upload-file">
+                                                            <span class="upload-icon">
+                                                                <img src="./assets/images/image-upload.svg" alt="Upload" title="Upload" width="24" height="24">
+                                                            </span>
+                                                            <span class="add-iamge-text">Add Image</span>
+                                                        </label>
                                                     </div>
-                                                    <div class="image-container">
-                                                        <img src="./assets/images/image-2.png" alt="Image 2" title="Image 2" width="280" height="160">
+                                                    <div class="upload-image-box">
+                                                        <div class="image-container">
+                                                            <img src="./assets/images/image-1.png" alt="Image 1" title="Image 1" width="280" height="160">
+                                                            <div class="delete-icon custom-icon">
+                                                                <img src="./assets/images/delete-icon.svg" alt="delete" title="delete" width="24" height="24">
+                                                            </div>
+                                                            <div class="zoom-icon custom-icon" data-image="image1.jpg">
+                                                                <img src="./assets/images/zoom-icon.svg" alt="zoom" title="zoom" width="24" height="24">
+                                                            </div>
+                                                        </div>
+                                                        <div class="image-container">
+                                                            <img src="./assets/images/image-2.png" alt="Image 2" title="Image 2" width="280" height="160">
+                                                            <div class="delete-icon custom-icon">
+                                                                <img src="./assets/images/delete-icon.svg" alt="delete" title="delete" width="24" height="24">
+                                                            </div>
+                                                            <div class="zoom-icon custom-icon" data-image="image1.jpg">
+                                                                <img src="./assets/images/zoom-icon.svg" alt="zoom" title="zoom" width="24" height="24">
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                       <!-- Example Image Div with Zoom Icon -->
-                                        <div class="image-container">
-                                            <div class="image-wrapper">
-                                                <img src="image1.jpg" alt="Image 1">
-                                                <div class="zoom-icon" data-image="image1.jpg"></div>
+                                            <div class="image-upload-detailed">
+                                                <h5 class="child-heading">After</h5>
+                                                <div class="upload-wrapper d-flex align-items-center flex-wrap">
+                                                    <div class="add-image-box">
+                                                        <input type="file" id="upload-file" hidden />
+                                                        <label class="btn-up upload-btn" for="upload-file">
+                                                            <span class="upload-icon">
+                                                                <img src="./assets/images/image-upload.svg" alt="Upload" title="Upload" width="24" height="24">
+                                                            </span>
+                                                            <span class="add-iamge-text">Add Image</span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="upload-image-box">
+                                                        <div class="image-container">
+                                                            <img src="./assets/images/image-1.png" alt="Image 1" title="Image 1" width="280" height="160">
+                                                            <div class="delete-icon custom-icon">
+                                                                <img src="./assets/images/delete-icon.svg" alt="delete" title="delete" width="24" height="24">
+                                                            </div>
+                                                            <div class="zoom-icon custom-icon" data-image="image1.jpg">
+                                                                <img src="./assets/images/zoom-icon.svg" alt="zoom" title="zoom" width="24" height="24">
+                                                            </div>
+                                                        </div>
+                                                        <div class="image-container">
+                                                            <img src="./assets/images/image-3.png" alt="Image 3" title="Image 3" width="280" height="160">
+                                                            <div class="delete-icon custom-icon">
+                                                                <img src="./assets/images/delete-icon.svg" alt="delete" title="delete" width="24" height="24">
+                                                            </div>
+                                                            <div class="zoom-icon custom-icon" data-image="image1.jpg">
+                                                                <img src="./assets/images/zoom-icon.svg" alt="zoom" title="zoom" width="24" height="24">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                         
                                         <!-- Add more image divs as needed -->
                                         
-                                        <div id="imagePopup" class="image-popup">
+                                        <!-- <div id="imagePopup" class="image-popup">
                                             <div class="main-slider">
-                                            <!-- Main Slider Content -->
+                                                <div class="image-slide">
+                                                    <img src="./assets/images/image-1.png" alt="Image 1" title="Image 1" width="280" height="160">
+                                                </div>
+                                                <div class="image-slide">
+                                                    <img src="./assets/images/image-2.png" alt="Image 2" title="Image 2" width="280" height="160">
+                                                </div>
+                                                <div class="image-slide">
+                                                    <img src="./assets/images/image-3.png" alt="Image 3" title="Image 3" width="280" height="160">
+                                                </div>
                                             </div>
                                             <div class="thumbnail-slider">
-                                            <!-- Thumbnail Slider Content -->
+                                                <div class="thumb-slide">
+                                                    <img src="./assets/images/image-1.png" alt="Image 1" title="Image 1" width="280" height="160">
+                                                </div>
+                                                <div class="thumb-slide">
+                                                    <img src="./assets/images/image-2.png" alt="Image 2" title="Image 2" width="280" height="160">
+                                                </div>
+                                                <div class="thumb-slide">
+                                                    <img src="./assets/images/image-3.png" alt="Image 3" title="Image 3" width="280" height="160">
+                                                </div>
                                             </div>
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>
 
-                                <div class="accordion-sub-box location-details-section-acc">
+                                <div class="accordion-sub-box map-details-section-acc">
                                     <div class="accordion-sub-box-title">
                                         <div class="acordion-subtitle">
                                             <img src="./assets/images/location-pin.svg" alt="Map" title="Map" width="24" height="24">
@@ -313,40 +382,9 @@
                                         </div>
                                     </div>
                                     <div class="form-wrapper">
-                                        <form action="" class="form">
-                                            <div class="form-group">
-                                                <label for="address" class="label">Address</label>
-                                                <input type="text" name="" id="address" placeholder="126 North Citrus Avenue, Covina, CA, USA">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="contract" class="label">Contract</label>
-                                                <select name="" id="contract">
-                                                    <option value="Covina Graffiti">Covina Graffiti</option>
-                                                    <option value="All">All</option>
-                                                    <option value="Other">Other</option>
-                                                </select>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="zone" class="label">Zone</label>
-                                                <select name="" id="zone">
-                                                    <option value="Covina Citywide">Covina Citywide</option>
-                                                    <option value="All">All</option>
-                                                    <option value="Other">Other</option>
-                                                </select>
-                                            </div>
-                                            <div class="form-group form-group-halfwidth">
-                                                <label for="moniker">Moniker</label>
-                                                <input type="text" id="moniker" placeholder="-">
-                                            </div>
-                                            <div class="form-group form-group-halfwidth">
-                                                <label for="datepicker">Received</label>
-                                                <input type="text" id="datepicker" class="date-picker" placeholder="Select date">
-                                            </div>
-                                            <div class="form-group from-group-fullwidth">
-                                                <label for="request">Request Comment</label>
-                                                <textarea name="" id="request" cols="30" rows="10" placeholder="Pipe on Building on the side of alley way."></textarea>
-                                            </div>
-                                        </form>
+                                       <div class="google-map">
+                                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d52868.77864291487!2d-117.92512166054786!3d34.087488574486606!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c328515957e659%3A0x91002b97e41980ee!2sCovina%2C%20CA%2C%20USA!5e0!3m2!1sen!2sin!4v1714396044220!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                       </div>
                                     </div>
                                 </div>
 
