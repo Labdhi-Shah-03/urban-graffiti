@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="assets/css/bootstrap.min.css"/>
     <!-- Datepicker CSS -->
     <link href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" rel="stylesheet">
+    <!-- slick slider -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
     <link rel="stylesheet" href="assets/css/style.css"/>
 </head>
 <body class="order-dashboard">
@@ -245,7 +248,7 @@
                                     </div>
                                 </div>
 
-                                <div class="accordion-sub-box location-details-section-acc">
+                                <div class="accordion-sub-box image-details-section-acc">
                                     <div class="accordion-sub-box-title">
                                         <div class="acordion-subtitle">
                                             <img src="./assets/images/image-upload.svg" alt="Image Upload" title="Image Upload" width="24" height="24">
@@ -256,40 +259,46 @@
                                         </div>
                                     </div>
                                     <div class="form-wrapper">
-                                        <form action="" class="form">
-                                            <div class="form-group">
-                                                <label for="address" class="label">Address</label>
-                                                <input type="text" name="" id="address" placeholder="126 North Citrus Avenue, Covina, CA, USA">
+                                        <div class="image-upload-section">
+                                            <h5 class="child-heading">Before</h5>
+                                            <div class="upload-wrapper">
+                                                <div class="add-image-box">
+                                                    <input type="file" id="upload-file" hidden />
+                                                    <label class="btn-up upload-btn" for="upload-file">
+                                                        <span class="upload-icon">
+                                                            <img src="./assets/images/image-upload.svg" alt="Upload" title="Upload" width="24" height="24">
+                                                        </span>
+                                                        <span class="add-iamge-text">Add Image</span>
+                                                    </label>
+                                                </div>
+                                                <div class="upload-image-box">
+                                                    <div class="image-container">
+                                                        <img src="./assets/images/image-1.png" alt="Image 1" title="Image 1" width="280" height="160">
+                                                    </div>
+                                                    <div class="image-container">
+                                                        <img src="./assets/images/image-2.png" alt="Image 2" title="Image 2" width="280" height="160">
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="form-group">
-                                                <label for="contract" class="label">Contract</label>
-                                                <select name="" id="contract">
-                                                    <option value="Covina Graffiti">Covina Graffiti</option>
-                                                    <option value="All">All</option>
-                                                    <option value="Other">Other</option>
-                                                </select>
+                                        </div>
+                                       <!-- Example Image Div with Zoom Icon -->
+                                        <div class="image-container">
+                                            <div class="image-wrapper">
+                                                <img src="image1.jpg" alt="Image 1">
+                                                <div class="zoom-icon" data-image="image1.jpg"></div>
                                             </div>
-                                            <div class="form-group">
-                                                <label for="zone" class="label">Zone</label>
-                                                <select name="" id="zone">
-                                                    <option value="Covina Citywide">Covina Citywide</option>
-                                                    <option value="All">All</option>
-                                                    <option value="Other">Other</option>
-                                                </select>
+                                        </div>
+                                        
+                                        <!-- Add more image divs as needed -->
+                                        
+                                        <div id="imagePopup" class="image-popup">
+                                            <div class="main-slider">
+                                            <!-- Main Slider Content -->
                                             </div>
-                                            <div class="form-group form-group-halfwidth">
-                                                <label for="moniker">Moniker</label>
-                                                <input type="text" id="moniker" placeholder="-">
+                                            <div class="thumbnail-slider">
+                                            <!-- Thumbnail Slider Content -->
                                             </div>
-                                            <div class="form-group form-group-halfwidth">
-                                                <label for="datepicker">Received</label>
-                                                <input type="text" id="datepicker" class="date-picker" placeholder="Select date">
-                                            </div>
-                                            <div class="form-group from-group-fullwidth">
-                                                <label for="request">Request Comment</label>
-                                                <textarea name="" id="request" cols="30" rows="10" placeholder="Pipe on Building on the side of alley way."></textarea>
-                                            </div>
-                                        </form>
+                                        </div>
                                     </div>
                                 </div>
 
@@ -338,6 +347,14 @@
                                                 <textarea name="" id="request" cols="30" rows="10" placeholder="Pipe on Building on the side of alley way."></textarea>
                                             </div>
                                         </form>
+                                    </div>
+                                </div>
+
+                                <!-- cancel and save buttons -->
+                                <div class="accordion-sub-box editing-buttons">
+                                    <div class="edit-button-div">
+                                        <a href="javascript:void(0)" title="Cancel" class="btn-cta btn-cta-cancel">Cancel</a>
+                                        <a href="javascript:void(0)" title="Save" class="btn-cta btn-cta-save">Save</a>
                                     </div>
                                 </div>
                             </div>
@@ -389,6 +406,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
     <script src="./assets/js/global.js"></script>   
 </body>
 </html>
