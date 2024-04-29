@@ -7,6 +7,7 @@
 			content="width=device-width, initial-scale=1.0"
 		/>
 		<title>Urban Graffiti</title>
+		<link rel="icon" type="image/x-icon" href="assets/image/favicon.svg">
 		<meta charset="UTF-8" />
 		<meta
 			name="viewport"
@@ -16,9 +17,10 @@
 			rel="stylesheet"
 			href="assets/css/bootstrap.min.css"
 		/>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link
 			rel="stylesheet"
-			href="assets/css/style.css"
+			href="assets/css/custom.css"
 		/>
 	</head>
 	<body>
@@ -32,8 +34,8 @@
 							<div class="container">
 								<div class="row">
 									<div class="col-lg-10 col-xl-7 mx-auto">
-										<h3 class="display-4">Sign up</h3>
-										<p class="text-muted mb-4">Already have an account? <a href="" class="sign-link">Sign in</a></p>
+										<h3 class="sign-text eudoxus-bold">Sign up</h3>
+										<p class="text-muted mb-4 eudoxus-medium">Already have an account? <a href="sign-in.html" class="sign-link eudoxus-bold text-decoration-underline">Sign in</a></p>
 										<form>
 											<label
 												for="name"
@@ -42,7 +44,7 @@
 											>
                                             <div class="input-group">
                                                 <span class="icon-mail me-2"
-                                                  ><img src="assets/image/user.svg" alt=""
+                                                  ><img src="assets/image/u*************ser.svg" alt=""
                                                 /></span>
                                                 <input
                                                   type="email"
@@ -83,9 +85,11 @@
                                                   class="inpt"
                                                   required
                                                 />
+												<span class="toggle-password-icon" onclick="togglePasswordVisibility(this)">
+													<img src="assets/image/pass-hide.svg" alt="Show Password">
                                               </div>
                                             <label
-                                            for="name"
+                                              for="name"
                                             class="form-label"
                                             >Company <span class="text-danger">*</span></label
                                         >
@@ -109,13 +113,13 @@
 												/>
 												<label
 													for="customCheck1"
-													class="custom-control-label"
-													>I agree with the <a href="" class="sign-link">Terms of Service</a> and <a href="" class="sign-link">Privacy Policy</a></label
+													class="custom-control-label eudoxus-medium"
+													><span class="check">I agree with the</span><a href="" class="sign-link"> Terms of Service</a> and <a href="" class="sign-link">Privacy Policy</a></label
 												>
 											</div>
 											<button
 												type="submit"
-												class="free-acoun-btn"
+												class="free-acoun-btn eudoxus-bold"
 											>
 											Create your free account
 											</button>
@@ -127,7 +131,23 @@
 						</div>
 					</div>
 					<!-- The image half -->
-					<div class="col-md-6 d-none d-md-flex bg-image"></div>
+					<div class="col-md-6 d-none d-md-flex bg-image">
+						<div class="centered">
+					<h2 class="eudoxus-bold mb-4">Welcome to the community</h2>
+							<p class="eudoxus-medium mb-4">UrbanGraffitiLogin.com brings together over 10,000 customers and service providers dedicated to the swift and safe removal of unwanted graffiti. Our easy-to-use platform helps you track, manage, and remove graffiti, fostering happy neighborhoods and clean streets.</p>
+					
+						<div class="main-img d-flex justify-content-center align-items-center mt-4">
+							<div class="wel-img me-2 mt-2">
+								<img src="assets/image/welcome.svg" alt="">
+							</div>
+							<div class="wel-img mt-2">
+								<p class="eudoxus-medium">Join us now and be a part of the positive change!</p>
+							</div>
+						</div>
+					</div>
+					
+						
+					</div>
 
 					<!-- End -->
 				</div>

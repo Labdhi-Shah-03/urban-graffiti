@@ -1,0 +1,257 @@
+@font-face {
+    font-family: 'Eudoxus Sans', sans-serif;
+    src: url('../fonts/EudoxusSans-Regular.woff2') format('woff2'),
+        url('../fonts/EudoxusSans-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+   
+  @font-face {
+    font-family: 'Eudoxus Sans', sans-serif;
+    src: url('../fonts/EudoxusSans-Bold.woff2') format('woff2'),
+        url('../fonts/EudoxusSans-Bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+   
+  @font-face {
+    font-family: 'Eudoxus Sans', sans-serif;
+    src: url('../fonts/EudoxusSans-ExtraBold.woff2') format('woff2'),
+        url('../fonts/EudoxusSans-ExtraBold.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+  }
+   
+  @font-face {
+    font-family: 'Eudoxus Sans', sans-serif;
+    src: url('../fonts/EudoxusSans-ExtraLight.woff2') format('woff2'),
+        url('../fonts/EudoxusSans-ExtraLight.woff') format('woff');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+  }
+   
+  @font-face {
+    font-family: 'Eudoxus Sans', sans-serif;
+    src: url('../fonts/EudoxusSans-Medium.woff2') format('woff2'),
+        url('../fonts/EudoxusSans-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+   
+  @font-face {
+    font-family: 'Eudoxus Sans', sans-serif;
+    src: url('../fonts/EudoxusSans-Light.woff2') format('woff2'),
+        url('../fonts/EudoxusSans-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+  }
+  .eudoxus-regular {
+    font-family: 'Eudoxus Sans', sans-serif;
+    font-weight: 400;
+  }
+  
+  .eudoxus-bold {
+    font-family: 'Eudoxus Sans', sans-serif;
+    font-weight: 700;
+  }
+  
+  .eudoxus-extrabold {
+    font-family: 'Eudoxus Sans', sans-serif;
+    font-weight: 900;
+  }
+  
+  .eudoxus-extralight {
+    font-family: 'Eudoxus Sans', sans-serif;
+    font-weight: 200;
+  }
+  
+  .eudoxus-medium {
+    font-family: 'Eudoxus Sans', sans-serif;
+    font-weight: 500;
+  }
+  
+  .eudoxus-light {
+    font-family: 'Eudoxus Sans', sans-serif;
+    font-weight: 300;
+  }
+  
+  
+  :root{
+    /* Define font variables */
+    --font-family: 'Eudoxus Sans', sans-serif;
+    --font-weight-normal: 400;
+    --font-weight-bold: 700;
+    --font-weight-extra-bold: 900;
+    --font-weight-extra-light: 200;
+    --font-weight-medium: 500;
+    --font-weight-light: 300;
+   
+    /* define colors */
+    --black: #202020;
+    --white: #fff;
+    --blue: #8D35C1;
+  }
+   
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+   
+  body {
+    font-family: var(--font-family);
+    font-weight: var(--font-weight-normal);
+    background-color: var(--white);
+  }
+  /* close font */
+  /* sign in page */
+  .login,
+  .image {
+    min-height: 100vh;
+  }
+  .input-group {
+    width: 100%;
+    display: flex;
+    margin-bottom: 15px;
+    padding: 15px 14px;
+    border-radius: 8px;
+    border: 1px solid #D0D5DD;
+    background:var(--white);
+    box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+  }
+  input.inpt
+  {
+    border: none;
+  }
+  input:focus-visible {
+    outline: none;
+  
+  }
+  
+  .bg-image {
+    background-image: url('../image/signin.png');
+    background-size: cover;
+    background-position: center center;
+    background-color: var(--blue);
+    position: relative;
+  }
+  span.input-group-text {
+    background: var(--white);
+  }
+  span.form-icon {
+    position: absolute;
+    z-index: 9999;
+    /* top: 10px; */
+  }
+  button.free-acoun-btn{
+    background-color: var(--blue);
+    color: var(--white);
+    border: 1px solid var(--blue);
+    padding: 16px 24px;
+    width: 503.03px;
+    border-radius: 16px;
+    margin: 20px 0;
+    font-size: 14px;
+  }
+  .sign-link{
+    color: var(--blue);
+    text-decoration: none;
+  }
+  .centered{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  h3.sign-text{
+    font-size: 40px;
+    color:var(--black);
+  }
+  .text-muted{
+    font-size: 16px;
+    color: var(--black) !important;
+  }
+  .form-label{
+    color: #101C2D;
+    font-size: 14px;
+    font-family:var( --font-family);
+    font-weight: var(--font-weight-medium);
+  }
+  ::placeholder{
+    font-family:var( --font-family);
+    font-size: 14px;
+    color: #101C2D;
+  }
+  .check{
+    color: #101C2D;
+    font-size: 14px;
+    font-weight: var(--font-weight-medium);
+  }
+  .centered h2 {
+    width: 85%;
+    color:var(--white);
+    font-size: 56px;
+  }
+  .centered p{
+    font-size: 18px;
+    color:var(--white);
+    width: 130%;
+  }
+  .wel-img p{
+    font-size: 16px;
+    width: 150%;
+    margin-bottom: 0;
+  }
+  /* sign in */
+  .sign-in-main{
+  background-image: url(../image/signin.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  background-position: center center;
+  background-color: var(--blue);
+  }
+  .sign-bg{
+    background-color: var(--white);
+    padding: 40px  40px;
+  }
+  .rem label.eudoxus-medium{
+  font-size: 14px;
+  color: #101C2D;
+  }
+  span.forgot-pw a{
+    color: var(--blue);
+    font-size: 14px;
+  }
+  input[type='checkbox'] {
+    accent-color: var(--blue);
+  }
+  .input-group input[type="password"] {
+    flex: 1;
+    border: none;
+    background: transparent;
+    outline: none;
+    padding-right: 40px; /* space for the show/hide password icon */
+  }
+  
+  .toggle-password-icon {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+  
+  .toggle-password-icon img {
+    width: 20px;
+    height: auto;
+  }
+  
