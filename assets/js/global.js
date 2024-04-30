@@ -1,9 +1,23 @@
 $(document).ready(function() {
-
     // for only single dropdown
+    // $('.nav-items-sub-dropdown .nav-links').click(function(){
+    //     // Check if the sidebar is collapsed
+    //     if (!$('#work-order').hasClass('sidebar-collapsed')) {
+    //         // Toggle visibility of the dropdown
+    //         $(this).siblings('.nav-list-dropdown').slideToggle();
+            
+    //         // Toggle active class
+    //         $(this).toggleClass('active');
+    //     }
+    // });
+
+    // for multiple dropdown with collapsed sidebar
     $('.nav-items-sub-dropdown .nav-links').click(function(){
         // Check if the sidebar is collapsed
         if (!$('#work-order').hasClass('sidebar-collapsed')) {
+            // Close any open dropdowns except the one clicked
+            $('.nav-items-sub-dropdown .nav-links').not(this).removeClass('active').siblings('.nav-list-dropdown').slideUp();
+            
             // Toggle visibility of the dropdown
             $(this).siblings('.nav-list-dropdown').slideToggle();
             
@@ -28,9 +42,9 @@ $(document).ready(function() {
     // });
 
     // //for user profile dropdown
-    $('.user-profile-box .user-dropdown').click(function(){
+    $('.user-profile-box').click(function(){
         // Toggle visibility of the dropdown
-        $(this).siblings('.profile-dropdown-list').slideToggle();
+        $(this).find('.profile-dropdown-list').slideToggle();
         
         // Toggle active class
         $(this).toggleClass('active');
@@ -158,18 +172,23 @@ $(document).ready(function() {
         // Remove overlay class from the body
         $('body').removeClass('overlay-class-view');
     });
+
+
+    // Define the scroll threshold
+    var scrollThreshold = 120; // Adjust this value as needed
+    
+    // Function to add or remove the sticky class based on scroll position
+    function toggleStickyClass() {
+        if ($(window).scrollTop() >= scrollThreshold) {
+            $('.work-order-section').addClass('sticky');
+        } else {
+            $('.work-order-section').removeClass('sticky');
+        }
+    }
+
+    // Add event listener for scroll
+    $(window).on('scroll', toggleStickyClass);
 });
-
-// function openPopup(imageSrc) {
-//     // Set main slider content
-//     $('.main-slider').html('<div><img src="' + imageSrc + '" alt="Main Image"></div>');
-
-//     // Set thumbnail slider content (same as main for simplicity)
-//     $('.thumbnail-slider').html('<div><img src="' + imageSrc + '" alt="Thumbnail Image"></div>');
-
-//     // Display the popup
-//     $('#imagePopup').css('display', 'block');
-//   }
 
 document.addEventListener("DOMContentLoaded", function() {
     const collapsedArrow = document.getElementById('collapsed-arrow');
@@ -187,10 +206,10 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
-$(document).ready(function () {
-    $("#datepicker").flatpickr({
-        enableTime: true, // Enable time selection
-        dateFormat: "d/m/Y H:i", // Date and time format
-        defaultDate: "today" // Set default time to current time
-    });
-});
+// $(document).ready(function () {
+//     $("#datepicker").flatpickr({
+//         enableTime: true, // Enable time selection
+//         dateFormat: "d/m/Y H:i", // Date and time format
+//         defaultDate: "today" // Set default time to current time
+//     });
+// });

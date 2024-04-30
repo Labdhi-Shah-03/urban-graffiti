@@ -38,11 +38,17 @@
                             <span class="flex-grow-1">Dashboard</span>
                         </a>
                     </li>
-                    <li class="nav-items ">
-                        <a href="javascript:void(0)" class="nav-links d-flex align-items-center" title="Account">
+                    <li class="nav-items nav-items-sub-dropdown">
+                        <a href="javascript:void(0)" class="nav-links d-flex align-items-center" title="Account" id="work-orders-trigger">
                             <img src="./assets/images/file-plus.svg" alt="Account" title="Account" width="20" height="20" class="list-icons">
                             <span class="flex-grow-1">Account</span>
+                            <img src="./assets/images/chevron-light-grey.svg" alt="Work Orders" title="Work Orders" width="20" height="20" class="dropdown-arrow">
                         </a>
+                        <ul class="nav-list-dropdown">
+                            <li class="dropdown-list">
+                                <a href="javascript:void(0)" title="Users">Users</a>
+                            </li>
+                        </ul>
                     </li>
                     <li class="nav-items nav-items-sub-dropdown">
                         <a href="javascript:void(0)" class="nav-links d-flex align-items-center" title="Work Orders" id="work-orders-trigger">
@@ -80,11 +86,32 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="nav-items">
-                        <a href="javascript:void(0)" class="nav-links d-flex align-items-center" title="Admin">
+                    <li class="nav-items nav-items-sub-dropdown">
+                        <a href="javascript:void(0)" class="nav-links d-flex align-items-center" title="Admin" id="work-orders-trigger">
                             <img src="./assets/images/user.svg" alt="Admin" title="Admin" width="20" height="20" class="list-icons">
                             <span class="flex-grow-1">Admin</span>
+                            <img src="./assets/images/chevron-light-grey.svg" alt="Work Orders" title="Work Orders" width="20" height="20" class="dropdown-arrow">
                         </a>
+                        <ul class="nav-list-dropdown">
+                            <li class="dropdown-list">
+                                <a href="./admin-user.html" title="Users">Users</a>
+                            </li>
+                            <li class="dropdown-list">
+                                <a href="javascript:void(0)" title="Services">Services</a>
+                            </li>
+                            <li class="dropdown-list">
+                                <a href="javascript:void(0)" title="Surfaces">Surfaces</a>
+                            </li>
+                            <li class="dropdown-list">
+                                <a href="javascript:void(0)" title="Emails">Emails</a>
+                            </li>
+                            <li class="dropdown-list">
+                                <a href="javascript:void(0)" title="Reports">Reports</a>
+                            </li>
+                            <li class="dropdown-list">
+                                <a href="javascript:void(0)" title="Trash">Trash</a>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
             </div>
@@ -99,10 +126,10 @@
                     </a>
                 </div>
                 <div class="profile-wrapper d-flex align-items-center justify-content-end flex-grow-1">
-                    <div class="tool-box">
+                    <div class="tool-box rotate-image">
                         <img src="./assets/images/settings.svg" alt="Settings" title="Settings" width="20" height="20" class="tool-box-image">
                     </div>
-                    <div class="tool-box">
+                    <div class="tool-box bell-anim">
                         <img src="./assets/images/bell.svg" alt="Notification" title="Notificaion" width="20" height="20" class="tool-box-image">
                     </div>
                     <div class="user-profile-box d-flex align-items-center">
@@ -250,7 +277,7 @@
                                             </div>
                                             <div class="form-group form-group-halfwidth">
                                                 <label for="datepicker">Received</label>
-                                                <input type="text" id="datepicker" class="date-picker" placeholder="Select date">
+                                                <input type="datetime-local" id="datepicker" class="date-picker" placeholder="Select date">
                                             </div>
                                             <div class="form-group from-group-fullwidth">
                                                 <label for="request">Request Comment</label>
@@ -276,7 +303,7 @@
                                                 <h5 class="child-heading">Before</h5>
                                                 <div class="upload-wrapper d-flex align-items-center flex-wrap">
                                                     <div class="add-image-box">
-                                                        <input type="file" id="upload-file" hidden />
+                                                        <input type="file" id="upload-file" accept=".jpg,.jpeg.,.gif,.png,.mov,.mp4,.svg" hidden />
                                                         <label class="btn-up upload-btn" for="upload-file">
                                                             <span class="upload-icon">
                                                                 <img src="./assets/images/image-upload.svg" alt="Upload" title="Upload" width="24" height="24">
@@ -286,21 +313,25 @@
                                                     </div>
                                                     <div class="upload-image-box">
                                                         <div class="image-container">
-                                                            <img src="./assets/images/image-1.png" alt="Image 1" title="Image 1" width="280" height="160">
-                                                            <div class="delete-icon custom-icon">
-                                                                <img src="./assets/images/delete-icon.svg" alt="delete" title="delete" width="24" height="24">
-                                                            </div>
-                                                            <div class="zoom-icon custom-icon" data-image="image1.jpg">
-                                                                <img src="./assets/images/zoom-icon.svg" alt="zoom" title="zoom" width="24" height="24">
+                                                            <div class="image-box-wrapper">
+                                                                <img src="./assets/images/image-1.png" alt="Image 1" title="Image 1" width="280" height="160">
+                                                                <div class="delete-icon custom-icon">
+                                                                    <img src="./assets/images/delete-icon.svg" alt="delete" title="delete" width="24" height="24">
+                                                                </div>
+                                                                <div class="zoom-icon custom-icon" data-image="image1.jpg">
+                                                                    <img src="./assets/images/zoom-icon.svg" alt="zoom" title="zoom" width="24" height="24">
+                                                                </div>
                                                             </div>
                                                         </div>
                                                         <div class="image-container">
-                                                            <img src="./assets/images/image-2.png" alt="Image 2" title="Image 2" width="280" height="160">
-                                                            <div class="delete-icon custom-icon">
-                                                                <img src="./assets/images/delete-icon.svg" alt="delete" title="delete" width="24" height="24">
-                                                            </div>
-                                                            <div class="zoom-icon custom-icon" data-image="image1.jpg">
-                                                                <img src="./assets/images/zoom-icon.svg" alt="zoom" title="zoom" width="24" height="24">
+                                                            <div class="image-box-wrapper">
+                                                                <img src="./assets/images/image-2.png" alt="Image 2" title="Image 2" width="280" height="160">
+                                                                <div class="delete-icon custom-icon">
+                                                                    <img src="./assets/images/delete-icon.svg" alt="delete" title="delete" width="24" height="24">
+                                                                </div>
+                                                                <div class="zoom-icon custom-icon" data-image="image1.jpg">
+                                                                    <img src="./assets/images/zoom-icon.svg" alt="zoom" title="zoom" width="24" height="24">
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -320,21 +351,25 @@
                                                     </div>
                                                     <div class="upload-image-box">
                                                         <div class="image-container">
-                                                            <img src="./assets/images/image-1.png" alt="Image 1" title="Image 1" width="280" height="160">
-                                                            <div class="delete-icon custom-icon">
-                                                                <img src="./assets/images/delete-icon.svg" alt="delete" title="delete" width="24" height="24">
-                                                            </div>
-                                                            <div class="zoom-icon custom-icon" data-image="image1.jpg">
-                                                                <img src="./assets/images/zoom-icon.svg" alt="zoom" title="zoom" width="24" height="24">
+                                                            <div class="image-box-wrapper">
+                                                                <img src="./assets/images/image-1.png" alt="Image 1" title="Image 1" width="280" height="160">
+                                                                <div class="delete-icon custom-icon">
+                                                                    <img src="./assets/images/delete-icon.svg" alt="delete" title="delete" width="24" height="24">
+                                                                </div>
+                                                                <div class="zoom-icon custom-icon" data-image="image1.jpg">
+                                                                    <img src="./assets/images/zoom-icon.svg" alt="zoom" title="zoom" width="24" height="24">
+                                                                </div>
                                                             </div>
                                                         </div>
                                                         <div class="image-container">
-                                                            <img src="./assets/images/image-3.png" alt="Image 3" title="Image 3" width="280" height="160">
-                                                            <div class="delete-icon custom-icon">
-                                                                <img src="./assets/images/delete-icon.svg" alt="delete" title="delete" width="24" height="24">
-                                                            </div>
-                                                            <div class="zoom-icon custom-icon" data-image="image1.jpg">
-                                                                <img src="./assets/images/zoom-icon.svg" alt="zoom" title="zoom" width="24" height="24">
+                                                            <div class="image-box-wrapper">
+                                                                <img src="./assets/images/image-3.png" alt="Image 3" title="Image 3" width="280" height="160">
+                                                                <div class="delete-icon custom-icon">
+                                                                    <img src="./assets/images/delete-icon.svg" alt="delete" title="delete" width="24" height="24">
+                                                                </div>
+                                                                <div class="zoom-icon custom-icon" data-image="image1.jpg">
+                                                                    <img src="./assets/images/zoom-icon.svg" alt="zoom" title="zoom" width="24" height="24">
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
