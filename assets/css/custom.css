@@ -135,7 +135,7 @@
   }
   
   .bg-image {
-    background-image: url('../image/signin.png');
+    background-image: url('../image/signin-banner.png');
     background-size: cover;
     background-position: center center;
     background-color: var(--blue);
