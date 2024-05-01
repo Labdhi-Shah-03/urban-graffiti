@@ -7,12 +7,12 @@
 			content="width=device-width, initial-scale=1.0"
 		/>
 		<title>Urban Graffiti</title>
-		<link rel="icon" type="image/x-icon" href="assets/image/favicon.svg">
 		<meta charset="UTF-8" />
 		<meta
 			name="viewport"
 			content="width=device-width, initial-scale=1"
 		/>
+		<link rel="icon" type="image/ico" href="./assets/images/urban-graffiti.ico">
 		<link
 			rel="stylesheet"
 			href="assets/css/bootstrap.min.css"
@@ -22,6 +22,7 @@
 			rel="stylesheet"
 			href="assets/css/custom.css"
 		/>
+		<link rel="stylesheet" href="assets/css/style.css">
 	</head>
 	<body>
 		<div class="wrapper">
@@ -34,35 +35,29 @@
 							<div class="container">
 								<div class="row">
 									<div class="col-lg-10 col-xl-7 mx-auto">
-										<h3 class="sign-text eudoxus-bold">Sign up</h3>
-										<p class="text-muted mb-4 eudoxus-medium">Already have an account? <a href="sign-in.html" class="sign-link eudoxus-bold text-decoration-underline">Sign in</a></p>
+										<h1 class="heading-title eudoxus-bold">Sign in</h1>
+										<!-- <p class="text-muted mb-4 eudoxus-medium">Already have an account? <a href="sign-in.html" class="sign-link eudoxus-bold">Sign in</a></p> -->
 										<form>
-											<label
+											<!-- <label
 												for="name"
-												class="form-label"
-												>Full name <span class="text-danger">*</span></label
+												class="label required-field"
+												>Full name</label
 											>
-                                            <div class="input-group">
-                                                <span class="icon-mail me-2"
-                                                  ><img src="assets/image/u*************ser.svg" alt=""
-                                                /></span>
+                                            <div class="form-group input-group-box signup-group">
                                                 <input
-                                                  type="email"
+                                                  type="text"
                                                   placeholder="Enter name"
                                                   class="inpt"
                                                   required
                                                 />
-                                              </div>
+                                              </div> -->
 
 											<label
 												for="email"
-												class="form-label"
-												>Email address <span class="text-danger">*</span></label
+												class="label required-field"
+												>Email address</label
 											>
-                                            <div class="input-group">
-                                                <span class="icon-mail me-2"
-                                                  ><img src="assets/image/email.png" alt=""
-                                                /></span>
+                                            <div class="form-group input-group-box email-group">
                                                 <input
                                                   type="email"
                                                   placeholder="Enter Email"
@@ -72,39 +67,33 @@
                                               </div>
 											<label
 												for="Password"
-												class="form-label"
-												>Password <span class="text-danger">*</span></label
+												class="label required-field"
+												>Password</label
 											>
-                                            <div class="input-group">
-                                                <span class="icon-mail me-2"
-                                                  ><img src="assets/image/Union.png" alt=""
-                                                /></span>
+                                            <div class="form-group input-group-box pass-group">
                                                 <input
-                                                  type="email"
+                                                  type="password"
                                                   placeholder="Enter Password"
                                                   class="inpt"
                                                   required
                                                 />
 												<span class="toggle-password-icon" onclick="togglePasswordVisibility(this)">
-													<img src="assets/image/pass-hide.svg" alt="Show Password">
+													<img src="./assets/images/eye-slash.svg" alt="Hide Password">
                                               </div>
-                                            <label
+                                            <!-- <label
                                               for="name"
-                                            class="form-label"
-                                            >Company <span class="text-danger">*</span></label
+											  class="label required-field"
+                                            >Company</label
                                         >
-                                        <div class="input-group">
-                                            <span class="icon-mail me-2"
-                                              ><img src="assets/image/briefcase.png" alt=""
-                                            /></span>
-                                            <input
-                                              type="email"
-                                              placeholder="Enter Company"
-                                              class="inpt"
-                                              required
-                                            />
-                                          </div>
-											<div class="custom-control custom-checkbox mb-3 mt-3">
+                                        	<div class="form-group input-group-box company-group">
+												<input
+												type="email"
+												placeholder="Enter Company"
+												class="inpt"
+												required
+												/>
+                                          	</div> -->
+											<!-- <div class="custom-control custom-checkbox mb-3 mt-3">
 												<input
 													id="customCheck1"
 													type="checkbox"
@@ -122,6 +111,21 @@
 												class="free-acoun-btn eudoxus-bold"
 											>
 											Create your free account
+											</button> -->
+
+											<div class="rem-forgot d-flex justify-content-between">
+												<div class="rem d-flex align-items-center">
+												  <input type="checkbox" for="rem-tik">
+												  <label for="rem-tik" class="eudoxus-medium">Remember me</label>
+												</div>
+												<span class="forgot-pw"><a href="forgot_pw.html" class="eudoxus-bold text-decoration-none">Forgot password?</a></span>
+											  </div>
+										   
+											<button
+												type="submit"
+												class="btn-cta btn-cta-save free-acoun-btn eudoxus-bold"
+											>
+											Sign up
 											</button>
 										</form>
 									</div>
@@ -138,7 +142,7 @@
 					
 						<div class="main-img d-flex justify-content-center align-items-center mt-4">
 							<div class="wel-img me-2 mt-2">
-								<img src="assets/image/welcome.svg" alt="">
+								<img src="./assets/images/welcome.svg" alt="">
 							</div>
 							<div class="wel-img mt-2">
 								<p class="eudoxus-medium">Join us now and be a part of the positive change!</p>

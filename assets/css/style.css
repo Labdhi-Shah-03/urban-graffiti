@@ -90,6 +90,8 @@
   --secondary-font-size: 14px; 
   --secondary-line-height: 20px; 
   --heading-title-font-size: 28px;
+  --heading-font-size: 40px;
+  --heading-line-height: 56px;
 }
 
 *{
@@ -131,11 +133,18 @@ body::-webkit-scrollbar-thumb:hover {
 
 h1, .heading-title{
   font-family: var(--font-family);
-  font-size: var(--heading-title-font-size);
+  font-size: var(--heading-font-size);
   font-weight: var(--font-weight-bold);
-  line-height: 40px;
+  line-height: var(--heading-line-height);
   color: var(--heading-title);
-  margin: 0;
+  margin-bottom: 10px;
+}
+h2 {
+
+}
+
+h3, .child-heading-title{
+
 }
 
 p{
@@ -174,6 +183,50 @@ img {
   display: block; 
   max-width: 100%; 
   height: auto; 
+}
+
+/* sign up link */
+.sign-link{
+  color: var(--purple-color);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--primary-font-size);
+  line-height: var(--primary-line-height);
+  font-family: var(--font-family);
+  text-decoration: none;
+  position: relative;
+}
+.sign-link:visited, .sign-link:focus{
+  color: var(--purple-color);
+}
+.sign-link::before{
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: var(--purple-color);
+  left: 0;
+  right: auto;
+  bottom: -3px;
+  transition: all .3s ease-in;
+}
+.sign-link:hover::before{
+  width: 0;
+  right: 0;
+  left: auto;
+}
+
+/* required-field design start */
+.required-field{
+  position: relative;
+}
+.required-field::after{
+  content: '*';
+  position: absolute;
+  color: red;
+  font-size: var(--secondary-font-size);
+  line-height: normal;
+  right: -10px;
+  top: 2px;
 }
 
 /* btn css */
@@ -316,7 +369,60 @@ label{
   line-height: var(--secondary-line-height);
   font-weight: var(--font-weight-medium);
   margin-bottom: 6px;
-  display: block;
+  display: inline-block;
+}
+
+/* checkbox design start*/
+input[type=checkbox] ~ label{
+  margin: 0;
+  display: inline-block;
+}
+
+input[type=checkbox]{
+  height: 20px;
+  width: 20px;
+  margin-bottom: 0;
+  vertical-align: middle;
+  box-shadow: 0px 8px 25px 0px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  border: 2px solid var(--border-color-dasboard);
+  appearance: none;
+  padding: 0;
+  line-height: 0;
+  background: none;
+  position: relative;
+  cursor: pointer;
+  transition: all .4s ease-in-out;
+}
+
+input[type=checkbox]:checked {
+  background-color: var(--purple-color);
+  border-color: var(--purple-color);
+  opacity: 1;
+  transition: all .4s ease-in-out;
+}
+input[type=checkbox]::before{
+  opacity: 0;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+  transition: all .4s ease-in;
+}
+
+input[type=checkbox]:checked::before{
+  content: '';
+  position: absolute;
+  right: 50%;
+  top: 50%;
+  width: 5px;
+  height: 10px;
+  opacity: 1;
+  visibility: visible;
+  border: solid var(--white);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg) translate(-50%, -60%);
+  z-index: 2;
+  transition: all .4s ease-in-out;
 }
 
 /* Work Order design start */
@@ -707,6 +813,11 @@ label{
 .dashboard-detailed-section .detail-section-wrapper .order-title .heading-title{
   margin-bottom: 10px;
   padding-right: 12px;
+  font-family: var(--font-family);
+  font-size: var(--heading-title-font-size);
+  font-weight: var(--font-weight-bold);
+  line-height: 40px;
+  color: var(--heading-title);
 }
 .dashboard-detailed-section .detail-section-wrapper .order-title .detailed-btn{
   margin-bottom: 10px;
@@ -1378,56 +1489,3 @@ table input[type=checkbox]:checked + label::after{
 }
 
 /* collapsed sidebar end */
-
-/* close font */
-/* sign in page */
-.login,
-.image {
-  min-height: 100vh;
-}
-.input-group {
-  width: 100%;
-  display: flex;
-  margin-bottom: 15px;
-  padding: 15px 14px;
-  border-radius: 8px;
-  border: 1px solid #D0D5DD;
-  background: #fff;
-  box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
-}
-input.inpt
-{
-  border: none;
-}
-input:focus-visible {
-  outline: none;
-
-}
-
-.bg-image {
-  background-image: url('../image/signin.png');
-  background-size: cover;
-  background-position: center center;
-  background-color: #8D35C1;
-}
-span.input-group-text {
-  background: #fff;
-}
-span.form-icon {
-  position: absolute;
-  z-index: 9999;
-  /* top: 10px; */
-}
-button.free-acoun-btn{
-  background-color: #8D35C1;
-  color: #fff;
-  border: 1px solid #8D35C1;
-  padding: 16px 24px;
-  width: 503.03px;
-  border-radius: 16px;
-  margin: 20px 0;
-}
-.sign-link{
-  color: #8D35C1;
-  font-weight: bold;
-}
