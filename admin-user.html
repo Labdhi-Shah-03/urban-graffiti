@@ -158,18 +158,18 @@
                 <div class="detail-section-wrapper">
                     <div class="order-title d-flex align-items-center flex-wrap">
                         <h1 class="heading-title flex-grow-1">Users</h1>
-                        <div class="order-title-right d-flex align-items-center">
+                        <div class="order-title-right d-flex align-items-center flex-wrap">
                             <div class="search-input-container">
                                 <input type="search" class="search-input" placeholder="Search Keywords..." id="search" name="search">
                             </div>
                             <div class="custom-select">
-                                <div class="select-selected">Active</div>
+                                <div class="select-selected select-selected-dropdown">Active</div>
                                 <ul class="select-items">
                                   <li>Active</li>
                                   <li>Inactive</li>
                                 </ul>
                             </div>
-                            <a href="javascript:void(0)" title="New" class="detailed-btn btn-cta">New</a>
+                            <a href="javascript:void(0)" title="Add New" class="detailed-btn btn-cta btn-cta-save icon-btn-div">Add New</a>
                         </div>
                     </div>
                     
@@ -179,12 +179,30 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>Name</th>
-                                        <th style="width: 20%;">Edit</th>
+                                        <th style="width: 20px;">
+                                            <input type="checkbox" id="select-all" class="table-input-checkbox">
+                                            <label for="select-all"></label>
+                                        </th>
+                                        <th>
+                                            <span class="table-th-title">Name</span>
+                                            <span class="sort-div">
+                                                <img src="./assets/images/sort.svg" alt="Sort" title="Sort" width="24" height="24">
+                                            </span>
+                                        </th>
+                                        <th style="width: 10%;">
+                                            <span class="table-th-title">Edit</span>
+                                            <span class="sort-div">
+                                                <img src="./assets/images/sort.svg" alt="Sort" title="Sort" width="24" height="24">
+                                            </span>
+                                        </th>
                                     </tr>
                                 </thead>
                                 <tbody class="users-details" id="users_table">
                                     <tr class="tr_list">
+                                        <td class="user-input">
+                                            <input type="checkbox" id="select-all" class="table-input-checkbox">
+                                            <label for="select-all"></label>
+                                        </td>
                                         <td class="user-info">
                                             <div class="profile-avatar">
                                                 <img src="./assets/images/Avatar.png" alt="User" title="User" width="40" height="40">
@@ -201,6 +219,10 @@
                                         </td>
                                     </tr>
                                     <tr class="tr_list">
+                                        <td class="user-input">
+                                            <input type="checkbox" id="select-all" class="table-input-checkbox">
+                                            <label for="select-all"></label>
+                                        </td>
                                         <td class="user-info">
                                             <div class="profile-avatar">
                                                 <img src="./assets/images/Avatar.png" alt="User" title="User" width="40" height="40">
@@ -217,6 +239,10 @@
                                         </td>
                                     </tr>
                                     <tr class="tr_list">
+                                        <td class="user-input">
+                                            <input type="checkbox" id="select-all" class="table-input-checkbox">
+                                            <label for="select-all"></label>
+                                        </td>
                                         <td class="user-info">
                                             <div class="profile-avatar">
                                                 <img src="./assets/images/Avatar.png" alt="User" title="User" width="40" height="40">

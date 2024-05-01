@@ -41,8 +41,9 @@ $(document).ready(function() {
   
     // });
 
-    // //for user profile dropdown
-    $('.user-profile-box').click(function(){
+    // for user profile dropdown
+    $('.user-profile-box').click(function(event){
+        event.stopPropagation(); // Prevent click event from propagating to document
         // Toggle visibility of the dropdown
         $(this).find('.profile-dropdown-list').slideToggle();
         
@@ -50,6 +51,40 @@ $(document).ready(function() {
         $(this).toggleClass('active');
         // Toggle custom-class on user-profile-box
         $('.user-profile-box').toggleClass('custom-class');
+    });
+
+    // Click event on document
+    $(document).click(function(event) {
+        // Check if the clicked element is not within the dropdown or the user profile box
+        if (!$(event.target).closest('.user-profile-box').length && !$(event.target).closest('.profile-dropdown-list').length) {
+            // Close the dropdown and remove custom class
+            $('.profile-dropdown-list').slideUp();
+            $('.user-profile-box').removeClass('custom-class');
+        }
+    });
+
+    // snippet for custom select dropdown for admin user page
+    $('.custom-select .select-selected').click(function(event) {
+        event.stopPropagation();
+        var dropdown = $(this).closest('.custom-select').find('.select-items');
+        $('.custom-select .select-items').not(dropdown).slideUp();
+        dropdown.slideToggle();
+        $(this).toggleClass('clicked');
+    });
+
+    $('.custom-select .select-items li').click(function() {
+        $('.custom-select .select-items li').removeClass('items-active'); // Remove the class from all items
+        $(this).addClass('items-active'); // Add class to the clicked item
+        var value = $(this).text();
+        var selectedOption = $(this).closest('.custom-select').find('.select-selected');
+        selectedOption.text(value);
+        selectedOption.removeClass('clicked');
+        $(this).closest('.select-items').slideUp();
+    });
+
+    $(document).click(function() {
+        $('.custom-select .select-items').slideUp();
+        $('.custom-select .select-selected').removeClass('clicked');
     });
 
     // //for multiple accordions
@@ -213,3 +248,81 @@ document.addEventListener("DOMContentLoaded", function() {
 //         defaultDate: "today" // Set default time to current time
 //     });
 // });
+
+// select input checkbox that will apply class on targeted tr
+document.addEventListener("DOMContentLoaded", function () {
+    // Get all the checkboxes with the class 'table-input-checkbox' in the body
+    var checkboxes = document.querySelectorAll('.users-details .table-input-checkbox');
+
+    // Get the header checkbox
+    var headerCheckbox = document.querySelector('thead .table-input-checkbox');
+
+    // Get the header tr element
+    var headerTr = document.querySelector('thead tr');
+
+    // Function to update header checkbox state based on body checkboxes
+    function updateHeaderCheckboxState() {
+        var anyChecked = false;
+        checkboxes.forEach(function (checkbox) {
+            if (checkbox.checked) {
+                anyChecked = true;
+            }
+        });
+        headerCheckbox.checked = anyChecked;
+        // Add or remove class from header tr based on header checkbox state
+        if (headerCheckbox.checked) {
+            headerTr.classList.add('selected');
+        } else {
+            headerTr.classList.remove('selected');
+        }
+    }
+
+    // Add event listener to each checkbox in the body
+    checkboxes.forEach(function (checkbox) {
+        checkbox.addEventListener('change', function () {
+            // Get the parent tr element of the checkbox
+            var parentTr = this.closest('.tr_list');
+
+            // If the checkbox is checked
+            if (this.checked) {
+                // Add a class to the parent tr
+                parentTr.classList.add('selected');
+            } else {
+                // Remove the class from the parent tr
+                parentTr.classList.remove('selected');
+            }
+
+            // Update the state of the header checkbox
+            updateHeaderCheckboxState();
+        });
+    });
+
+    // Add event listener to the header checkbox
+    headerCheckbox.addEventListener('change', function () {
+        var isChecked = headerCheckbox.checked;
+
+        // Update the state of all body checkboxes based on the header checkbox
+        checkboxes.forEach(function (checkbox) {
+            checkbox.checked = isChecked;
+
+            // Get the parent tr element of the checkbox
+            var parentTr = checkbox.closest('.tr_list');
+
+            // If the checkbox is checked
+            if (isChecked) {
+                // Add a class to the parent tr
+                parentTr.classList.add('selected');
+            } else {
+                // Remove the class from the parent tr
+                parentTr.classList.remove('selected');
+            }
+        });
+
+        // Add or remove class from header tr based on header checkbox state
+        if (isChecked) {
+            headerTr.classList.add('selected');
+        } else {
+            headerTr.classList.remove('selected');
+        }
+    });
+});
