@@ -78,7 +78,7 @@
                                                   required
                                                 />
 												<span class="toggle-password-icon" onclick="togglePasswordVisibility(this)">
-													<img src="./assets/images/eye-slash.svg" alt="Hide Password">
+													<img src="./assets/images/eye-slash.svg" alt="Hide Password" title="Hide Password">
                                               </div>
                                             <!-- <label
                                               for="name"
@@ -115,18 +115,18 @@
 
 											<div class="rem-forgot d-flex justify-content-between">
 												<div class="rem d-flex align-items-center">
-												  <input type="checkbox" for="rem-tik">
+												  <input type="checkbox" id="rem-tik">
 												  <label for="rem-tik" class="eudoxus-medium">Remember me</label>
 												</div>
-												<span class="forgot-pw"><a href="forgot_pw.html" class="eudoxus-bold text-decoration-none">Forgot password?</a></span>
+												<span class="forgot-pw"><a href="forgot_pw.html" title="Forget Password" class="eudoxus-bold text-decoration-none">Forgot password?</a></span>
 											  </div>
 										   
-											<button
+											<a href="javascript:void(0)" title="Sign Up"
 												type="submit"
 												class="btn-cta btn-cta-save free-acoun-btn eudoxus-bold"
 											>
 											Sign up
-											</button>
+											</a>
 										</form>
 									</div>
 								</div>
@@ -135,16 +135,16 @@
 						</div>
 					</div>
 					<!-- The image half -->
-					<div class="col-md-6 d-none d-md-flex bg-image">
+					<div class="col-md-6 d-none d-md-flex bg-image welcome-section">
 						<div class="centered">
-					<h2 class="eudoxus-bold mb-4">Welcome to the community</h2>
-							<p class="eudoxus-medium mb-4">UrbanGraffitiLogin.com brings together over 10,000 customers and service providers dedicated to the swift and safe removal of unwanted graffiti. Our easy-to-use platform helps you track, manage, and remove graffiti, fostering happy neighborhoods and clean streets.</p>
+					<h2 class="eudoxus-bold">Welcome to the community</h2>
+							<p class="eudoxus-medium">UrbanGraffitiLogin.com brings together over 10,000 customers and service providers dedicated to the swift and safe removal of unwanted graffiti. Our easy-to-use platform helps you track, manage, and remove graffiti, fostering happy neighborhoods and clean streets.</p>
 					
-						<div class="main-img d-flex justify-content-center align-items-center mt-4">
-							<div class="wel-img me-2 mt-2">
-								<img src="./assets/images/welcome.svg" alt="">
+						<div class="main-img d-flex justify-content-center align-items-center">
+							<div class="wel-img">
+								<img src="./assets/images/welcome.svg" alt="Community" title="Community" width="173" height="37">
 							</div>
-							<div class="wel-img mt-2">
+							<div class="wel-img">
 								<p class="eudoxus-medium">Join us now and be a part of the positive change!</p>
 							</div>
 						</div>

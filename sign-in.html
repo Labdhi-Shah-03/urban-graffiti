@@ -25,56 +25,58 @@
     <link rel="stylesheet" href="assets/css/style.css">
 	</head>
 	<body>
-		<section class="sign-in-main">
-            <div class="centered">
-                <form class="sign-bg">
-                     <h1 class="heading-title eudoxus-bold">Sign in</h1>
-					<p class="text-muted mb-4 eudoxus-medium">Don't have an account? <a href="index.html" class="sign-link eudoxus-bold">Sign up</a></p>
-                    <label
-                        for="email"
-                        class="label required-field"
-                        >Email address</label
-                    >
-                    <div class="form-group input-group-box email-group">
-                        <input
-                          type="email"
-                          placeholder="Enter Email"
-                          class="inpt"
-                          required
-                        />
-                      </div>
-                    <label
-                        for="Password"
-                        class="label required-field"
-                        >Password</label
-                    >
-                    <div class="form-group input-group-box pass-group">
-                        <input
-                          type="password"
-                          placeholder="Enter Password"
-                          class="inpt"
-                          required
-                        />
-                        <span class="toggle-password-icon" onclick="togglePasswordVisibility(this)">
-                          <img src="./assets/images/eye-slash.svg" alt="Hide Password">
-                      </div>
-                      <div class="rem-forgot d-flex justify-content-between">
-                        <div class="rem d-flex align-items-center">
-                          <input type="checkbox" for="rem-tik">
-                          <label for="rem-tik" class="eudoxus-medium">Remember me</label>
-                        </div>
-                        <span class="forgot-pw"><a href="forgot_pw.html" class="eudoxus-bold text-decoration-none">Forgot password?</a></span>
-                      </div>
-                   
-                    <button
-                        type="submit"
-                        class="btn-cta btn-cta-save eudoxus-bold"
-                    >
-                    Sign up
-                    </button>
-                </form>
-            </div>
-        </section>
+      <section class="sign-in-main">
+        <div class="centered">
+          <form class="sign-bg">
+              <h1 class="heading-title eudoxus-bold">Sign in</h1>
+              <p class="text-muted eudoxus-medium">Don't have an account? <a href="index.html" title="Sign Up" class="sign-link eudoxus-bold">Sign up</a></p>
+              <div class="sign-in-form">
+                <label
+                  for="email"
+                  class="label required-field"
+                  >Email address
+                </label>
+                <div class="form-group input-group-box email-group">
+                  <input
+                    type="email"
+                    placeholder="Enter Email"
+                    class="inpt"
+                    required
+                  />
+                </div>
+                <label
+                    for="Password"
+                    class="label required-field"
+                    >Password</label
+                >
+                <div class="form-group input-group-box pass-group">
+                  <input
+                    type="password"
+                    placeholder="Enter Password"
+                    class="inpt"
+                    required
+                  />
+                  <span class="toggle-password-icon" onclick="togglePasswordVisibility(this)">
+                    <img src="./assets/images/eye-slash.svg" alt="Hide Password" title="Hide Password">
+                </div>
+                <div class="rem-forgot d-flex justify-content-between">
+                  <div class="rem d-flex align-items-center">
+                    <input type="checkbox" id="rem-tik">
+                    <label for="rem-tik" class="eudoxus-medium">Remember me</label>
+                  </div>
+                  <span class="forgot-pw"><a href="forgot_pw.html" title="Forget Password" class="eudoxus-bold text-decoration-none">Forgot password?</a></span>
+                </div>
+                      
+                <a href="javascript:void(0)" title="Sign Up"
+                    type="submit"
+                    class="btn-cta btn-cta-save free-acoun-btn eudoxus-bold"
+                >
+                Sign up
+                </a>
+              </div>
+          </form>
+        </div>
+      </section>
 
 		<!-- script link -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>

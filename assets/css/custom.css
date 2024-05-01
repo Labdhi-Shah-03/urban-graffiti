@@ -149,11 +149,12 @@
     z-index: 9999;
     /* top: 10px; */
   }
-  button.free-acoun-btn{
+  a.free-acoun-btn{
     padding: 18px;
     width: 100%;
     border-radius: 16px;
     margin: 40px 0 0;
+    text-align: center;
   }
   .sign-link{
     color: var(--blue);
@@ -203,8 +204,26 @@
     font-size: 16px;
     margin-bottom: 0;
   }
+  .wel-img img{
+    height: 37px;
+  }
   form{
     margin-top: 40px;
+  }
+  .welcome-section .centered h2{
+    margin-bottom: 40px;
+  }
+  .welcome-section .centered p{
+    margin-bottom: 30px;
+  }
+  .welcome-section .centered .wel-img p{
+    margin-bottom: 0;
+  }
+  .welcome-section .wel-img{
+    margin-top: 10px;
+  }
+  .welcome-section .wel-img + .wel-img{
+    margin-left: 10px;
   }
   /* sign in */
   .sign-in-main{
@@ -220,12 +239,26 @@
   align-items: center;
   justify-content: center;
   }
+  .sign-in-main .centered{
+    width: 582px;
+    padding: 25px;
+  }
+  .sign-in-main .centered .sign-bg{
+    width: 100%;
+    margin: 0;
+  }
+  .sign-in-main .sign-in-form{
+    margin-top: 40px;
+  }
   .sign-bg{
     background-color: var(--white);
     padding: 40px  40px;
   }
   .rem label.eudoxus-medium{
   margin: 0 0 0 10px;
+  }
+  .rem label{
+    cursor: pointer;
   }
   span.forgot-pw a{
     color: var(--blue);
