@@ -26,20 +26,26 @@ $(document).ready(function() {
         }
     });
 
-    // for multiple dropdowns
-    // $('.nav-items-sub-dropdown .nav-links').click(function(){
-    //     //Expand or collapse this panel
+    // // for multiple dropdowns (for accordion content box)
+    // $('.accordion-inner-box').click(function(){
+    //     // Check if the clicked accordion-inner-box is active
     //     var isActive = $(this).hasClass("active");
-    //     $('.nav-items-sub-dropdown .nav-links').removeClass('active')
+        
+    //     // Remove active class from all accordion-inner-boxes
+    //     $('.accordion-inner-box').removeClass('active');
+        
+    //     // Toggle active class for the clicked accordion-inner-box
     //     if (!isActive) {
-    //         $(this).toggleClass('active');
+    //         $(this).addClass('active');
     //     }
         
-    //     $(this).next().slideToggle('fast');     
-    //     //Hide the other panels
-    //     $(".nav-list-dropdown").not($(this).next()).slideUp('fast');
-  
+    //     // Toggle the visibility of the next accordion content box
+    //     $(this).next('.accordion-content-box').slideToggle();
+        
+    //     // Hide the other accordion content boxes
+    //     $(".accordion-content-box").not($(this).next('.accordion-content-box')).slideUp();
     // });
+
 
     // for user profile dropdown
     $('.user-profile-box').click(function(event){
@@ -152,6 +158,17 @@ $(document).ready(function() {
     //         $('.accordion-inner-box').removeClass('active');
     //     }
     // });
+
+
+    // accordion when click on inner-box and opens content-box for new user page
+    $('.accordion-inner-box').click(function() {
+        var contentBox = $(this).next('.accordion-content-box');
+        $('.accordion-content-box').not(contentBox).slideUp();
+        contentBox.slideToggle();
+        $('.accordion-content-box').not(contentBox).removeClass('active');
+        contentBox.toggleClass('active');
+    });
+
 
     // // images upload functionality
     //    // Initialize Slick Slider for the main image
@@ -326,3 +343,4 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+

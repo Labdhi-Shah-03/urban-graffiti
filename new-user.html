@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Urban Graffiti Admin</title>
+    <title>Urban Graffiti Dashboard</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="icon" type="image/ico" href="./assets/images/urban-graffiti.ico">
@@ -117,7 +117,7 @@
             </div>
         </nav>
 
-        <section class="dashboard-wrapper flex-grow-1">
+        <section class="dashboard-wrapper user-detailed-section flex-grow-1">
             <div class="dashboard-topbar d-flex align-items-center">
                 <div class="topbar-logo">
                     <a href="javascript:void(0)" title="Urban Graffiti" class="logo d-flex align-items-center">
@@ -154,115 +154,145 @@
                     </div>
                 </div>
             </div>
-            <div class="dashboard-detailed-section admin-detailed-section">
+            <div class="dashboard-detailed-section">
                 <div class="detail-section-wrapper">
-                    <div class="order-title d-flex align-items-center flex-wrap">
-                        <h2 class="heading-title flex-grow-1">Users</h2>
-                        <div class="order-title-right d-flex align-items-center flex-wrap">
-                            <div class="search-input-container">
-                                <input type="search" class="search-input" placeholder="Search Keywords..." id="search" name="search">
+                    <div class="breadcrumb-container order-title d-flex align-items-center">
+                        <nav class="breadcrumb-wrapper">
+                            <ol class="breadcrumb-list">
+                                <!-- <li class="breadcrumb-item">
+                                    <a href="javascript:void(0)" class="breadcrumb-link breadcrumb-link-home">Home</a>
+                                </li> -->
+                                <li class="breadcrumb-item">
+                                    <a href="javascript:void(0)" class="breadcrumb-link">Admin</a>
+                                </li>
+                                <li class="breadcrumb-item current">User</li>
+                            </ol>
+                        </nav>
+                    </div>
+
+                    <!-- form design start with accordion -->
+                    <div class="expandable-section">
+                        <div class="accordion-wrapper">
+                            <div class="accordion-box order-details-accordion">
+                                <div class="accordion-inner-box accordion-inner-wrapper">
+                                    <h3 class="child-heading-title">User Information</h3>
+                                    <div class="accordion-arrow">
+                                        <img src="./assets/images/chevron-default.svg" alt="Order Details" title="Order Details" width="24" height="24">
+                                    </div>
+                                </div>
+                                <div class="accordion-content-box">
+                                    <div class="accordion-sub-box-title">
+                                        <form action="" class="form">
+                                            <div class="form-group">
+                                                <label for="firstName" class="label">First Name</label>
+                                                <input type="text" name="" id="firstName" placeholder="Tamara">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="lastName" class="label">Last Name</label>
+                                                <input type="text" name="" id="lastName" placeholder="Lezama">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="email" class="label">Email</label>
+                                                <input type="email" name="" id="email" placeholder="tamaralezama@145.ca.us">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="phoneNumber" class="label">Phone Number</label>
+                                                <input type="number" name="" id="phoneNumber" placeholder="(714) 990-7695">
+                                            </div>
+                                            <div class="form-group form-group-filled">
+                                                <label for="userName" class="label">Username</label>
+                                                <input type="text" name="" id="userName" placeholder="Tamara Le123">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="password" class="label">Enter New Password</label>
+                                                <input type="password" name="" id="password" placeholder="-">
+                                            </div>
+                                            <div class="form-group form-group-halfwidth">
+                                                <label for="newPassword">Confirm New Password</label>
+                                                <input type="password" id="newPassword" placeholder="-">
+                                            </div>
+                                            <div class="form-group form-group-halfwidth">
+                                                <label for="navigation">Horizontal Navigation</label>
+                                                <select name="" id="navigation">
+                                                    <option value="Yes">Yes</option>
+                                                    <option value="No">No</option>
+                                                    <option value="Other">Other</option>
+                                                </select>
+                                            </div>
+                                        </form>
+                                        <div class="edit-button-div">
+                                            <a href="javascript:void(0)" title="Cancel" class="btn-cta btn-cta-cancel">Cancel</a>
+                                            <a href="javascript:void(0)" title="Save" class="btn-cta btn-cta-save">Save</a>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="custom-select">
-                                <div class="select-selected select-selected-dropdown">Active</div>
-                                <ul class="select-items">
-                                  <li>Active</li>
-                                  <li>Inactive</li>
-                                </ul>
-                            </div>
-                            <a href="./new-user.html" title="Add New" class="detailed-btn btn-cta btn-cta-save icon-btn-div">Add New</a>
+
+                            <!-- <div class="accordion-box order-details-accordion">
+                                <div class="accordion-inner-box accordion-inner-wrapper">
+                                    <h3 class="child-heading-title">Permissions</h3>
+                                    <div class="accordion-arrow">
+                                        <img src="./assets/images/chevron-default.svg" alt="Order Details" title="Order Details" width="24" height="24">
+                                    </div>
+                                </div>
+                                <div class="accordion-content-box">
+                                    <div class="accordion-sub-box-title">
+                                        <form action="" class="form">
+                                            <div class="form-group form-group-filled">
+                                                <label for="id" class="label">Id</label>
+                                                <input type="text" name="" id="id" placeholder="COV-95029">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="priority" class="label">Priority</label>
+                                                <select name="" id="priority">
+                                                    <option value="None">None</option>
+                                                    <option value="All">All</option>
+                                                    <option value="Other">Other</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="Agency" class="label">Agency</label>
+                                                <select name="" id="Agency">
+                                                    <option value="None">City Of Covina</option>
+                                                    <option value="All">All</option>
+                                                    <option value="Other">Other</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group form-group-filled">
+                                                <label for="latitude" class="label">Latitude</label>
+                                                <input type="text" name="" id="latitude" placeholder="38.869434">
+                                            </div>
+                                            <div class="form-group form-group-filled">
+                                                <label for="longitude" class="label">Longitude</label>
+                                                <input type="text" name="" id="longitude" placeholder="-117.8898613">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="agency-ref" class="label">Agency Ref #</label>
+                                                <input type="text" name="" id="agency-ref" placeholder="-">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="source" class="label">Source</label>
+                                                <input type="text" name="" id="source" placeholder="Agency Portal">
+                                            </div>
+                                            <div class="form-group form-group-filled">
+                                                <label for="job-type" class="label">Job Type</label>
+                                                <input type="text" name="" id="job-type" placeholder="Agency">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="assign-type" class="label">Assign To</label>
+                                                <input type="text" name="" id="assign-type" placeholder="Jose Gomar">
+                                            </div>
+                                            <div class="form-group form-group-fullwidth">
+                                                <label for="status" class="label">Status</label>
+                                                <input type="text" name="" id="status" placeholder="Open">
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div> -->
                         </div>
                     </div>
-                    
-                    <!-- table view start -->
-                    <div class="table-view">
-                        <div class="table-wrapper">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th style="width: 20px; display: none;">
-                                            <input type="checkbox" id="select-all" class="table-input-checkbox">
-                                            <label for="select-all"></label>
-                                        </th>
-                                        <th>
-                                            <span class="table-th-title">Name</span>
-                                            <span class="sort-div">
-                                                <img src="./assets/images/sort.svg" alt="Sort" title="Sort" width="24" height="24">
-                                            </span>
-                                        </th>
-                                        <th style="width: 10%;">
-                                            <span class="table-th-title">Edit</span>
-                                            <span class="sort-div">
-                                                <img src="./assets/images/sort.svg" alt="Sort" title="Sort" width="24" height="24">
-                                            </span>
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody class="users-details" id="users_table">
-                                    <tr class="tr_list">
-                                        <td class="user-input" style="display: none;">
-                                            <input type="checkbox" id="select-all" class="table-input-checkbox">
-                                            <label for="select-all"></label>
-                                        </td>
-                                        <td class="user-info">
-                                            <div class="profile-avatar">
-                                                <img src="./assets/images/Avatar.png" alt="User" title="User" width="40" height="40">
-                                            </div>
-                                            <a href="javascript:void(0)" title="Gabriel Renioso" class="user-title">Gabriel Renioso</a>
-                                        </td>
-                                        <td class="activate_tds">
-                                            <div class="response-box deactivate-btn">
-                                                <a href="javascript:void(0)" title="Deactivate" class="response-btn">Deactivate</a>
-                                            </div>
-                                            <div class="response-box activate-btn">
-                                                <a href="javascript:void(0)" title="Activate" class="response-btn">Activate</a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr class="tr_list">
-                                        <td class="user-input" style="display: none;">
-                                            <input type="checkbox" id="select-all" class="table-input-checkbox">
-                                            <label for="select-all"></label>
-                                        </td>
-                                        <td class="user-info">
-                                            <div class="profile-avatar">
-                                                <img src="./assets/images/Avatar.png" alt="User" title="User" width="40" height="40">
-                                            </div>
-                                            <a href="javascript:void(0)" title="Juan Reinoso" class="user-title">Juan Reinoso</a>
-                                        </td>
-                                        <td class="activate_tds">
-                                            <div class="response-box deactivate-btn">
-                                                <a href="javascript:void(0)" title="Deactivate" class="response-btn">Deactivate</a>
-                                            </div>
-                                            <div class="response-box activate-btn">
-                                                <a href="javascript:void(0)" title="Activate" class="response-btn">Activate</a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr class="tr_list">
-                                        <td class="user-input" style="display: none;">
-                                            <input type="checkbox" id="select-all" class="table-input-checkbox">
-                                            <label for="select-all"></label>
-                                        </td>
-                                        <td class="user-info">
-                                            <div class="profile-avatar">
-                                                <img src="./assets/images/Avatar.png" alt="User" title="User" width="40" height="40">
-                                            </div>
-                                            <a href="javascript:void(0)" title="Carlos Reinoso" class="user-title">Carlos Reinoso</a>
-                                        </td>
-                                        <td class="activate_tds">
-                                            <div class="response-box deactivate-btn">
-                                                <a href="javascript:void(0)" title="Deactivate" class="response-btn">Deactivate</a>
-                                            </div>
-                                            <div class="response-box activate-btn">
-                                                <a href="javascript:void(0)" title="Activate" class="response-btn">Activate</a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <!-- table view end -->
+                    <!-- form design end with accordion -->
                 </div>
             </div>
         </section>

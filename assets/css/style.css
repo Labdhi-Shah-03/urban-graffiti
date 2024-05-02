@@ -242,6 +242,10 @@ img {
   font-weight: var(--font-weight-bold);
   outline: 0;
   margin-bottom: 10px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   transition: all .4s ease-in;
 }
 .btn-cta:hover{
@@ -273,9 +277,9 @@ img {
 }
 
 .btn-cta-cancel{
-  background-color: var(--dark-grey-bg);
-  color: var(--white);
-  border-color: var(--dark-grey-bg);
+  background-color: var(--border-color-dasboard);
+  color: var(--dark-grey-bg);
+  border-color: var(--border-color-dasboard);
 }
 .btn-cta-cancel:hover{
   background-color: var(--white);
@@ -306,6 +310,13 @@ img {
 .icon-btn-div:hover{
   background-color: #ae69d7;
   color: var(--white);
+}
+.icon-btn-div:visited, .icon-btn-div:focus{
+  background-color: var(--purple-color);
+  color: var(--white);
+}
+.icon-btn-div:visited:hover, .icon-btn-div:focus:hover{
+  background-color: #ae69d7;
 }
 
 /* input, textarea, select */
@@ -424,6 +435,64 @@ input[type=checkbox]:checked::before{
   z-index: 2;
   transition: all .4s ease-in-out;
 }
+
+/* breadcrumb design start */
+.dashboard-detailed-section .detail-section-wrapper .breadcrumb-container.order-title{
+  padding: 20px 0;
+}
+.breadcrumb-wrapper{
+  width: 100%;
+}
+.breadcrumb-wrapper .breadcrumb-list{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0;
+  margin-bottom: 0;
+}
+.breadcrumb-wrapper .breadcrumb-list .breadcrumb-item{
+  color: var(--purple-color);
+  font-family: var(--font-family);
+  font-size: var(--secondary-font-size);
+  line-height: var(--secondary-line-height);
+  font-weight: var(--font-weight-bold);
+  /* padding: 4px 15px;
+  display: block; */
+}
+.breadcrumb-wrapper .breadcrumb-list .breadcrumb-item .breadcrumb-link{
+  color: var(--purple-color);
+  font-weight: var(--font-weight-bold);
+}
+.breadcrumb-wrapper .breadcrumb-list .breadcrumb-item{
+  position: relative;
+}
+.breadcrumb-wrapper .breadcrumb-list .breadcrumb-item+.breadcrumb-item{
+ padding-left: 4px;
+}
+.breadcrumb-wrapper .breadcrumb-list .breadcrumb-item+.breadcrumb-item::before {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-image: url('../images/breadcrumb-arrow.svg');
+  background-position: left center;
+  background-repeat: no-repeat;
+  background-size: 24px 10px;
+  width: 24px;
+  height: 19px;
+  left: 0;
+  top: 50%;
+  /* transform: translateY(-50%); */
+  /* float: none; */
+  padding-right: 8px;
+  color: var(--dashboard-fonts-primary);
+}
+.breadcrumb-wrapper .breadcrumb-list .breadcrumb-item.current{
+  color: var(--dashboard-fonts-primary);
+}
+/* .breadcrumb-wrapper .breadcrumb-list .breadcrumb-item:first-child .breadcrumb-link{
+  padding-left: 0;
+} */
+/* breadcrumb design end */
 
 /* Work Order design start */
 .order-dashboard{
@@ -581,6 +650,7 @@ input[type=checkbox]:checked::before{
   line-height: var(--secondary-line-height);
   font-weight: var(--font-weight-bold);
   font-family: var(--font-family);
+  margin: 0;
 }
 .dashboard-wrapper .dashboard-topbar{
   padding: 20px 20px 10px 20px; 
@@ -863,7 +933,7 @@ input[type=checkbox]:checked::before{
   display: none;
   position: relative;
 }
-.accordion-wrapper .accordion-box .accordion-sub-box .accordion-sub-box-title{
+.accordion-wrapper .accordion-box .accordion-sub-box-title{
   position: relative;
   margin-bottom: 20px;
   cursor: pointer;
@@ -886,6 +956,21 @@ input[type=checkbox]:checked::before{
   right: 0;
   transform: translateY(-50%);
 }
+.accordion-wrapper .accordion-box .accordion-content-box{
+  max-width: 100%;
+  flex: 0 0 100%;
+  display: flex;
+  align-items: center;
+  display: none;
+  position: relative;
+}
+.accordion-wrapper .accordion-box .accordion-content-box .accordion-sub-box-title{
+  margin-bottom: 10px;
+  cursor: default;
+}
+.accordion-wrapper .accordion-box .accordion-sub-box.accordion-content-box .edit-button-div{
+  width: 100%;
+}
 .accordion-wrapper .accordion-box .accordion-arrow{
   width: 24px;
   height: 24px;
@@ -907,19 +992,19 @@ input[type=checkbox]:checked::before{
 .accordion-wrapper .accordion-box .accordion-inner-box.active .accordion-arrow img, .accordion-wrapper .accordion-box .accordion-sub-box.active .accordion-arrow img{
   transform: rotate(180deg);
 }
-.accordion-wrapper .accordion-box .accordion-sub-box .edit-button-div{
+.accordion-wrapper .accordion-box .edit-button-div{
   display: flex;
   align-items: center;
   justify-content: flex-end;
 }
-.accordion-wrapper .accordion-box .accordion-sub-box.editing-buttons{
+.accordion-wrapper .accordion-box .editing-buttons{
   margin-top: 20px;
 }
-.accordion-wrapper .accordion-box .accordion-sub-box .edit-button-div a{
-  min-width: 103px;
+.accordion-wrapper .accordion-box .edit-button-div a{
+  min-width: 148px;
   text-align: center;
 }
-.accordion-wrapper .accordion-box .accordion-sub-box .edit-button-div a + a{
+.accordion-wrapper .accordion-box .edit-button-div a + a{
   margin-left: 10px;
 }
 .image-upload-section .image-upload-detailed{
@@ -1022,28 +1107,28 @@ input[type=checkbox]:checked::before{
 .form-wrapper{
   display: none;
 }
-.form-wrapper .form{
+.form{
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
 }
-.form-wrapper .form .form-group{
+.form .form-group{
   max-width: calc(33.33% - 10px);
   flex: calc(33.33% - 10px);
 }
-.form-wrapper .form .form-group.form-group-filled input{
+.form .form-group.form-group-filled input{
   background-color: var(--grey-bg);
 }
-.form-wrapper .form .form-group.from-group-fullwidth{
+.form .form-group.from-group-fullwidth{
   max-width: 100%;
   flex: 0 0 100%;
 }
-.form-wrapper .form .form-group.form-group-halfwidth{
+.form .form-group.form-group-halfwidth{
   max-width: calc(50% - 10px);
   flex: 0 0 calc(50% - 10px);
 }
-.form-wrapper .form .form-group .date-picker{
+.form .form-group .date-picker{
   background-image: url(../images/calender.svg);
   background-position: calc(100% - 12px);
   background-size: 24px 24px;
@@ -1051,9 +1136,14 @@ input[type=checkbox]:checked::before{
 }
 /* Work Order design end */
 
+/* single accordion content box design */
+.accordion-content-box{
+  display: none;
+}
+
 /* Admin page user sub page start */
 .admin-detailed-section .order-title-right .detailed-btn{
-  margin: 0 16px 10px 0;
+  margin: 0 0 10px 0;
 }
 .table-wrapper{
   display: block;
@@ -1106,21 +1196,21 @@ table input[type=checkbox]{
   background: none;
   position: relative;
   cursor: pointer;
-  transition: all .4s ease-in-out;
+  transition: all .4s linear;
 }
 
 table input[type=checkbox]:checked {
   background-color: var(--purple-color);
   border-color: var(--purple-color);
   opacity: 1;
-  transition: all .4s ease-in-out;
+  transition: all .4s linear;
 }
 table input[type=checkbox]::before{
   opacity: 0;
   visibility: hidden;
   width: 0;
   height: 0;
-  transition: all .4s ease-in;
+  transition: all .4s linear;
 }
 
 table input[type=checkbox]:checked::before{
@@ -1136,12 +1226,12 @@ table input[type=checkbox]:checked::before{
   border-width: 0 2px 2px 0;
   transform: rotate(45deg) translate(-50%, -60%);
   z-index: 2;
-  transition: all .4s ease-in-out;
+  transition: all .4s linear;
 }
 
 .table-wrapper .table thead tr.selected input[type=checkbox]:checked::before{
   right: 70%;
-  top: 30%;
+  top: 29%;
   width: auto;
   border: solid var(--white);
   border-width: 0 2px 0px 0;
@@ -1301,13 +1391,14 @@ table input[type=checkbox]:checked + label::after{
   position: relative;
   display: inline-block;
   vertical-align: middle;
+  margin-right: 10px;
+  display: none;
 }
 .table-wrapper .table tbody td .profile-avatar img {
   height: 40px;
   overflow: hidden;
 }
 .table-wrapper .table tbody td .user-title{
-  padding-left: 12px;
   display: inline-block;
   vertical-align: middle;
 }
