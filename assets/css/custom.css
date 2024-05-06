@@ -104,11 +104,11 @@
     box-sizing: border-box;
   }
    
-  body {
+  /* body {
     font-family: var(--font-family);
     font-weight: var(--font-weight-normal);
     background-color: var(--white);
-  }
+  } */
   /* close font */
   /* sign in page */
   .login,
@@ -155,6 +155,7 @@
     border-radius: 16px;
     margin: 40px 0 0;
     text-align: center;
+    height: 56px;
   }
   .sign-link{
     color: var(--blue);
@@ -246,6 +247,7 @@
   .sign-in-main .centered .sign-bg{
     width: 100%;
     margin: 0;
+    border-radius: 6px;
   }
   .sign-in-main .sign-in-form{
     margin-top: 40px;

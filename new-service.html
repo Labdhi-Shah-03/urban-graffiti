@@ -8,11 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="icon" type="image/ico" href="./assets/images/urban-graffiti.ico">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css"/>
-    <!-- Datepicker CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" rel="stylesheet">
-    <!-- slick slider -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
     <link rel="stylesheet" href="assets/css/style.css"/>
 </head>
 <body class="order-dashboard">
@@ -155,7 +150,7 @@
                 </div>
             </div>
             <div class="dashboard-detailed-section">
-                <div class="detail-section-wrapper">
+                <div class="detail-section-wrapper detail-sub-page-section">
                     <div class="breadcrumb-container order-title d-flex align-items-center">
                         <nav class="breadcrumb-wrapper">
                             <ol class="breadcrumb-list">
@@ -168,19 +163,32 @@
                                 <li class="breadcrumb-item current">Service</li>
                             </ol>
                         </nav>
+                        <div class="cancel-btn">
+                            <a href="javascript:void(0)" title="Cancel" class="btn-cta btn-cta-cancel">Cancel</a>
+                        </div>
                     </div>
-
-                  .
+                    <form action="" class="form">
+                        <div class="form-group form-group-fullwidth">
+                            <label for="serviceType">Service Type</label>
+                            <select name="" id="serviceType">
+                                <option value="Graffiti">Graffiti</option>
+                                <option value="Transit">Transit</option>
+                            </select>
+                        </div>
+                        <div class="form-group form-group-fullwidth">
+                            <label for="description" class="label">Description</label>
+                            <input type="text" name="" id="description" class="form-input flex-grow-1">
+                        </div>
+                        <a href="javascript:void(0)" title="Save Service" class="btn-cta btn-cta-save">Save Service</a>
+                    </form>
                 </div>
             </div>
         </section>
     </div>
 
     <!-- script link -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="assets/js/jquery-3.7.1.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
     <script src="./assets/js/global.js"></script>   
 </body>
 </html>

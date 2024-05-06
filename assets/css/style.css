@@ -440,6 +440,9 @@ input[type=checkbox]:checked::before{
 .dashboard-detailed-section .detail-section-wrapper .breadcrumb-container.order-title{
   padding: 20px 0;
 }
+.dashboard-detailed-section .detail-section-wrapper .breadcrumb-container .cancel-btn .btn-cta{
+  margin: 0;
+}
 .breadcrumb-wrapper{
   width: 100%;
 }
@@ -447,6 +450,7 @@ input[type=checkbox]:checked::before{
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  flex-wrap: wrap;
   padding: 0;
   margin-bottom: 0;
 }
@@ -1120,7 +1124,7 @@ input[type=checkbox]:checked::before{
 .form .form-group.form-group-filled input{
   background-color: var(--grey-bg);
 }
-.form .form-group.from-group-fullwidth{
+.form .form-group.form-group-fullwidth{
   max-width: 100%;
   flex: 0 0 100%;
 }
@@ -1147,7 +1151,7 @@ input[type=checkbox]:checked::before{
 }
 .table-wrapper{
   display: block;
-  overflow-x: auto;
+  /* overflow-x: auto; */
 }
 
 /* custom scrollbar */
@@ -1175,6 +1179,11 @@ input[type=checkbox]:checked::before{
 .table-wrapper table{
   /* min-width: 700px; */
   width: 100%;
+}
+
+table.table.dataTable>tbody>tr.selected>*{
+  box-shadow: none;
+  color: var(--accordion-text-color);
 }
 
 table input[type=checkbox] ~ label{
@@ -1517,7 +1526,89 @@ table input[type=checkbox]:checked + label::after{
 .custom-select .select-items li.items-active{
   background-color: var(--dashboard-top-bar-bg);
 }
+.dashboard-detailed-section .form-layout .form-field{
+  margin-bottom: 20px;
+}
+.dashboard-detailed-section .form-layout .form-field label{
+  margin: 0;
+  max-width: 250px;
+  flex: 0 0 250px;
+  padding-right: 12px;
+}
+.dashboard-detailed-section .form-layout .form-field input{
+  margin: 0;
+}
+.dashboard-detailed-section .form-layout .btn-cta{
+  max-width: max-content;
+  margin-left: auto;
+  margin-bottom: 20px;
+}
+.detail-sub-page-section form .btn-cta{
+  margin-left: auto;
+  margin-bottom: 20px;
+}
 /* Admin page user sub page end */
+
+/* pagination start */
+.page-link{
+  color: var(--dashboard-fonts-primary);
+}
+.page-item.active .page-link{
+  background-color: var(--dashboard-top-bar-bg);
+  color: var(--dashboard-fonts-primary);
+  border-color: var(--dashboard-top-bar-bg);
+}
+.page-link:hover{
+  color: var(--dashboard-fonts-primary);
+}
+.page-link:focus{
+  box-shadow: none;
+  color: var(--dashboard-fonts-primary);
+}
+.page-link:focus-visible{
+  outline: 0;
+}
+.form-select{
+  cursor: pointer;
+  border-color: var(--border-color-dasboard);
+}
+.form-select:focus{
+  box-shadow: none;
+  border-color: var(--border-color-dasboard);
+}
+/* .pagination {
+	background: #333;
+	padding: 1rem;
+	margin-bottom: 1rem;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+}
+
+#numbers {
+	padding: 0;
+	margin: 0 2rem;
+	list-style-type: none;
+	display: flex;
+}
+
+#numbers li a {
+	color: #fff;
+	padding: .5rem 1rem;
+	text-decoration: none;
+	opacity: .7;
+}
+
+#numbers li a:hover {
+	opacity: 1;
+}
+
+#numbers li a.active {
+	opacity: 1;
+	background: #fff;
+	color: #333;
+} */
+/* pagination end */
 
 /* collapsed sidebar start */
 .work-order-section.sidebar-collapsed .side-navbar{
@@ -1580,3 +1671,10 @@ table input[type=checkbox]:checked + label::after{
 }
 
 /* collapsed sidebar end */
+
+@media (max-width: 991px){
+  .dashboard-detailed-section .form-layout .form-field label{
+    max-width: auto;
+    flex: auto;
+  }
+}
