@@ -243,6 +243,7 @@ img {
   outline: 0;
   margin-bottom: 10px;
   height: 48px;
+  min-width: max-content;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1151,13 +1152,14 @@ input[type=checkbox]:checked::before{
 }
 .table-wrapper{
   display: block;
+  width: 100%;
   /* overflow-x: auto; */
 }
 
 /* custom scrollbar */
 .table-wrapper::-webkit-scrollbar {
   width: 5px;
-  height: 3px;
+  height: 5px;
 }
 
 /* Track */
@@ -1390,7 +1392,11 @@ table input[type=checkbox]:checked + label::after{
   padding-left: 15px;
 }
 .table-wrapper .table tbody td a{
-  color: var(--accordion-text-color);
+  color: #0367A1;
+  transition: all .3s ease-in;
+}
+.table-wrapper .table tbody td a:hover{
+  color: var(--dashboard-fonts-primary);
 }
 .table-wrapper .table tbody td .profile-avatar{
   width: 42px;
@@ -1438,6 +1444,28 @@ table input[type=checkbox]:checked + label::after{
 .table-wrapper .table tbody td.activate_tds .response-box.activate-btn{
   display: none;
 }
+.table tbody td.contracts-td ul{
+  display: flex;
+  align-items: center;
+}
+.table tbody td.contracts-td ul li{
+  position: relative;
+}
+.table tbody td.contracts-td ul li + li{
+  padding-left: 7px;
+  margin-left: 7px;
+}
+.table tbody td.contracts-td ul li + li::before{
+  content: '';
+  position: absolute;
+  background-color: var(--dashboard-fonts-primary);
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 70%;
+}
+
 .search-input-container{
   margin: 0 16px 10px 0;
   position: relative;
@@ -1467,6 +1495,7 @@ table input[type=checkbox]:checked + label::after{
 }
 .custom-select{
   position: relative;
+  margin: 0 16px 10px 0;
 }
 .custom-select .select-selected{
   padding: 14px 48px 14px 14px;
@@ -1478,7 +1507,6 @@ table input[type=checkbox]:checked + label::after{
   font-weight: var(--font-weight-bold);
   color: var(--dashboard-fonts-primary);
   cursor: pointer;
-  margin: 0 16px 10px 0;
 }
 
 .custom-select .select-selected::before{
@@ -1509,6 +1537,7 @@ table input[type=checkbox]:checked + label::after{
   right: 0;
   border-radius: 7px;
   display: none;
+  margin-top: 10px;
 }
 .custom-select .select-items li{
   padding: 15px;
@@ -1547,19 +1576,35 @@ table input[type=checkbox]:checked + label::after{
   margin-left: auto;
   margin-bottom: 20px;
 }
+.detail-sub-page-section .accordion-content-box .order-title-right{
+  width: 100%;
+}
+.detail-sub-page-section .accordion-content-box .order-title-right .search-input-container{
+  max-width: calc(33.33% - 20px);
+  flex: 0 0 calc(33.33% - 20px);
+}
+.detail-sub-page-section .accordion-content-box .order-title-right .search-input-container input{
+  min-width: auto;
+  width: 100%;
+}
+.detail-sub-page-section .accordion-content-box .order-title-right .custom-select{
+  max-width: calc(33.33% - 20px);
+  flex: 0 0 calc(33.33% - 20px);
+}
 /* Admin page user sub page end */
 
 /* pagination start */
 .page-link{
   color: var(--dashboard-fonts-primary);
+  border-color: var(--purple-bg);
 }
 .page-item.active .page-link{
-  background-color: var(--dashboard-top-bar-bg);
-  color: var(--dashboard-fonts-primary);
-  border-color: var(--dashboard-top-bar-bg);
+  background-color: var(--purple-bg);
+  color: var(--purple-color);
+  border-color: var(--purple-bg);
 }
 .page-link:hover{
-  color: var(--dashboard-fonts-primary);
+  color: var(--purple-color);
 }
 .page-link:focus{
   box-shadow: none;

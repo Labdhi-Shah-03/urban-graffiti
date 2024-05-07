@@ -77,9 +77,9 @@ $(document).ready(function() {
         dropdown.slideToggle();
         $(this).toggleClass('clicked');
     });
-
+    
     $('.custom-select .select-items li').click(function() {
-        $('.custom-select .select-items li').removeClass('items-active'); // Remove the class from all items
+        $(this).siblings().removeClass('items-active'); // Remove the class from sibling items only
         $(this).addClass('items-active'); // Add class to the clicked item
         var value = $(this).text();
         var selectedOption = $(this).closest('.custom-select').find('.select-selected');
@@ -87,11 +87,12 @@ $(document).ready(function() {
         selectedOption.removeClass('clicked');
         $(this).closest('.select-items').slideUp();
     });
-
+    
     $(document).click(function() {
         $('.custom-select .select-items').slideUp();
         $('.custom-select .select-selected').removeClass('clicked');
     });
+    
 
     // //for multiple accordions
     // $('.accordion-wrapper .accordion-inner-box').click(function(){
