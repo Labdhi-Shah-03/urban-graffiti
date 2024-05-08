@@ -92,7 +92,37 @@ $(document).ready(function() {
         $('.custom-select .select-items').slideUp();
         $('.custom-select .select-selected').removeClass('clicked');
     });
-    
+
+    // filter dropdown with custom select
+    // Toggle filter box when filter button is clicked
+    $('.filter-btn').click(function(event) {
+        event.stopPropagation();
+        var filterBox = $(this).closest('.filter-wrapper').find('.filter-box');
+        $('.filter-box').not(filterBox).slideUp(); // Close other filter boxes
+        filterBox.slideToggle();
+    });
+
+    // Close filter box when close icon is clicked
+    $('.close-filter').click(function(event) {
+        event.stopPropagation();
+        $(this).closest('.filter-box').slideUp();
+    });
+
+    // Close filter box when search button is clicked
+    $('.btn-cta-save').click(function(event) {
+        event.stopPropagation();
+        $(this).closest('.filter-box').slideUp();
+    });
+
+    // Prevent closing filter box when clicking inside the filter box or on the filter button
+    $('.filter-wrapper, .filter-btn').click(function(event) {
+        event.stopPropagation();
+    });
+
+    // Close filter box when clicking outside the filter box
+    $(document).click(function() {
+        $('.filter-box').slideUp();
+    });
 
     // //for multiple accordions
     // $('.accordion-wrapper .accordion-inner-box').click(function(){
@@ -335,7 +365,7 @@ new DataTable('table', {
     info: false,
     // filter: false,
     ordering: false,
-    // searching: false,
+    searching: false,
     // Paging type
     lengthMenu: [5, 10, 15, 25, { label: 'All', value: -1 }],
     // responsive: true,

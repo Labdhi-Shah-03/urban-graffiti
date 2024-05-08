@@ -156,10 +156,10 @@
                                 <li class="breadcrumb-item current">Brea</li>
                             </ol>
                         </nav>
-                        <a href="javascript:void(0)" title="Back To All Accounts" class="btn-cta btn-cta-back">Back To All Accounts</a>
+                        <!-- <a href="javascript:void(0)" title="Back To All Accounts" class="btn-cta btn-cta-back">Back To All Accounts</a>
                         <div class="cancel-btn">
                         </div>
-                        <a href="javascript:void(0)" title="New Account" class="detailed-btn btn-cta btn-cta-save icon-btn-div">New Account</a>
+                        <a href="javascript:void(0)" title="New Account" class="detailed-btn btn-cta btn-cta-save icon-btn-div">New Account</a> -->
                     </div>
                    
                      <!-- form design start with accordion -->
@@ -172,16 +172,29 @@
                                         <img src="./assets/images/chevron-default.svg" alt="Order Details" title="Order Details" width="24" height="24">
                                     </div>
                                 </div>
+
                                 <div class="accordion-content-box">
                                     <div class="accordion-sub-box-title">
                                         <form action="" class="form">
                                             <div class="form-group">
+                                                <label for="accountName" class="label">Account Name</label>
+                                                <input type="text" name="" id="accountName" placeholder="Brea">
+                                            </div>
+                                            <div class="form-group">
                                                 <label for="firstName" class="label">First Name</label>
-                                                <input type="text" name="" id="firstName" placeholder="Tamara">
+                                                <input type="text" name="" id="firstName" placeholder="First Name">
                                             </div>
                                             <div class="form-group">
                                                 <label for="lastName" class="label">Last Name</label>
-                                                <input type="text" name="" id="lastName" placeholder="Lezama">
+                                                <input type="text" name="" id="lastName" placeholder="Last Name">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="department" class="label">Department</label>
+                                                <input type="text" name="" id="department" placeholder="Department">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="title" class="label">Title</label>
+                                                <input type="text" name="" id="title" placeholder="Title">
                                             </div>
                                             <div class="form-group">
                                                 <label for="email" class="label">Email</label>
@@ -191,31 +204,78 @@
                                                 <label for="phoneNumber" class="label">Phone Number</label>
                                                 <input type="number" name="" id="phoneNumber" placeholder="(714) 990-7695">
                                             </div>
-                                            <div class="form-group form-group-filled">
-                                                <label for="userName" class="label">Username</label>
-                                                <input type="text" name="" id="userName" placeholder="Tamara Le123">
+                                            <div class="form-group">
+                                                <label for="extension" class="label">Extension</label>
+                                                <input type="text" name="" id="extension" placeholder="Extension">
                                             </div>
                                             <div class="form-group">
-                                                <label for="password" class="label">Enter New Password</label>
-                                                <input type="password" name="" id="password" placeholder="-">
-                                            </div>
-                                            <div class="form-group form-group-halfwidth">
-                                                <label for="newPassword">Confirm New Password</label>
-                                                <input type="password" id="newPassword" placeholder="-">
-                                            </div>
-                                            <div class="form-group form-group-halfwidth">
-                                                <label for="navigation">Horizontal Navigation</label>
-                                                <select name="" id="navigation">
+                                                <label for="status">Status</label>
+                                                <select name="" id="status">
                                                     <option value="Yes">Yes</option>
                                                     <option value="No">No</option>
                                                     <option value="Other">Other</option>
                                                 </select>
                                             </div>
+                                            <div class="form-group form-group-fullwidth">
+                                                <label for="notes" class="label">Notes</label>
+                                                <textarea name="" id="notes" placeholder="Notes"></textarea>
+                                            </div>
                                         </form>
-                                        <div class="edit-button-div">
-                                            <a href="javascript:void(0)" title="Cancel" class="btn-cta btn-cta-cancel">Cancel</a>
-                                            <a href="javascript:void(0)" title="Save" class="btn-cta btn-cta-save">Save</a>
+                                    </div>
+                                </div>
+
+                                <div class="accordion-sub-box image-details-section-acc">
+                                    <div class="accordion-sub-box-title">
+                                        <div class="acordion-subtitle">
+                                            <img src="./assets/images/image-upload.svg" alt="Image Upload" title="Image Upload" width="24" height="24">
+                                            <h4 class="sub-child-heading">Agency Logo:</h4>
                                         </div>
+                                        <div class="accordion-arrow">
+                                            <img src="./assets/images/chevron-default.svg" alt="Order Details" title="Order Details" width="24" height="24">
+                                        </div>
+                                    </div>
+                                    <div class="form-wrapper">
+                                        <div class="image-upload-section">
+                                            <div class="upload-wrapper d-flex align-items-center flex-wrap">
+                                                <div class="add-image-box">
+                                                    <input type="file" id="upload-file" accept=".jpg,.jpeg.,.gif,.png,.mov,.mp4,.svg" hidden />
+                                                    <label class="btn-up upload-btn" for="upload-file">
+                                                        <span class="upload-icon">
+                                                            <img src="./assets/images/image-upload.svg" alt="Upload" title="Upload" width="24" height="24">
+                                                        </span>
+                                                        <span class="add-iamge-text">Add Image</span>
+                                                    </label>
+                                                </div>
+                                                <div class="upload-image-box">
+                                                    <div class="image-container">
+                                                        <div class="image-box-wrapper">
+                                                            <img src="./assets/images/image-1.png" alt="Image 1" title="Image 1" width="280" height="160">
+                                                            <div class="delete-icon custom-icon">
+                                                                <img src="./assets/images/delete-icon.svg" alt="delete" title="delete" width="24" height="24">
+                                                            </div>
+                                                            <div class="zoom-icon custom-icon" data-image="image1.jpg">
+                                                                <img src="./assets/images/zoom-icon.svg" alt="zoom" title="zoom" width="24" height="24">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="image-container">
+                                                        <div class="image-box-wrapper">
+                                                            <img src="./assets/images/image-2.png" alt="Image 2" title="Image 2" width="280" height="160">
+                                                            <div class="delete-icon custom-icon">
+                                                                <img src="./assets/images/delete-icon.svg" alt="delete" title="delete" width="24" height="24">
+                                                            </div>
+                                                            <div class="zoom-icon custom-icon" data-image="image1.jpg">
+                                                                <img src="./assets/images/zoom-icon.svg" alt="zoom" title="zoom" width="24" height="24">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="edit-button-div">
+                                        <a href="javascript:void(0)" title="Cancel" class="btn-cta btn-cta-cancel">Cancel</a>
+                                        <a href="javascript:void(0)" title="Save Account" class="btn-cta btn-cta-save">Save Account</a>
                                     </div>
                                 </div>
                             </div>
@@ -229,27 +289,52 @@
                                 </div>
                                 <div class="accordion-content-box">
                                     <div class="accordion-sub-box-title">
-                                        <div class="detail-section-wrapper">
+                                        <div class="detail-section-wrapper detail-table-view">
                                             <div class="order-title d-flex align-items-center flex-wrap">
-                                                <div class="order-title-right d-flex align-items-center flex-wrap">
-                                                    <div class="search-input-container">
-                                                        <input type="search" class="search-input" placeholder="Search Keywords..." id="search" name="search">
+                                                <div class="order-title-right d-flex align-items-center flex-wrap justify-content-between">
+                                                    <div class="search-box">
+                                                        <div class="search-input-container">
+                                                            <input type="search" class="search-input" placeholder="Search Keywords..." id="search" name="search">
+                                                        </div>
                                                     </div>
-                                                    <div class="custom-select">
-                                                        <div class="select-selected select-selected-dropdown">Active</div>
-                                                        <ul class="select-items">
-                                                            <li>All</li>
-                                                            <li>Active</li>
-                                                            <li>Inactive</li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="custom-select">
-                                                        <div class="select-selected select-selected-dropdown">All Contracts Types</div>
-                                                        <ul class="select-items">
-                                                            <li>All Contracts Types</li>
-                                                            <li>Graffiti Contracts</li>
-                                                            <li>Transit Contracts</li>
-                                                        </ul>
+                                                    <div class="filter-container d-flex align-items-center justify-content-end flex-wrap">
+                                                        <div class="filter-wrapper">
+                                                            <a href="javascript:void(0)" title="Filter" class="btn-cta filter-btn">Filter</a>
+                                                            <div class="filter-box">
+                                                                <div class="box-title">
+                                                                    <h5 class="child-heading">Brea Contracts</h5>
+                                                                    <img src="assets/images/close-icon.svg" alt="Close" title="Close" width="12" height="12" class="close-filter">
+                                                                </div>
+                                                                <div class="filter-inner-box">
+                                                                    <p class="filter-type">Status</p>
+                                                                    <div class="custom-select">
+                                                                        <div class="select-selected select-selected-dropdown">Active</div>
+                                                                        <ul class="select-items">
+                                                                            <li>All</li>
+                                                                            <li>Active</li>
+                                                                            <li>Inactive</li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="filter-inner-box">
+                                                                    <p class="filter-type">Contract Type</p>
+                                                                    <div class="custom-select">
+                                                                        <div class="select-selected select-selected-dropdown">All Contracts Types</div>
+                                                                        <ul class="select-items">
+                                                                            <li>All Contracts Types</li>
+                                                                            <li>Graffiti Contracts</li>
+                                                                            <li>Transit Contracts</li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>  
+                                                                <div class="filter-search-btn">
+                                                                    <a href="javascript:void(0)" title="Search" class="btn-cta btn-cta-save">Search</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="add-new-div">
+                                                            <a href="javascript:void(0)" title="New Contracts" class="btn-cta icon-btn-div">New Contracts</a>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -260,7 +345,7 @@
                                                     <table class="table" style="width:100%" data-order='[[ 1, "asc" ]]' data-page-length='5'>
                                                         <thead>
                                                             <tr>
-                                                                <th style="width: 25%;">
+                                                                <th style="width: 50%;">
                                                                     <span class="table-th-title">Contract</span>
                                                                     <span class="sort-div">
                                                                         <img src="./assets/images/sort.svg" alt="Sort" title="Sort" width="24" height="24">
@@ -272,7 +357,7 @@
                                                                         <img src="./assets/images/sort.svg" alt="Sort" title="Sort" width="24" height="24">
                                                                     </span>
                                                                 </th>
-                                                                <th style="width: 35%;">
+                                                                <th style="width: 20%;">
                                                                     <span class="table-th-title">Type</span>
                                                                     <span class="sort-div">
                                                                         <img src="./assets/images/sort.svg" alt="Sort" title="Sort" width="24" height="24">
@@ -301,7 +386,7 @@
                                                                 </td>
                                                                 <td class="activate_tds">
                                                                     <div class="response-box deactivate-btn">
-                                                                        <a href="javascript:void(0)" title="Deactivate Account" class="response-btn">Deactivate Account</a>
+                                                                        <a href="javascript:void(0)" title="Deactivate" class="response-btn">Deactivate</a>
                                                                     </div>
                                                                 </td>
                                                             </tr>
@@ -319,7 +404,7 @@
                                                                 </td>
                                                                 <td class="activate_tds">
                                                                     <div class="response-box deactivate-btn">
-                                                                        <a href="javascript:void(0)" title="Deactivate Account" class="response-btn">Deactivate Account</a>
+                                                                        <a href="javascript:void(0)" title="Deactivate" class="response-btn">Deactivate</a>
                                                                     </div>
                                                                 </td>
                                                             </tr>
@@ -337,7 +422,7 @@
                                                                 </td>
                                                                 <td class="activate_tds">
                                                                     <div class="response-box deactivate-btn">
-                                                                        <a href="javascript:void(0)" title="Deactivate Account" class="response-btn">Deactivate Account</a>
+                                                                        <a href="javascript:void(0)" title="Deactivate" class="response-btn">Deactivate</a>
                                                                     </div>
                                                                 </td>
                                                             </tr>
@@ -355,26 +440,7 @@
                                                                 </td>
                                                                 <td class="activate_tds">
                                                                     <div class="response-box deactivate-btn">
-                                                                        <a href="javascript:void(0)" title="Deactivate Account" class="response-btn">Deactivate Account</a>
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-
-                                                            <tr class="tr_list">
-                                                                <td class="account-td">
-                                                                    <div class="account-title">
-                                                                        <a href="javascript:void(0)" title="Brea Transit">Brea Transit</a>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <span class="graffiti-code">BT001</span>
-                                                                </td>
-                                                                <td class="contract-type">
-                                                                    <span>Transit Contract</span>
-                                                                </td>
-                                                                <td class="activate_tds">
-                                                                    <div class="response-box deactivate-btn">
-                                                                        <a href="javascript:void(0)" title="Deactivate Account" class="response-btn">Deactivate Account</a>
+                                                                        <a href="javascript:void(0)" title="Deactivate" class="response-btn">Deactivate</a>
                                                                     </div>
                                                                 </td>
                                                             </tr>
@@ -393,7 +459,7 @@
                                                                 </td>
                                                                 <td class="activate_tds">
                                                                     <div class="response-box deactivate-btn">
-                                                                        <a href="javascript:void(0)" title="Deactivate Account" class="response-btn">Deactivate Account</a>
+                                                                        <a href="javascript:void(0)" title="Deactivate" class="response-btn">Deactivate</a>
                                                                     </div>
                                                                 </td>
                                                             </tr>
@@ -412,7 +478,7 @@
                                                                 </td>
                                                                 <td class="activate_tds">
                                                                     <div class="response-box deactivate-btn">
-                                                                        <a href="javascript:void(0)" title="Deactivate Account" class="response-btn">Deactivate Account</a>
+                                                                        <a href="javascript:void(0)" title="Deactivate" class="response-btn">Deactivate</a>
                                                                     </div>
                                                                 </td>
                                                             </tr>
@@ -431,7 +497,26 @@
                                                                 </td>
                                                                 <td class="activate_tds">
                                                                     <div class="response-box deactivate-btn">
-                                                                        <a href="javascript:void(0)" title="Deactivate Account" class="response-btn">Deactivate Account</a>
+                                                                        <a href="javascript:void(0)" title="Deactivate" class="response-btn">Deactivate</a>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+
+                                                            <tr class="tr_list">
+                                                                <td class="account-td">
+                                                                    <div class="account-title">
+                                                                        <a href="javascript:void(0)" title="Brea Transit">Brea Transit</a>
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <span class="graffiti-code">BT001</span>
+                                                                </td>
+                                                                <td class="contract-type">
+                                                                    <span>Transit Contract</span>
+                                                                </td>
+                                                                <td class="activate_tds">
+                                                                    <div class="response-box deactivate-btn">
+                                                                        <a href="javascript:void(0)" title="Deactivate" class="response-btn">Deactivate</a>
                                                                     </div>
                                                                 </td>
                                                             </tr>
@@ -445,7 +530,7 @@
                                 </div>
                             </div>
 
-                            <div class="accordion-box order-details-accordion">
+                            <div class="accordion-box order-details-accordion account-details-section">
                                 <div class="accordion-inner-box accordion-inner-wrapper">
                                     <h3 class="child-heading-title">Brea Zones</h3>
                                     <div class="accordion-arrow">
@@ -454,27 +539,52 @@
                                 </div>
                                 <div class="accordion-content-box">
                                     <div class="accordion-sub-box-title">
-                                        <div class="detail-section-wrapper">
+                                        <div class="detail-section-wrapper detail-table-view">
                                             <div class="order-title d-flex align-items-center flex-wrap">
-                                                <div class="order-title-right d-flex align-items-center flex-wrap">
-                                                    <div class="search-input-container">
-                                                        <input type="search" class="search-input" placeholder="Search Keywords..." id="search" name="search">
+                                                <div class="order-title-right d-flex align-items-center flex-wrap justify-content-between">
+                                                    <div class="search-box">
+                                                        <div class="search-input-container">
+                                                            <input type="search" class="search-input" placeholder="Search Keywords..." id="search" name="search">
+                                                        </div>
                                                     </div>
-                                                    <div class="custom-select">
-                                                        <div class="select-selected select-selected-dropdown">Active</div>
-                                                        <ul class="select-items">
-                                                            <li>All</li>
-                                                            <li>Active</li>
-                                                            <li>Inactive</li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="custom-select">
-                                                        <div class="select-selected select-selected-dropdown">All Contracts Types</div>
-                                                        <ul class="select-items">
-                                                            <li>All Contracts Types</li>
-                                                            <li>Graffiti Contracts</li>
-                                                            <li>Transit Contracts</li>
-                                                        </ul>
+                                                    <div class="filter-container d-flex align-items-center justify-content-end flex-wrap">
+                                                        <div class="filter-wrapper">
+                                                            <a href="javascript:void(0)" title="Filter" class="btn-cta filter-btn">Filter</a>
+                                                            <div class="filter-box">
+                                                                <div class="box-title">
+                                                                    <h5 class="child-heading">Brea Zones</h5>
+                                                                    <img src="assets/images/close-icon.svg" alt="Close" title="Close" width="12" height="12" class="close-filter">
+                                                                </div>
+                                                                <div class="filter-inner-box">
+                                                                    <p class="filter-type">Status</p>
+                                                                    <div class="custom-select">
+                                                                        <div class="select-selected select-selected-dropdown">Active</div>
+                                                                        <ul class="select-items">
+                                                                            <li>All</li>
+                                                                            <li>Active</li>
+                                                                            <li>Inactive</li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="filter-inner-box">
+                                                                    <p class="filter-type">Contract Type</p>
+                                                                    <div class="custom-select">
+                                                                        <div class="select-selected select-selected-dropdown">All Contracts Types</div>
+                                                                        <ul class="select-items">
+                                                                            <li>All Contracts Types</li>
+                                                                            <li>Graffiti Contracts</li>
+                                                                            <li>Transit Contracts</li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>  
+                                                                <div class="filter-search-btn">
+                                                                    <a href="javascript:void(0)" title="Search" class="btn-cta btn-cta-save">Search</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="add-new-div">
+                                                            <a href="javascript:void(0)" title="New Zone" class="btn-cta icon-btn-div">New Zone</a>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -485,20 +595,14 @@
                                                     <table class="table" style="width:100%" data-order='[[ 1, "asc" ]]' data-page-length='5'>
                                                         <thead>
                                                             <tr>
-                                                                <th style="width: 25%;">
-                                                                    <span class="table-th-title">Contract</span>
-                                                                    <span class="sort-div">
-                                                                        <img src="./assets/images/sort.svg" alt="Sort" title="Sort" width="24" height="24">
-                                                                    </span>
-                                                                </th>
                                                                 <th style="width: 20%;">
-                                                                    <span class="table-th-title">Code</span>
+                                                                    <span class="table-th-title">Zone Name</span>
                                                                     <span class="sort-div">
                                                                         <img src="./assets/images/sort.svg" alt="Sort" title="Sort" width="24" height="24">
                                                                     </span>
                                                                 </th>
-                                                                <th style="width: 35%;">
-                                                                    <span class="table-th-title">Type</span>
+                                                                <th style="width: 60%;">
+                                                                    <span class="table-th-title">Contracts</span>
                                                                     <span class="sort-div">
                                                                         <img src="./assets/images/sort.svg" alt="Sort" title="Sort" width="24" height="24">
                                                                     </span>
@@ -513,74 +617,142 @@
                                                         </thead>
                                                         <tbody class="users-details" id="users_table">
                                                             <tr class="tr_list">
+                                                                <td class="zone-name">
+                                                                    <div class="zone-name-div">
+                                                                        <a href="javascript:void(0)" title="Citywide">Citywide</a>
+                                                                    </div>
+                                                                </td>
                                                                 <td class="account-td">
                                                                     <div class="account-title">
                                                                         <a href="javascript:void(0)" title="Brea Graffiti">Brea Graffiti</a>
                                                                     </div>
                                                                 </td>
-                                                                <td>
-                                                                    <span class="graffiti-code">BRE</span>
-                                                                </td>
-                                                                <td class="contract-type">
-                                                                    <span>Graffiti Contract</span>
-                                                                </td>
                                                                 <td class="activate_tds">
                                                                     <div class="response-box deactivate-btn">
-                                                                        <a href="javascript:void(0)" title="Deactivate Account" class="response-btn">Deactivate Account</a>
+                                                                        <a href="javascript:void(0)" title="Deactivate" class="response-btn">Deactivate</a>
                                                                     </div>
                                                                 </td>
                                                             </tr>
                                                             <tr class="tr_list">
-                                                                <td class="account-td">
-                                                                    <div class="account-title">
-                                                                        <a href="javascript:void(0)" title="Brea Transit">Brea Transit</a>
+                                                                <td class="zone-name">
+                                                                    <div class="zone-name-div">
+                                                                        <a href="javascript:void(0)" title="Citywide">Citywide</a>
                                                                     </div>
                                                                 </td>
-                                                                <td>
-                                                                    <span class="graffiti-code">332211</span>
-                                                                </td>
-                                                                <td class="contract-type">
-                                                                    <span>Transit Contract</span>
+                                                                <td class="account-td">
+                                                                    <div class="account-title">
+                                                                        <a href="javascript:void(0)" title="Brea Graffiti">Brea Graffiti</a>
+                                                                    </div>
                                                                 </td>
                                                                 <td class="activate_tds">
                                                                     <div class="response-box deactivate-btn">
-                                                                        <a href="javascript:void(0)" title="Deactivate Account" class="response-btn">Deactivate Account</a>
+                                                                        <a href="javascript:void(0)" title="Deactivate" class="response-btn">Deactivate</a>
                                                                     </div>
                                                                 </td>
                                                             </tr>
                                                             <tr class="tr_list">
-                                                                <td class="account-td">
-                                                                    <div class="account-title">
-                                                                        <a href="javascript:void(0)" title="Brea Transit">Brea Transit</a>
+                                                                <td class="zone-name">
+                                                                    <div class="zone-name-div">
+                                                                        <a href="javascript:void(0)" title="Citywide">Citywide</a>
                                                                     </div>
                                                                 </td>
-                                                                <td>
-                                                                    <span class="graffiti-code">332214</span>
-                                                                </td>
-                                                                <td class="contract-type">
-                                                                    <span>Transit Contract</span>
+                                                                <td class="account-td">
+                                                                    <div class="account-title">
+                                                                        <a href="javascript:void(0)" title="Brea Graffiti">Brea Graffiti</a>
+                                                                    </div>
                                                                 </td>
                                                                 <td class="activate_tds">
                                                                     <div class="response-box deactivate-btn">
-                                                                        <a href="javascript:void(0)" title="Deactivate Account" class="response-btn">Deactivate Account</a>
+                                                                        <a href="javascript:void(0)" title="Deactivate" class="response-btn">Deactivate</a>
                                                                     </div>
                                                                 </td>
                                                             </tr>
                                                             <tr class="tr_list">
-                                                                <td class="account-td">
-                                                                    <div class="account-title">
-                                                                        <a href="javascript:void(0)" title="Brea Transit">Brea Transit</a>
+                                                                <td class="zone-name">
+                                                                    <div class="zone-name-div">
+                                                                        <a href="javascript:void(0)" title="Citywide">Citywide</a>
                                                                     </div>
                                                                 </td>
-                                                                <td>
-                                                                    <span class="graffiti-code">BT001</span>
-                                                                </td>
-                                                                <td class="contract-type">
-                                                                    <span>Transit Contract</span>
+                                                                <td class="account-td">
+                                                                    <div class="account-title">
+                                                                        <a href="javascript:void(0)" title="Brea Graffiti">Brea Graffiti</a>
+                                                                    </div>
                                                                 </td>
                                                                 <td class="activate_tds">
                                                                     <div class="response-box deactivate-btn">
-                                                                        <a href="javascript:void(0)" title="Deactivate Account" class="response-btn">Deactivate Account</a>
+                                                                        <a href="javascript:void(0)" title="Deactivate" class="response-btn">Deactivate</a>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+
+                                                            <tr class="tr_list">
+                                                                <td class="zone-name">
+                                                                    <div class="zone-name-div">
+                                                                        <a href="javascript:void(0)" title="Citywide">Citywide</a>
+                                                                    </div>
+                                                                </td>
+                                                                <td class="account-td">
+                                                                    <div class="account-title">
+                                                                        <a href="javascript:void(0)" title="Brea Graffiti">Brea Graffiti</a>
+                                                                    </div>
+                                                                </td>
+                                                                <td class="activate_tds">
+                                                                    <div class="response-box deactivate-btn">
+                                                                        <a href="javascript:void(0)" title="Deactivate" class="response-btn">Deactivate</a>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+
+                                                            <tr class="tr_list">
+                                                                <td class="zone-name">
+                                                                    <div class="zone-name-div">
+                                                                        <a href="javascript:void(0)" title="Citywide">Citywide</a>
+                                                                    </div>
+                                                                </td>
+                                                                <td class="account-td">
+                                                                    <div class="account-title">
+                                                                        <a href="javascript:void(0)" title="Brea Graffiti">Brea Graffiti</a>
+                                                                    </div>
+                                                                </td>
+                                                                <td class="activate_tds">
+                                                                    <div class="response-box deactivate-btn">
+                                                                        <a href="javascript:void(0)" title="Deactivate" class="response-btn">Deactivate</a>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+
+                                                            <tr class="tr_list">
+                                                                <td class="zone-name">
+                                                                    <div class="zone-name-div">
+                                                                        <a href="javascript:void(0)" title="Citywide">Citywide</a>
+                                                                    </div>
+                                                                </td>
+                                                                <td class="account-td">
+                                                                    <div class="account-title">
+                                                                        <a href="javascript:void(0)" title="Brea Graffiti">Brea Graffiti</a>
+                                                                    </div>
+                                                                </td>
+                                                                <td class="activate_tds">
+                                                                    <div class="response-box deactivate-btn">
+                                                                        <a href="javascript:void(0)" title="Deactivate" class="response-btn">Deactivate</a>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+
+                                                            <tr class="tr_list">
+                                                                <td class="zone-name">
+                                                                    <div class="zone-name-div">
+                                                                        <a href="javascript:void(0)" title="Citywide">Citywide</a>
+                                                                    </div>
+                                                                </td>
+                                                                <td class="account-td">
+                                                                    <div class="account-title">
+                                                                        <a href="javascript:void(0)" title="Brea Graffiti">Brea Graffiti</a>
+                                                                    </div>
+                                                                </td>
+                                                                <td class="activate_tds">
+                                                                    <div class="response-box deactivate-btn">
+                                                                        <a href="javascript:void(0)" title="Deactivate" class="response-btn">Deactivate</a>
                                                                     </div>
                                                                 </td>
                                                             </tr>
@@ -590,6 +762,23 @@
                                             </div>
                                             <!-- table view end -->
                                         </div>
+                                    </div>
+                                </div>
+
+                                <div class="accordion-sub-box map-details-section-acc">
+                                    <div class="accordion-sub-box-title">
+                                        <div class="acordion-subtitle">
+                                            <img src="./assets/images/location-pin.svg" alt="Map" title="Map" width="24" height="24">
+                                            <h4 class="sub-child-heading">Map Section:</h4>
+                                        </div>
+                                        <div class="accordion-arrow">
+                                            <img src="./assets/images/chevron-default.svg" alt="Order Details" title="Order Details" width="24" height="24">
+                                        </div>
+                                    </div>
+                                    <div class="form-wrapper">
+                                       <div class="google-map">
+                                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d52868.77864291487!2d-117.92512166054786!3d34.087488574486606!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c328515957e659%3A0x91002b97e41980ee!2sCovina%2C%20CA%2C%20USA!5e0!3m2!1sen!2sin!4v1714396044220!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                       </div>
                                     </div>
                                 </div>
                             </div>
@@ -603,27 +792,52 @@
                                 </div>
                                 <div class="accordion-content-box">
                                     <div class="accordion-sub-box-title">
-                                        <div class="detail-section-wrapper">
+                                        <div class="detail-section-wrapper detail-table-view">
                                             <div class="order-title d-flex align-items-center flex-wrap">
-                                                <div class="order-title-right d-flex align-items-center flex-wrap">
-                                                    <div class="search-input-container">
-                                                        <input type="search" class="search-input" placeholder="Search Keywords..." id="search" name="search">
+                                                <div class="order-title-right d-flex align-items-center flex-wrap justify-content-between">
+                                                    <div class="search-box">
+                                                        <div class="search-input-container">
+                                                            <input type="search" class="search-input" placeholder="Search Keywords..." id="search" name="search">
+                                                        </div>
                                                     </div>
-                                                    <div class="custom-select">
-                                                        <div class="select-selected select-selected-dropdown">Active</div>
-                                                        <ul class="select-items">
-                                                            <li>All</li>
-                                                            <li>Active</li>
-                                                            <li>Inactive</li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="custom-select">
-                                                        <div class="select-selected select-selected-dropdown">All Contracts Types</div>
-                                                        <ul class="select-items">
-                                                            <li>All Contracts Types</li>
-                                                            <li>Graffiti Contracts</li>
-                                                            <li>Transit Contracts</li>
-                                                        </ul>
+                                                    <div class="filter-container d-flex align-items-center justify-content-end flex-wrap">
+                                                        <div class="filter-wrapper">
+                                                            <a href="javascript:void(0)" title="Filter" class="btn-cta filter-btn">Filter</a>
+                                                            <div class="filter-box">
+                                                                <div class="box-title">
+                                                                    <h5 class="child-heading">Brea Routes</h5>
+                                                                    <img src="assets/images/close-icon.svg" alt="Close" title="Close" width="12" height="12" class="close-filter">
+                                                                </div>
+                                                                <div class="filter-inner-box">
+                                                                    <p class="filter-type">Status</p>
+                                                                    <div class="custom-select">
+                                                                        <div class="select-selected select-selected-dropdown">Active</div>
+                                                                        <ul class="select-items">
+                                                                            <li>All</li>
+                                                                            <li>Active</li>
+                                                                            <li>Inactive</li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="filter-inner-box">
+                                                                    <p class="filter-type">Contract Type</p>
+                                                                    <div class="custom-select">
+                                                                        <div class="select-selected select-selected-dropdown">All Contracts Types</div>
+                                                                        <ul class="select-items">
+                                                                            <li>All Contracts Types</li>
+                                                                            <li>Graffiti Contracts</li>
+                                                                            <li>Transit Contracts</li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>  
+                                                                <div class="filter-search-btn">
+                                                                    <a href="javascript:void(0)" title="Search" class="btn-cta btn-cta-save">Search</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="add-new-div">
+                                                            <a href="javascript:void(0)" title="New Route" class="btn-cta icon-btn-div">New Route</a>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -634,19 +848,19 @@
                                                     <table class="table" style="width:100%" data-order='[[ 1, "asc" ]]' data-page-length='5'>
                                                         <thead>
                                                             <tr>
-                                                                <th style="width: 25%;">
+                                                                <th style="width: 30%;">
+                                                                    <span class="table-th-title">Route</span>
+                                                                    <span class="sort-div">
+                                                                        <img src="./assets/images/sort.svg" alt="Sort" title="Sort" width="24" height="24">
+                                                                    </span>
+                                                                </th>
+                                                                <th style="width: 30%;">
                                                                     <span class="table-th-title">Contract</span>
                                                                     <span class="sort-div">
                                                                         <img src="./assets/images/sort.svg" alt="Sort" title="Sort" width="24" height="24">
                                                                     </span>
                                                                 </th>
-                                                                <th style="width: 20%;">
-                                                                    <span class="table-th-title">Code</span>
-                                                                    <span class="sort-div">
-                                                                        <img src="./assets/images/sort.svg" alt="Sort" title="Sort" width="24" height="24">
-                                                                    </span>
-                                                                </th>
-                                                                <th style="width: 35%;">
+                                                                <th style="width: 30%;">
                                                                     <span class="table-th-title">Type</span>
                                                                     <span class="sort-div">
                                                                         <img src="./assets/images/sort.svg" alt="Sort" title="Sort" width="24" height="24">
@@ -662,74 +876,38 @@
                                                         </thead>
                                                         <tbody class="users-details" id="users_table">
                                                             <tr class="tr_list">
-                                                                <td class="account-td">
-                                                                    <div class="account-title">
-                                                                        <a href="javascript:void(0)" title="Brea Graffiti">Brea Graffiti</a>
+                                                                <td class="zone-name">
+                                                                    <div class="zone-name-div">
+                                                                        <a href="javascript:void(0)" title="Citywide">Brea Bus Stop</a>
                                                                     </div>
                                                                 </td>
-                                                                <td>
-                                                                    <span class="graffiti-code">BRE</span>
+                                                                <td class="account-td">
+                                                                    <div class="contract-type">Brea Transit</div>
                                                                 </td>
-                                                                <td class="contract-type">
-                                                                    <span>Graffiti Contract</span>
+                                                                <td class="account-td">
+                                                                    <div class="contract-type">Transit Contract</div>
                                                                 </td>
                                                                 <td class="activate_tds">
                                                                     <div class="response-box deactivate-btn">
-                                                                        <a href="javascript:void(0)" title="Deactivate Account" class="response-btn">Deactivate Account</a>
+                                                                        <a href="javascript:void(0)" title="Deactivate" class="response-btn">Deactivate</a>
                                                                     </div>
                                                                 </td>
                                                             </tr>
                                                             <tr class="tr_list">
-                                                                <td class="account-td">
-                                                                    <div class="account-title">
-                                                                        <a href="javascript:void(0)" title="Brea Transit">Brea Transit</a>
+                                                                <td class="zone-name">
+                                                                    <div class="zone-name-div">
+                                                                        <a href="javascript:void(0)" title="Citywide">Brea Bus Stop</a>
                                                                     </div>
                                                                 </td>
-                                                                <td>
-                                                                    <span class="graffiti-code">332211</span>
+                                                                <td class="account-td">
+                                                                    <div class="contract-type">Brea Transit</div>
                                                                 </td>
-                                                                <td class="contract-type">
-                                                                    <span>Transit Contract</span>
+                                                                <td class="account-td">
+                                                                    <div class="contract-type">Transit Contract</div>
                                                                 </td>
                                                                 <td class="activate_tds">
                                                                     <div class="response-box deactivate-btn">
-                                                                        <a href="javascript:void(0)" title="Deactivate Account" class="response-btn">Deactivate Account</a>
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-                                                            <tr class="tr_list">
-                                                                <td class="account-td">
-                                                                    <div class="account-title">
-                                                                        <a href="javascript:void(0)" title="Brea Transit">Brea Transit</a>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <span class="graffiti-code">332214</span>
-                                                                </td>
-                                                                <td class="contract-type">
-                                                                    <span>Transit Contract</span>
-                                                                </td>
-                                                                <td class="activate_tds">
-                                                                    <div class="response-box deactivate-btn">
-                                                                        <a href="javascript:void(0)" title="Deactivate Account" class="response-btn">Deactivate Account</a>
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-                                                            <tr class="tr_list">
-                                                                <td class="account-td">
-                                                                    <div class="account-title">
-                                                                        <a href="javascript:void(0)" title="Brea Transit">Brea Transit</a>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <span class="graffiti-code">BT001</span>
-                                                                </td>
-                                                                <td class="contract-type">
-                                                                    <span>Transit Contract</span>
-                                                                </td>
-                                                                <td class="activate_tds">
-                                                                    <div class="response-box deactivate-btn">
-                                                                        <a href="javascript:void(0)" title="Deactivate Account" class="response-btn">Deactivate Account</a>
+                                                                        <a href="javascript:void(0)" title="Deactivate" class="response-btn">Deactivate</a>
                                                                     </div>
                                                                 </td>
                                                             </tr>
@@ -752,27 +930,52 @@
                                 </div>
                                 <div class="accordion-content-box">
                                     <div class="accordion-sub-box-title">
-                                        <div class="detail-section-wrapper">
+                                        <div class="detail-section-wrapper detail-table-view">
                                             <div class="order-title d-flex align-items-center flex-wrap">
-                                                <div class="order-title-right d-flex align-items-center flex-wrap">
-                                                    <div class="search-input-container">
-                                                        <input type="search" class="search-input" placeholder="Search Keywords..." id="search" name="search">
+                                                <div class="order-title-right d-flex align-items-center flex-wrap justify-content-between">
+                                                    <div class="search-box">
+                                                        <div class="search-input-container">
+                                                            <input type="search" class="search-input" placeholder="Search Keywords..." id="search" name="search">
+                                                        </div>
                                                     </div>
-                                                    <div class="custom-select">
-                                                        <div class="select-selected select-selected-dropdown">Active</div>
-                                                        <ul class="select-items">
-                                                            <li>All</li>
-                                                            <li>Active</li>
-                                                            <li>Inactive</li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="custom-select">
-                                                        <div class="select-selected select-selected-dropdown">All Contracts Types</div>
-                                                        <ul class="select-items">
-                                                            <li>All Contracts Types</li>
-                                                            <li>Graffiti Contracts</li>
-                                                            <li>Transit Contracts</li>
-                                                        </ul>
+                                                    <div class="filter-container d-flex align-items-center justify-content-end flex-wrap">
+                                                        <div class="filter-wrapper">
+                                                            <a href="javascript:void(0)" title="Filter" class="btn-cta filter-btn">Filter</a>
+                                                            <div class="filter-box">
+                                                                <div class="box-title">
+                                                                    <h5 class="child-heading">Brea Users</h5>
+                                                                    <img src="assets/images/close-icon.svg" alt="Close" title="Close" width="12" height="12" class="close-filter">
+                                                                </div>
+                                                                <div class="filter-inner-box">
+                                                                    <p class="filter-type">Status</p>
+                                                                    <div class="custom-select">
+                                                                        <div class="select-selected select-selected-dropdown">Active</div>
+                                                                        <ul class="select-items">
+                                                                            <li>All</li>
+                                                                            <li>Active</li>
+                                                                            <li>Inactive</li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="filter-inner-box">
+                                                                    <p class="filter-type">Contract Type</p>
+                                                                    <div class="custom-select">
+                                                                        <div class="select-selected select-selected-dropdown">All Contracts Types</div>
+                                                                        <ul class="select-items">
+                                                                            <li>All Contracts Types</li>
+                                                                            <li>Graffiti Contracts</li>
+                                                                            <li>Transit Contracts</li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>  
+                                                                <div class="filter-search-btn">
+                                                                    <a href="javascript:void(0)" title="Search" class="btn-cta btn-cta-save">Search</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="add-new-div">
+                                                            <a href="javascript:void(0)" title="New User" class="btn-cta icon-btn-div">New User</a>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -783,26 +986,14 @@
                                                     <table class="table" style="width:100%" data-order='[[ 1, "asc" ]]' data-page-length='5'>
                                                         <thead>
                                                             <tr>
-                                                                <th style="width: 25%;">
+                                                                <th style="width: 40%;">
+                                                                    <span class="table-th-title">Name</span>
+                                                                    <span class="sort-div">
+                                                                        <img src="./assets/images/sort.svg" alt="Sort" title="Sort" width="24" height="24">
+                                                                    </span>
+                                                                </th>
+                                                                <th style="width: 60%;">
                                                                     <span class="table-th-title">Contract</span>
-                                                                    <span class="sort-div">
-                                                                        <img src="./assets/images/sort.svg" alt="Sort" title="Sort" width="24" height="24">
-                                                                    </span>
-                                                                </th>
-                                                                <th style="width: 20%;">
-                                                                    <span class="table-th-title">Code</span>
-                                                                    <span class="sort-div">
-                                                                        <img src="./assets/images/sort.svg" alt="Sort" title="Sort" width="24" height="24">
-                                                                    </span>
-                                                                </th>
-                                                                <th style="width: 35%;">
-                                                                    <span class="table-th-title">Type</span>
-                                                                    <span class="sort-div">
-                                                                        <img src="./assets/images/sort.svg" alt="Sort" title="Sort" width="24" height="24">
-                                                                    </span>
-                                                                </th>
-                                                                <th style="width: 20%;">
-                                                                    <span class="table-th-title">Actions</span>
                                                                     <span class="sort-div">
                                                                         <img src="./assets/images/sort.svg" alt="Sort" title="Sort" width="24" height="24">
                                                                     </span>
@@ -811,76 +1002,10 @@
                                                         </thead>
                                                         <tbody class="users-details" id="users_table">
                                                             <tr class="tr_list">
-                                                                <td class="account-td">
-                                                                    <div class="account-title">
-                                                                        <a href="javascript:void(0)" title="Brea Graffiti">Brea Graffiti</a>
-                                                                    </div>
+                                                                <td class="user-name">
+                                                                   <p>No data</p>
                                                                 </td>
-                                                                <td>
-                                                                    <span class="graffiti-code">BRE</span>
-                                                                </td>
-                                                                <td class="contract-type">
-                                                                    <span>Graffiti Contract</span>
-                                                                </td>
-                                                                <td class="activate_tds">
-                                                                    <div class="response-box deactivate-btn">
-                                                                        <a href="javascript:void(0)" title="Deactivate Account" class="response-btn">Deactivate Account</a>
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-                                                            <tr class="tr_list">
-                                                                <td class="account-td">
-                                                                    <div class="account-title">
-                                                                        <a href="javascript:void(0)" title="Brea Transit">Brea Transit</a>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <span class="graffiti-code">332211</span>
-                                                                </td>
-                                                                <td class="contract-type">
-                                                                    <span>Transit Contract</span>
-                                                                </td>
-                                                                <td class="activate_tds">
-                                                                    <div class="response-box deactivate-btn">
-                                                                        <a href="javascript:void(0)" title="Deactivate Account" class="response-btn">Deactivate Account</a>
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-                                                            <tr class="tr_list">
-                                                                <td class="account-td">
-                                                                    <div class="account-title">
-                                                                        <a href="javascript:void(0)" title="Brea Transit">Brea Transit</a>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <span class="graffiti-code">332214</span>
-                                                                </td>
-                                                                <td class="contract-type">
-                                                                    <span>Transit Contract</span>
-                                                                </td>
-                                                                <td class="activate_tds">
-                                                                    <div class="response-box deactivate-btn">
-                                                                        <a href="javascript:void(0)" title="Deactivate Account" class="response-btn">Deactivate Account</a>
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-                                                            <tr class="tr_list">
-                                                                <td class="account-td">
-                                                                    <div class="account-title">
-                                                                        <a href="javascript:void(0)" title="Brea Transit">Brea Transit</a>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <span class="graffiti-code">BT001</span>
-                                                                </td>
-                                                                <td class="contract-type">
-                                                                    <span>Transit Contract</span>
-                                                                </td>
-                                                                <td class="activate_tds">
-                                                                    <div class="response-box deactivate-btn">
-                                                                        <a href="javascript:void(0)" title="Deactivate Account" class="response-btn">Deactivate Account</a>
-                                                                    </div>
-                                                                </td>
+                                                                <td class="contract-type"></td>
                                                             </tr>
                                                         </tbody>
                                                     </table>
