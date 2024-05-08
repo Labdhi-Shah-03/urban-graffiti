@@ -384,6 +384,11 @@ label{
   display: inline-block;
 }
 
+.form-control:focus{
+  box-shadow: none;
+  border-color: var(--border-color-dasboard);
+}
+
 /* checkbox design start*/
 input[type=checkbox] ~ label{
   margin: 0;
@@ -502,12 +507,13 @@ input[type=checkbox]:checked::before{
 /* Work Order design start */
 .order-dashboard{
   min-height: 100vh;
+  overflow-x: hidden;
 }
 .order-dashboard .work-order-section{
   min-height: 100vh;
   position: relative;
 }
-.order-dashboard .work-order-section.sticky .dashboard-topbar{
+/* .order-dashboard .work-order-section.sticky .dashboard-topbar{
   position: fixed;
   width: calc(100% - 256px);
   top: 0;
@@ -523,7 +529,7 @@ input[type=checkbox]:checked::before{
 }
 .order-dashboard .work-order-section.sticky.sidebar-collapsed .dashboard-topbar{
   width: calc(100% - 76px);
-}
+} */
 .work-order-section .side-navbar{
   max-width: 256px;
   flex: 0 0 256px;
@@ -540,6 +546,7 @@ input[type=checkbox]:checked::before{
   bottom: 0;
   left: 0;
   overflow: auto;
+  z-index: 4;
 }
 
 .work-order-section .side-navbar .nav-top{
@@ -642,6 +649,31 @@ input[type=checkbox]:checked::before{
 }
 
 /* dashboard main body design */
+.work-order-section .dashboard-wrapper{
+  max-width: calc(100% - 256px);
+  flex: 0 0 calc(100% - 256px);
+}
+.work-order-section.sidebar-collapsed .dashboard-wrapper{
+  max-width: calc(100% - 76px);
+  flex: 0 0 calc(100% - 76px);
+}
+.work-order-section .dashboard-topbar.sticky{
+  position: fixed;
+  width: calc(100% - 256px);
+  top: 0;
+  right: 0;
+  box-shadow: 0 0px 3px rgba(0, 0, 0, 0.1);
+  z-index: 3;
+  background: rgba(255, 255, 255, 0.3);
+  -webkit-backdrop-filter: blur(10px);
+  -o-backdrop-filter: blur(10px);
+  -moz-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  transition: all 0.5s ease-in;
+}
+.work-order-section.sidebar-collapsed .dashboard-topbar.sticky{
+  width: calc(100% - 76px);
+}
 .work-order-section .dashboard-topbar .topbar-logo{
   max-width: 0;
   opacity: 0;
@@ -873,6 +905,7 @@ input[type=checkbox]:checked::before{
 .dashboard-detailed-section{
   background-color: var(--dashboard-body-bg);
   padding: 20px;
+  margin-top: 86px;
 }
 .dashboard-detailed-section .detail-section-wrapper{
   border: 1px solid var(--border-color-dasboard);
@@ -899,6 +932,9 @@ input[type=checkbox]:checked::before{
 }
 .dashboard-detailed-section .detail-section-wrapper .order-title .detailed-btn + .detailed-btn{
   margin-left: 10px;
+}
+.dashboard-detailed-section .detail-section-wrapper .order-title-right .search-input-container{
+  display: none;
 }
 .accordion-wrapper .accordion-box{
   display: flex;
@@ -1153,33 +1189,33 @@ input[type=checkbox]:checked::before{
 .table-wrapper{
   display: block;
   width: 100%;
-  /* overflow-x: auto; */
 }
 
 /* custom scrollbar */
-.table-wrapper::-webkit-scrollbar {
+.table-wrapper .row:nth-child(2) > div.col-12::-webkit-scrollbar {
   width: 5px;
-  height: 5px;
+  height: 6px;
 }
 
 /* Track */
-.table-wrapper::-webkit-scrollbar-track {
+.table-wrapper .row:nth-child(2) > div.col-12::-webkit-scrollbar-track {
   box-shadow: inset 0 0 5px grey; 
   border-radius: 10px;
 }
  
 /* Handle */
-.table-wrapper::-webkit-scrollbar-thumb {
+.table-wrapper .row:nth-child(2) > div.col-12::-webkit-scrollbar-thumb {
   background: var(--dark-grey-bg); 
   border-radius: 10px;
 }
 
 /* Handle on hover */
-.table-wrapper::-webkit-scrollbar-thumb:hover {
+.table-wrapper .row:nth-child(2) > div.col-12::-webkit-scrollbar-thumb:hover {
   background: var(--dark-grey-bg); 
 }
-.table-wrapper table{
-  /* min-width: 700px; */
+.table-wrapper .row:nth-child(2) > div.col-12{
+  overflow-x: auto;
+  display: block;
   width: 100%;
 }
 
@@ -1249,72 +1285,6 @@ table input[type=checkbox]:checked::before{
   transform: rotate(90deg) translate(-50%, -50%);
 }
 
-/* table input[type=checkbox] {
-  visibility: hidden;
-  position: absolute;
-  opacity: 0;
-}
-table label{
-  position: relative;
-  cursor: pointer;
-  vertical-align: middle;
-}
-table label::before, table label::after{
-  position: absolute;
-  content: '';
-  cursor: pointer;
-}
-table label::before {
-  background-color: var(--white);
-  border: 2px solid var(--border-color-dasboard);
-  border-radius: 4px;
-  height: 20px;
-  left: 0;
-  top: 50%;
-  width: 20px;
-  transform: translateY(-50%);
-  transform-origin: center;
-  -webkit-transition: all .3s ease-in;
-  -moz-transition: all .3s ease-in;
-  -ms-transition: all .3s ease-in;
-  -o-transition: all .3s ease-in;
-  transition: all .3s ease-in;
-}
-
-table input[type=checkbox]:checked + label::before{
-  background-color: var(--purple-color);
-  border-color: var(--purple-color);
-}
-table input[type=checkbox]:checked + label::after{
-  top: 45%;
-  left: 0;
-  border-right: 2px solid transparent;
-  border-bottom: 2px solid transparent;
-  transform: translate(-50%, -50%) rotate(45deg);
-  transform-origin: 0% 100%;
-  animation: checkbox-check .125s .25s cubic-bezier(.4,0,.23,1) forwards;
-}
-
-@keyframes checkbox-check {
-  0% {
-    width: 0;
-    height: 0;
-    border-color: #fff;
-    transform: translate3d(0, 0, 0) rotate(45deg);
-  }
-  33% {
-    width: 4px;
-    height: 0;
-    transform: translate3d(0, 0, 0) rotate(45deg);
-  }
-  100% {
-    width: 4px;
-    height: 8px;
-    border-color: #fff;
-    transform: translate3d(0, -8px, 0) rotate(45deg);
-  }
-} */
-
 .table-wrapper .table tr th, .table-wrapper .table tr td{
   transition: all .4s ease-in;
 }
@@ -1335,6 +1305,7 @@ table input[type=checkbox]:checked + label::after{
   color: var(--accordion-text-color);
   background-color: #F8FAFC;
   vertical-align: middle;
+  text-align: left;
 }
 .table-wrapper .table thead th:first-child{
   padding-left: 15px;
@@ -1372,6 +1343,8 @@ table input[type=checkbox]:checked + label::after{
   color: var(--accordion-text-color);
   vertical-align: middle;
   cursor: pointer;
+  padding-left: 0;
+  text-align: left;
 }
 .table-wrapper .table tbody tr:nth-child(even){
   background-color: var(--dashboard-body-bg);
@@ -1384,9 +1357,6 @@ table input[type=checkbox]:checked + label::after{
 }
 .table-wrapper .table tbody tr:last-child td{
   border-bottom: 0;
-}
-.table-wrapper .table tbody td{
-  padding-left: 0;
 }
 .table-wrapper .table tbody td:first-child{
   padding-left: 15px;
@@ -1464,6 +1434,60 @@ table input[type=checkbox]:checked + label::after{
   transform: translateY(-50%);
   width: 1px;
   height: 70%;
+}
+
+.table-wrapper .dt-search{
+  position: relative;
+  margin-bottom: 10px;
+}
+.table-wrapper .dt-search::before{
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  background-image: url('../images/search-icon.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  cursor: pointer;
+  z-index: 1;
+}
+.table-wrapper .dt-search label{
+  display: none;
+}
+.table-wrapper .dt-search .form-control{
+  height: 48px;
+  min-width: 400px;
+  padding: 10px 12px 10px 45px;
+  margin: 0;
+  position: relative;
+  background-color: var(--white);
+  border: 1px solid var(--border-color-dasboard);
+  border-radius: 8px;
+  font-family: var(--font-family);
+  font-size: var(--secondary-font-size);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--secondary-line-height);
+  color: var(--dashboard-fonts-primary);
+}
+.table-wrapper .dt-search input::placeholder, .table-wrapper .dt-search input::-moz-placeholder{
+  color: var(--grey-placeholder);
+  font-family: var(--font-family);
+  font-size: var(--secondary-font-size);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--secondary-line-height);
+  color: var(--dashboard-fonts-primary);
+}
+
+.table-wrapper .dt-length .form-select{
+  margin-bottom: 10px;
+}
+
+div.dt-container div.dt-paging{
+  padding-bottom: 12px;
 }
 
 .search-input-container{
@@ -1721,5 +1745,25 @@ table input[type=checkbox]:checked + label::after{
   .dashboard-detailed-section .form-layout .form-field label{
     max-width: auto;
     flex: auto;
+  }
+  .order-title-right{
+    width: 100%;
+  }
+  .search-input-container{
+    width: 100%;
+    margin-right: 0;
+  }
+  .search-input-container .search-input{
+    min-width: auto;
+    width: 100%;
+  }
+  .table-wrapper .dt-search .form-control{
+    min-width: auto;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 767px) {
+  div.dt-container div.dt-length, div.dt-container div.dt-search, div.dt-container div.dt-info, div.dt-container div.dt-paging {
+    text-align: left;
   }
 }

@@ -230,17 +230,17 @@ $(document).ready(function() {
     // Define the scroll threshold
     var scrollThreshold = 120; // Adjust this value as needed
     
-    // Function to add or remove the sticky class based on scroll position
-    function toggleStickyClass() {
-        if ($(window).scrollTop() >= scrollThreshold) {
-            $('.work-order-section').addClass('sticky');
-        } else {
-            $('.work-order-section').removeClass('sticky');
-        }
-    }
+    // // Function to add or remove the sticky class based on scroll position
+    // function toggleStickyClass() {
+    //     if ($(window).scrollTop() >= scrollThreshold) {
+    //         $('.work-order-section').addClass('sticky');
+    //     } else {
+    //         $('.work-order-section').removeClass('sticky');
+    //     }
+    // }
 
-    // Add event listener for scroll
-    $(window).on('scroll', toggleStickyClass);
+    // // Add event listener for scroll
+    // $(window).on('scroll', toggleStickyClass);
 
     // pagination start
     // $(function() {
@@ -335,11 +335,16 @@ new DataTable('table', {
     info: false,
     // filter: false,
     ordering: false,
-    searching: false,
+    // searching: false,
     // Paging type
     lengthMenu: [5, 10, 15, 25, { label: 'All', value: -1 }],
     // responsive: true,
     layout: {
+        topEnd: {
+            search: {
+                placeholder: 'Search Keywords...'
+            }
+        },
         bottomEnd: {
             paging: {
                 type: 'full_numbers',
