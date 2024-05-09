@@ -216,15 +216,108 @@
                                 </div>
                             </div>
 
-                            <!-- <div class="accordion-box order-details-accordion">
+                            <div class="accordion-box order-details-accordion">
                                 <div class="accordion-inner-box accordion-inner-wrapper">
-                                    <h3 class="child-heading-title">Permissions</h3>
+                                    <h3 class="child-heading-title">Restricted Contracts</h3>
                                     <div class="accordion-arrow">
                                         <img src="./assets/images/chevron-default.svg" alt="Order Details" title="Order Details" width="24" height="24">
                                     </div>
                                 </div>
                                 <div class="accordion-content-box">
-                                    <div class="accordion-sub-box-title">
+                                    <div class="swap-values-box">
+                                        <div class="subject-info-box-1">
+                                            <div class="search-input-container">
+                                                <input type="search" id="searchBox1" placeholder="Search..." class="search-input"/>
+                                            </div>
+                                            <div id="lstBox1">
+                                                <ul class="value-box-wrapper">
+                                                    <li>
+                                                        <a href="javascript:void(0)" class="list-values list-value-title" id="1" title="Brea">Brea</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0)" class="list-values" id="2" title="Brea Graffiti">Brea Graffiti</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0)" class="list-values" id="3" title="Brea Transit">Brea Transit</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0)" class="list-values" id="4" title="Brea Transit">Brea Transit</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0)" class="list-values" id="5" title="Brea Transit">Brea Transit</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0)" class="list-values list-value-title" id="6" title="City of Arcadia">City of Arcadia</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0)" class="list-values" id="7" title="Arcadia Graffiti">Arcadia Graffiti</a>
+                                                    </li>
+                                                </ul>
+                                                <!-- <a href="#" id="1">Ajax</a>
+                                                <a href="#" id="2">jQuery</a>
+                                                <a href="#" id="3">JavaScript</a>
+                                                <a href="#" id="4">MooTools</a>
+                                                <a href="#" id="5">Prototype</a>
+                                                <a href="#" id="6">Dojo</a> -->
+                                            </div>
+                                        </div>
+                                
+                                        <div class="subject-info-arrows text-center">
+                                           
+                                            <div class="input-arrow-box input-right-arrow-box">
+                                                <input type="button" id="btnRight" value="" class="btn btn-default" />
+                                            </div>
+                                            <div class="input-arrow-box input-left-arrow-box">
+                                                <input type="button" id="btnLeft" value="" class="btn btn-default" />
+                                            </div>
+                                            <div class="input-arrow-box input-setting-box">
+                                                <input type="button" class="btn btn-default" id="setting-value"/>
+
+                                                <div class="setting-value-group">
+                                                    <div class="input-arrow-box">
+                                                        <input type="button" id="btnAllRight" value="Permit All" class="btn btn-default" />
+                                                    </div>
+                                                    <div class="input-arrow-box">
+                                                        <input type="button" id="btnAllLeft" value="Restrict All" class="btn btn-default" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                
+                                        <div id="selectedValues"></div>
+                                
+                                        <div class="subject-info-box-2">
+                                            <div class="search-input-container">
+                                                <input type="search" id="searchBox2" placeholder="Search..." class="search-input"/>
+                                            </div>
+                                            <div id="lstBox2">
+                                                <ul class="value-box-wrapper">
+                                                    <li>
+                                                        <a href="javascript:void(0)" class="list-values list-value-title" id="8" title="City of Claremont">City of Claremont</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0)" class="list-values" id="9" title="Claremont Graffiti">Claremont Graffiti</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0)" class="list-values list-value-title" id="10" title="City of San Dimas">City of San Dimas</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0)" class="list-values" id="11" title="San Dimas Graffiti">San Dimas Graffiti</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0)" class="list-values" id="12" title="San Dimas Carts">San Dimas Carts</a>
+                                                    </li>
+                                                </ul>
+                                                <!-- <a href="#" id="7">ASP.NET</a>
+                                                <a href="#" id="8">C#</a>
+                                                <a href="#" id="9">VB.NET</a>
+                                                <a href="#" id="10">Java</a>
+                                                <a href="#" id="11">PHP</a>
+                                                <a href="#" id="12">Python</a> -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- <div class="accordion-sub-box-title">
                                         <form action="" class="form">
                                             <div class="form-group form-group-filled">
                                                 <label for="id" class="label">Id</label>
@@ -275,9 +368,9 @@
                                                 <input type="text" name="" id="status" placeholder="Open">
                                             </div>
                                         </form>
-                                    </div>
+                                    </div> -->
                                 </div>
-                            </div> -->
+                            </div>
                         </div>
                     </div>
                     <!-- form design end with accordion -->
@@ -292,5 +385,6 @@
     <script src="assets/js/datatables.js"></script>
     <script src="assets/js/datatables.min.js"></script>
     <script src="./assets/js/global.js"></script>   
+    <script src="./assets/js/swap-value.js"></script>
 </body>
 </html>
