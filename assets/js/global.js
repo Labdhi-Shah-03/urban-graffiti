@@ -271,124 +271,39 @@ $(document).ready(function() {
 
     // // Add event listener for scroll
     // $(window).on('scroll', toggleStickyClass);
-
-    // pagination start
-    // $(function() {
-    //     const rowsPerPage = 3;
-    //     const rows = $('table tbody tr');
-    //     const rowsCount = rows.length;
-    //     const pageCount = Math.ceil(rowsCount / rowsPerPage); // avoid decimals
-    //     const numbers = $('#numbers');
-    //     const prevButton = $('#prev');
-    //     const nextButton = $('#next');
-    
-    //     // Generate the pagination.
-    //     for (let i = 0; i < pageCount; i++) {
-    //         numbers.append('<li><a href="#">' + (i+1) + '</a></li>');
-    //     }
-    
-    //     // Mark the first page link as active.
-    //     $('#numbers li:first-child a').addClass('active');
-    
-    //     // Display the first set of rows.
-    //     displayRows(1);
-    
-    //     // On pagination click.
-    //     $('#numbers li a').click(function(e) {
-    //         e.preventDefault();
-    //         const $this = $(this);
-            
-    //         // Remove the active class from the links.
-    //         $('#numbers li a').removeClass('active');
-            
-    //         // Add the active class to the current link.
-    //         $this.addClass('active');
-            
-    //         // Show the rows corresponding to the clicked page ID.
-    //         displayRows(parseInt($this.text()));
-    //     });
-    
-    //     // On previous button click.
-    //     prevButton.click(function(e) {
-    //         e.preventDefault();
-    //         const currentPage = parseInt($('#numbers li a.active').text());
-    //         if (currentPage > 1) {
-    //             displayRows(currentPage - 1);
-    //             $('#numbers li a.active').removeClass('active').parent().prev().find('a').addClass('active');
-    //         }
-    //     });
-    
-    //     // On next button click.
-    //     nextButton.click(function(e) {
-    //         e.preventDefault();
-    //         const currentPage = parseInt($('#numbers li a.active').text());
-    //         if (currentPage < pageCount) {
-    //             displayRows(currentPage + 1);
-    //             $('#numbers li a.active').removeClass('active').parent().next().find('a').addClass('active');
-    //         }
-    //     });
-    
-    //     // Function that displays rows for a specific page.
-    //     function displayRows(index) {
-    //         const start = (index - 1) * rowsPerPage;
-    //         const end = start + rowsPerPage;
-    
-    //         // Hide all rows.
-    //         rows.hide();
-            
-    //         // Show the proper rows for this page.
-    //         rows.slice(start, end).show();
-    
-    //         // Update visibility of previous and next buttons
-    //         if (index === 1) {
-    //             prevButton.hide();
-    //         } else {
-    //             prevButton.show();
-    //         }
-    
-    //         if (index === pageCount) {
-    //             nextButton.hide();
-    //         } else {
-    //             nextButton.show();
-    //         }
-    //     }
-    // });    
-
-        // $(document).ready(function() {
-        //     $('table').DataTable();
-        // } );
 });
 
-new DataTable('table', {
-    // Options
-    // paging: false,
-    info: false,
-    // filter: false,
-    ordering: false,
-    searching: false,
-    // Paging type
-    lengthMenu: [5, 10, 15, 25, { label: 'All', value: -1 }],
-    // responsive: true,
-    layout: {
-        topEnd: {
-            search: {
-                placeholder: 'Search Keywords...'
-            }
-        },
-        bottomEnd: {
-            paging: {
-                type: 'full_numbers',
-                // boundaryNumbers: false,
-            }
-        }
-    },
-    language: {
-        entries: {
-            _: 'Users ',
-        }
-    }
+// datatable snippet
+// new DataTable('table', {
+//     // Options
+//     // paging: false,
+//     info: false,
+//     // filter: false,
+//     ordering: false,
+//     searching: false,
+//     // Paging type
+//     lengthMenu: [5, 10, 15, 25, { label: 'All', value: -1 }],
+//     // responsive: true,
+//     layout: {
+//         topEnd: {
+//             search: {
+//                 placeholder: 'Search Keywords...'
+//             }
+//         },
+//         bottomEnd: {
+//             paging: {
+//                 type: 'full_numbers',
+//                 // boundaryNumbers: false,
+//             }
+//         }
+//     },
+//     language: {
+//         entries: {
+//             _: 'Users ',
+//         }
+//     }
 
-});
+// });
 
 document.addEventListener("DOMContentLoaded", function() {
     const collapsedArrow = document.getElementById('collapsed-arrow');
@@ -491,4 +406,83 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+
+
+// pagination
+
+
+const ulTag = document.querySelector(".pagination ul");
+
+function pagination(totalPages, page) {
+  let liTag = "";
+  let beforePage = page - 1; //4
+  let afterPage = page + 1; //5
+  let activeLi = "";
+  let totalP = totalPages;
+  // if page is greater than 1  then show the prev button
+  // display prev button
+  if (page > 1) {
+    liTag += `<li class="btn prev"onClick="pagination(${totalP}, ${page - 1})">
+                <span>
+                Prev
+                </span>
+              </li>`;
+  }
+
+  //add page one if there is more than 2 pages
+  if (page > 2) {
+    liTag += `        <li class="num " onClick="pagination(${totalPages}, ${1})"><span>1</span></li>
+    `;
+    //add dots   if there is more than 3 pages
+
+    if (page > 3) {
+      liTag += `        <li class="dots"><span>...</span></li>
+      `;
+    }
+  }
+  if (page == totalPages) {
+    beforePage = beforePage - 2;
+  } else if (page == totalPages - 1) {
+    beforePage = beforePage - 1;
+  }
+  if (page == 1) {
+    afterPage = afterPage + 2;
+  } else if (page == totalPages - 1) {
+    afterPage = afterPage + 1;
+  }
+  // display prev page and current page and after page
+  for (let pageNum = beforePage; pageNum <= afterPage; pageNum++) {
+    if (pageNum > totalPages) {
+      continue;
+    }
+    if (pageNum == 0) {
+      // pageNum = pageNum + 1;
+      continue;
+    }
+    page == pageNum ? (activeLi = "active") : (activeLi = "");
+
+    liTag += `<li class="num ${activeLi}" onClick="pagination(${totalPages}, ${pageNum})"><span>${pageNum}</span></li>`;
+    //4 5 6
+  }
+
+  // display next button
+  //add page one if there is more than 2 pages
+  if (page < totalPages - 1) {
+    //add dots   if there is more than 3 pages
+    if (page < totalPages - 2) {
+      liTag += `<li class="dots"><span>...</span></li>`;
+    }
+    liTag += `<li class="num " onClick="pagination(${totalPages}, ${totalPages})"><span>${totalPages}</span></li>`;
+  }
+
+  if (page < totalPages) {
+    liTag += `<li class="btn next"onClick="pagination(${totalP}, ${page + 1})">
+  <span>Next</span>
+</li>`;
+  }
+
+  ulTag.innerHTML = liTag;
+}
+pagination(100, 1);
+
 
