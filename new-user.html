@@ -225,47 +225,81 @@
                                 </div>
                                 <div class="accordion-content-box">
                                     <div class="accordion-sub-box-title">
-                                        <form action="" class="form">
-                                            <div class="form-group">
-                                                <label for="firstName" class="label">First Name</label>
-                                                <input type="text" name="" id="firstName" placeholder="Tamara">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="lastName" class="label">Last Name</label>
-                                                <input type="text" name="" id="lastName" placeholder="Lezama">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="email" class="label">Email</label>
-                                                <input type="email" name="" id="email" placeholder="tamaralezama@145.ca.us">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="phoneNumber" class="label">Phone Number</label>
-                                                <input type="number" name="" id="phoneNumber" placeholder="(714) 990-7695">
-                                            </div>
-                                            <div class="form-group form-group-filled">
-                                                <label for="userName" class="label">Username</label>
-                                                <input type="text" name="" id="userName" placeholder="Tamara Le123">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="password" class="label">Enter New Password</label>
-                                                <input type="password" name="" id="password" placeholder="-">
-                                            </div>
-                                            <div class="form-group form-group-halfwidth">
-                                                <label for="newPassword">Confirm New Password</label>
-                                                <input type="password" id="newPassword" placeholder="-">
-                                            </div>
-                                            <div class="form-group form-group-halfwidth">
-                                                <label for="navigation">Horizontal Navigation</label>
-                                                <select name="" id="navigation">
-                                                    <option value="Yes">Yes</option>
-                                                    <option value="No">No</option>
-                                                    <option value="Other">Other</option>
-                                                </select>
-                                            </div>
-                                        </form>
+                                        <!-- <div class="permission-selection-div">
+                                            <ul class="selection-list">
+                                                <li class="selection-item">
+                                                    <input type="checkbox" name="" id="permission-select-main" class="input-checkbox">
+                                                    <label for="permission-select-main" class="permission-label">Tech Application</label>
+                                                </li>
+                                            </ul>
+                                            <ul class="selection-list">
+                                                <li class="selection-item">
+                                                    <input type="checkbox" name="" id="permission-select-system" class="input-checkbox">
+                                                    <label for="permission-select-system" class="permission-label">System</label>
+                                                    <ul class="selection-list selection-list-dropdown">
+                                                        <li class="selection-item">
+                                                            <input type="checkbox" name="" id="permission-select-dashboard" class="input-checkbox input-sub-checkbox">
+                                                            <label for="permission-select-dashboard" class="permission-label">Dashboard</label>
+                                                        </li>
+                                                        <li class="selection-item">
+                                                            <input type="checkbox" name="" id="permission-select-agencies" class="input-checkbox input-sub-checkbox">
+                                                            <label for="permission-select-agencies" class="permission-label">Agencies</label>
+                                                        </li>
+                                                        <li class="selection-item">
+                                                            <input type="checkbox" name="" id="permission-select-work-orders" class="input-checkbox input-sub-checkbox">
+                                                            <label for="permission-select-work-orders" class="permission-label">Work Orders</label>
+                                                            <ul class="selection-list selection-list-subdropdown">
+                                                                <li class="selection-item">
+                                                                    <input type="checkbox" name="" id="permission-select-graffiti" class="input-checkbox input-sub-checkbox">
+                                                                    <label for="permission-select-graffiti" class="permission-label">Graffiti</label>
+                                                                </li>
+                                                                <li class="selection-item">
+                                                                    <input type="checkbox" name="" id="permission-select-transit" class="input-checkbox input-sub-checkbox">
+                                                                    <label for="permission-select-transit" class="permission-label">Transit</label>
+                                                                </li>
+                                                                <li class="selection-item">
+                                                                    <input type="checkbox" name="" id="permission-select-public" class="input-checkbox input-sub-checkbox">
+                                                                    <label for="permission-select-public" class="permission-label">Public</label>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                        <li class="selection-item">
+                                                            <input type="checkbox" name="" id="permission-select-service-routes" class="input-checkbox input-sub-checkbox">
+                                                            <label for="permission-select-service-routes" class="permission-label">Service Routes</label>
+                                                        </li>
+                                                        <li class="selection-item">
+                                                            <input type="checkbox" name="" id="permission-select-admin" class="input-checkbox input-sub-checkbox">
+                                                            <label for="permission-select-admin" class="permission-label">Admin</label>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </div> -->
+
+                                        <div class="permission-selection-div">
+                                            <ul class="tree" id="tree">
+                                                <li class="selection-item"><input type="checkbox" class="input-checkbox" name="tech-app">Tech Application</li>
+                                                <li class="selection-item"><input type="checkbox" class="input-checkbox" name="system">System <!-- AND SHOULD CHECK HERE -->
+                                                    <ul class="selection-list selection-list-dropdown">
+                                                        <li class="selection-item"><input type="checkbox" class="input-checkbox" name="dashboard">Dashboard</li>
+                                                        <li class="selection-item"><input type="checkbox" class="input-checkbox" name="agencies">Agencies</li>
+                                                        <li class="selection-item"><input type="checkbox" class="input-checkbox" name="work-orders">Work Orders <!-- SHOULD CHECK HERE -->
+                                                            <ul class="selection-list selection-list-subdropdown">
+                                                                <li class="selection-item"><input type="checkbox" class="input-checkbox" name="graffiti">Graffiti</li>
+                                                                <li class="selection-item"><input type="checkbox" class="input-checkbox" name="transit">Transit</li>
+                                                                <li class="selection-item"><input type="checkbox" class="input-checkbox" name="Public">Public</li> <!-- CHECK HERE -->
+                                                            </ul>
+                                                        </li>
+                                                        <li class="selection-item"><input type="checkbox" class="input-checkbox" name="service-routes">Service Routes</li>
+                                                        <li class="selection-item"><input type="checkbox" class="input-checkbox" name="admin">Admin</li>
+                                                    </ul>
+                                                </li>
+                                                
+                                            </ul>
+                                        </div>
+
                                         <div class="edit-button-div">
                                             <a href="javascript:void(0)" title="Cancel" class="btn-cta btn-cta-cancel">Cancel</a>
-                                            <a href="javascript:void(0)" title="Save" class="btn-cta btn-cta-save">Save</a>
                                         </div>
                                     </div>
                                 </div>

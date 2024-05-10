@@ -236,7 +236,7 @@ img {
   outline: 0;
   margin-bottom: 10px;
   height: 48px;
-  min-width: max-content;
+  min-width: auto;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1497,7 +1497,7 @@ table input[type=checkbox]:checked::before{
   padding-left: 7px;
   margin-left: 7px;
 }
-.table tbody td.contracts-td ul li + .pagination li::before{
+.table tbody td.contracts-td ul li + li::before{
   content: '';
   position: absolute;
   background-color: var(--dashboard-fonts-primary);
@@ -2076,6 +2076,38 @@ div.dt-container div.dt-paging{
   z-index: 1;
 }
 /* swap values design end */
+
+/* data filter select start */
+.data-filter-select label{
+  display: block;
+}
+.data-filter-select select{
+  cursor: pointer;
+  max-width: 110px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+
+}
+/* data filter select end */
+
+/* permission checkbox select design start */
+.permission-selection-div ul li{
+  padding: 12px 10px;
+}
+.permission-selection-div .selection-list.selection-list-dropdown, .permission-selection-div .selection-list.selection-list-subdropdown{
+  padding-left: 30px;
+  margin-top: 12px;
+}
+.permission-selection-div .selection-list.selection-list-dropdown li:last-child, .permission-selection-div .selection-list.selection-list-subdropdown li:last-child{
+  padding-bottom: 0;
+}
+.permission-selection-div input[type=checkbox] ~ label {
+  margin-left: 6px;
+}
+.permission-selection-div input[type=checkbox]{
+  margin-right: 8px;
+}
+/* permission checkbox select design end */
 
 @media (max-width: 1199px){
   .filter-container .filter-wrapper .filter-box{

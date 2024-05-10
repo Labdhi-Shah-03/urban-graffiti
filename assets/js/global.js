@@ -271,6 +271,18 @@ $(document).ready(function() {
 
     // // Add event listener for scroll
     // $(window).on('scroll', toggleStickyClass);
+
+
+    // Add click event listener to each checkbox
+    $('#tree input[type=checkbox]').click(function(){
+        // children checkboxes depend on current checkbox
+        $(this).next().find('input[type=checkbox]').prop('checked',this.checked);
+
+        // go up the hierarchy - and check/uncheck depending on number of children checked/unchecked
+        $(this).parents('ul').prev('input[type=checkbox]').prop('checked',function(){
+            return $(this).next().find(':checked').length;
+        });
+    });
 });
 
 // datatable snippet
@@ -484,5 +496,10 @@ function pagination(totalPages, page) {
   ulTag.innerHTML = liTag;
 }
 pagination(100, 1);
+
+
+// permission selection checkbox
+// Get header checkbox and all checkboxes inside dropdowns
+
 
 
