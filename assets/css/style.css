@@ -1220,8 +1220,22 @@ input[type=checkbox]:checked::before{
 .form .form-group .date-picker{
   background-image: url(../images/calender.svg);
   background-position: calc(100% - 12px);
-  background-size: 24px 24px;
+  background-size: 20px 20px;
   background-repeat: no-repeat;
+}
+.form .form-group .phone-field{
+  background-image: url(../images/phone.svg);
+  background-position: calc(100% - 12px);
+  background-size: 20px 20px;
+  background-repeat: no-repeat;
+}
+.form .form-group .phone-field::-webkit-inner-spin-button, .form .form-group .phone-field::-webkit-outer-spin-button{
+  -webkit-appearance: none; 
+  margin: 0;
+}
+.form .form-group .phone-field:hover{
+  appearance: none;
+  -moz-appearance: none;
 }
 /* Work Order design end */
 
@@ -2268,6 +2282,10 @@ div.dt-container div.dt-paging{
 }
 
 @media (max-width: 991px){
+  .form .form-group, .form .form-group.form-group.form-group-halfwidth{
+    max-width: 100%;
+    flex: 0 0 100%;
+  }
   .dashboard-detailed-section .form-layout .form-field label{
     max-width: auto;
     flex: auto;

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Urban Graffiti Dashboard</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="icon" type="image/ico" href="./assets/images/urban-graffiti.ico">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css"/>
+    <!-- select 2 link -->
+    <link rel="stylesheet" href="assets/css/select2.min.css" />
+    <link rel="stylesheet" href="assets/css/select2-bootstrap-5-theme.min.css" />
+    <!-- <link rel="stylesheet" href="assets/css/datatables.css">
+    <link rel="stylesheet" href="assets/css/datatables.min.css"> -->
+    <link rel="stylesheet" href="assets/css/style.css"/>
+</head>
+<body class="order-dashboard">
+    <div class="work-order-section d-flex" id="work-order">
+        <nav class="side-navbar">
+            <div class="nav-top d-flex align-items-center">
+                <div class="nav-logo d-flex align-items-center flex-grow-1">
+                    <a href="javascript:void(0)" title="Urban Graffiti" class="logo d-flex align-items-center">
+                        <img src="./assets/images/urban-graffiti-logo.svg" alt="Urban Graffiti" title="Urban Graffiti" width="40" height="40" class="logo-img">
+                        <p class="nav-title">Urban Graffiti</p>
+                    </a>
+                </div>
+                <div class="nav-back-arrow">
+                    <img src="./assets/images/left-circle-arrow.svg" alt="BacK" title="Back" width="24" height="24" class="collapsed-arrow" id="collapsed-arrow">
+                    <img src="./assets/images/hamburger-menu.svg" alt="Menu" title="Menu" width="24" height="24" class="menu-arrow" id="menu-arrow">
+                </div>
+            </div>
+            <div class="nav-bottom">
+                <ul class="nav-list">
+                    <li class="nav-items">
+                        <a href="javascript:void(0)" class="nav-links d-flex align-items-center" title="Dashboard">
+                            <img src="./assets/images/home.svg" alt="Dashboard" title="Dashboard" width="20" height="20" class="list-icons">
+                            <span class="flex-grow-1">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-items nav-items-sub-dropdown">
+                        <a href="javascript:void(0)" class="nav-links d-flex align-items-center" title="Agency" id="work-orders-trigger">
+                            <img src="./assets/images/file-plus.svg" alt="Agency" title="Agency" width="20" height="20" class="list-icons">
+                            <span class="flex-grow-1">Agency</span>
+                            <img src="./assets/images/chevron-light-grey.svg" alt="Work Orders" title="Work Orders" width="20" height="20" class="dropdown-arrow">
+                        </a>
+                        <ul class="nav-list-dropdown">
+                            <li class="dropdown-list">
+                                <a href="./account.html" title="Account">Account</a>
+                            </li>
+                            <li class="dropdown-list">
+                                <a href="javascript:void(0)" title="Users">Users</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-items nav-items-sub-dropdown">
+                        <a href="javascript:void(0)" class="nav-links d-flex align-items-center" title="Work Orders" id="work-orders-trigger">
+                            <img src="./assets/images/briefcase.svg" alt="Work Orders" title="Work Orders" width="20" height="20" class="list-icons">
+                            <span class="flex-grow-1">Work Orders</span>
+                            <img src="./assets/images/chevron-light-grey.svg" alt="Work Orders" title="Work Orders" width="20" height="20" class="dropdown-arrow">
+                        </a>
+                        <ul class="nav-list-dropdown">
+                            <li class="dropdown-list">
+                                <a href="javascript:void(0)" title="Graffiti">Graffiti</a>
+                            </li>
+                            <li class="dropdown-list">
+                                <a href="javascript:void(0)" title="Transit">Transit</a>
+                            </li>
+                            <li class="dropdown-list">
+                                <a href="javascript:void(0)" title="Public"> Public</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-items nav-items-sub-dropdown">
+                        <a href="javascript:void(0)" class="nav-links d-flex align-items-center" title="Service Routes" id="work-orders-trigger">
+                            <img src="./assets/images/server.svg" alt="Service Routes" title="Service Routes" width="20" height="20" class="list-icons">
+                            <span class="flex-grow-1">Service Routes</span>
+                        </a>
+                    </li>
+                    <li class="nav-items nav-items-sub-dropdown">
+                        <a href="javascript:void(0)" class="nav-links d-flex align-items-center" title="Admin" id="work-orders-trigger">
+                            <img src="./assets/images/user.svg" alt="Admin" title="Admin" width="20" height="20" class="list-icons">
+                            <span class="flex-grow-1">Admin</span>
+                            <img src="./assets/images/chevron-light-grey.svg" alt="Work Orders" title="Work Orders" width="20" height="20" class="dropdown-arrow">
+                        </a>
+                        <ul class="nav-list-dropdown">
+                            <li class="dropdown-list">
+                                <a href="./admin-user.html" title="Users">Users</a>
+                            </li>
+                            <li class="dropdown-list">
+                                <a href="./admin-service.html" title="Services">Services</a>
+                            </li>
+                            <li class="dropdown-list">
+                                <a href="javascript:void(0)" title="Surfaces">Surfaces</a>
+                            </li>
+                            <li class="dropdown-list">
+                                <a href="javascript:void(0)" title="Emails">Emails</a>
+                            </li>
+                            <li class="dropdown-list">
+                                <a href="javascript:void(0)" title="Reports">Reports</a>
+                            </li>
+                            <li class="dropdown-list">
+                                <a href="javascript:void(0)" title="Trash">Trash</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <section class="dashboard-wrapper user-detailed-section flex-grow-1">
+            <div class="dashboard-topbar sticky d-flex align-items-center">
+                <div class="topbar-logo">
+                    <a href="javascript:void(0)" title="Urban Graffiti" class="logo d-flex align-items-center">
+                        <img src="./assets/images/urban-graffiti-logo.svg" alt="Urban Graffiti" title="Urban Graffiti" width="40" height="40" class="logo-img">
+                        <h1 class="nav-title">Urban Graffiti</h1>
+                    </a>
+                </div>
+                <div class="profile-wrapper d-flex align-items-center justify-content-end flex-grow-1">
+                    <div class="tool-box rotate-image">
+                        <img src="./assets/images/settings.svg" alt="Settings" title="Settings" width="20" height="20" class="tool-box-image">
+                    </div>
+                    <div class="tool-box bell-anim">
+                        <img src="./assets/images/bell.svg" alt="Notification" title="Notificaion" width="20" height="20" class="tool-box-image">
+                    </div>
+                    <div class="user-profile-box d-flex align-items-center">
+                        <div class="user-avatar">
+                            <img src="./assets/images/Avatar.png" alt="User" title="User" width="40" height="40" class="user-image">
+                        </div>
+                        <div class="user-info flex-grow-1">
+                            <p class="user-name">John Doe</p>
+                            <span class="user-title">Premium User</span>
+                        </div>
+                        <div class="user-dropdown">
+                            <img src="./assets/images/chevron-grey.svg" alt="Profile" title="Profile" width="24" height="24">
+                        </div>
+                        <ul class="profile-dropdown-list">
+                            <li class="profile-dropdown-list-item">
+                                <a href="javascript:void(0)" title="Profile">Profile</a>
+                            </li>
+                            <li class="profile-dropdown-list-item">
+                                <a href="javascript:void(0)" title="Settings">Advanced Settings</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="dashboard-detailed-section">
+                <div class="detail-section-wrapper detail-sub-page-section">
+                    <div class="breadcrumb-container order-title d-flex align-items-center">
+                        <nav class="breadcrumb-wrapper">
+                            <ol class="breadcrumb-list">
+                                <li class="breadcrumb-item">
+                                    <a href="javascript:void(0)" class="breadcrumb-link" title="Accounts">Accounts</a>
+                                </li>
+                                <li class="breadcrumb-item">
+                                    <a href="javascript:void(0)" class="breadcrumb-link" title="Brea">Brea</a>
+                                </li>
+                                <li class="breadcrumb-item current">New Contract</li>
+                            </ol>
+                        </nav>
+                    </div>
+                   
+                     <!-- form design start with accordion -->
+                     <div class="expandable-section">
+                        <div class="accordion-wrapper">
+                            <div class="accordion-box order-details-accordion new-zone-expand-div">
+                                <div class="accordion-inner-box accordion-inner-wrapper">
+                                    <h3 class="child-heading-title">New Contract</h3>
+                                    <div class="accordion-arrow">
+                                        <img src="./assets/images/chevron-default.svg" alt="Order Details" title="Order Details" width="24" height="24">
+                                    </div>
+                                </div>
+
+                                <div class="accordion-content-box">
+                                    <div class="accordion-sub-box-title">
+                                        <form action="" class="form">
+                                            <div class="form-group">
+                                                <label for="accountName" class="label">Account Name</label>
+                                                <input type="text" name="" id="accountName" placeholder="Account Name">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="contractType">Contract Type</label>
+                                                <select name="" id="contractType">
+                                                    <option value="Graffiti">Graffiti</option>
+                                                    <option value="Brea Graffiti">Brea Graffiti</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="hotspotRoute" class="label">Hotspot Route</label>
+                                                <select name="" id="hotspotRoute">
+                                                    <option value="Graffiti">Graffiti</option>
+                                                    <option value="Brea Graffiti">Brea Graffiti</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="contractName" class="label">Contract Name</label>
+                                                <input type="text" name="" id="contractName" placeholder="Contract Name">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="contractCode" class="label">Contract Code</label>
+                                                <input type="text" name="" id="contractCode" placeholder="Contract Code">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="serviceSchedule" class="label">Service Schedule</label>
+                                                <input type="text" name="" id="serviceSchedule" placeholder="">
+                                            </div>
+                                            <div class="form-group form-group-halfwidth">
+                                                <label for="datepicker">Start Date</label>
+                                                <input type="datetime" id="datepicker" class="date-picker" placeholder="Select date">
+                                            </div>
+                                            <div class="form-group form-group-halfwidth">
+                                                <label for="datepicker">End Date</label>
+                                                <input type="datetime" id="datepicker" class="date-picker" placeholder="Select date">
+                                            </div>
+                                            <div class="form-group form-group-fullwidth">
+                                                <label for="completionDays" class="label">Completion Days</label>
+                                                <input type="text" name="" id="completionDays" placeholder="">
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+
+                                <div class="accordion-sub-box map-details-section-acc">
+                                    <div class="accordion-sub-box-title">
+                                        <div class="acordion-subtitle">
+                                            <img src="./assets/images/contract-user.svg" alt="Contact" title="Contact" width="24" height="24">
+                                            <h4 class="sub-child-heading">Contact Details:</h4>
+                                        </div>
+                                        <div class="accordion-arrow">
+                                            <img src="./assets/images/chevron-default.svg" alt="Order Details" title="Order Details" width="24" height="24">
+                                        </div>
+                                    </div>
+                                    <div class="form-wrapper">
+                                        <form action="" class="form">
+                                            <div class="form-group">
+                                                <label for="firstName" class="label">First Name</label>
+                                                <input type="text" name="" id="firstName" placeholder="First Name">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="lastName" class="label">Last Name</label>
+                                                <input type="text" name="" id="lastName" placeholder="Last Name">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="department" class="label">Department</label>
+                                                <input type="text" name="" id="department" placeholder="Department">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="title" class="label">Title</label>
+                                                <input type="text" name="" id="title" placeholder="Title">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="email" class="label">Email</label>
+                                                <input type="email" name="" id="email" placeholder="Email">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="phone" class="label">Phone Number</label>
+                                                <input type="number" name="" id="phone" placeholder="Phone Number" class="phone-field">
+                                            </div>
+                                            <div class="form-group form-group-fullwidth">
+                                                <label for="extension" class="label">Extension</label>
+                                                <input type="text" name="" id="extension" placeholder="Extension">
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="edit-button-div">
+                                        <a href="javascript:void(0)" title="Cancel" class="btn-cta btn-cta-cancel">Cancel</a>
+                                        <a href="javascript:void(0)" title="Save Contract" class="btn-cta btn-cta-save">Save Contract</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- form design end with accordion -->
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- script link -->
+    <script src="assets/js/jquery-3.7.1.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/select2.min.js"></script>
+    <!-- <script src="assets/js/datatables.js"></script>
+    <script src="assets/js/datatables.min.js"></script> -->
+    <script src="./assets/js/global.js"></script>   
+</body>
+</html>
