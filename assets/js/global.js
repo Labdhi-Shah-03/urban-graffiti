@@ -138,7 +138,6 @@ $(document).ready(function() {
     //     $(".accordion-sub-box").not($(this).next()).slideUp('fast');
     // });
 
-    // Toggle sub-structure elements when clicking on main-structure elements
     // Add click event listener to .accordion-inner-box to toggle .accordion-sub-box
     $('.accordion-wrapper .accordion-box .accordion-inner-box').click(function(e) {
         e.preventDefault(); // Prevent the default action of the anchor tag
@@ -182,13 +181,18 @@ $(document).ready(function() {
         e.stopPropagation(); // Prevent event from bubbling up
     });
 
-    // // Close .accordion-sub-box and remove active class when clicking outside of it
-    // $(document).click(function(event) {
-    //     if (!$(event.target).closest('.accordion-box').length) {
-    //         $('.accordion-sub-box').slideUp().removeClass('active');
-    //         $('.accordion-inner-box').removeClass('active');
-    //     }
-    // });
+    // Open the first accordion and its sibling by adding the "active" class
+    $('.accordion-wrapper .accordion-box:first .accordion-inner-box').addClass('active');
+    $('.accordion-wrapper .accordion-box:first .accordion-sub-box').slideDown();
+    $('.accordion-wrapper .accordion-box:first').next().css('display', 'block');
+    
+    // Open only the first accordion-content-box
+    $('.accordion-content-box:first').css('display', 'block');
+    
+    // Open the form wrapper of the first accordion-sub-box if it's not a sibling to accordion-content-box
+    if (!$('.accordion-content-box:first').next().hasClass('accordion-sub-box')) {
+        $('.accordion-wrapper .accordion-box:first .accordion-sub-box:first .form-wrapper').slideDown();
+    }
 
 
     // accordion when click on inner-box and opens content-box for new user page
@@ -281,6 +285,16 @@ $(document).ready(function() {
         // go up the hierarchy - and check/uncheck depending on number of children checked/unchecked
         $(this).parents('ul').prev('input[type=checkbox]').prop('checked',function(){
             return $(this).next().find(':checked').length;
+        });
+    });
+
+    // select 2 js snippet
+    $('#serviceSchedule').each(function () {
+        $(this).select2({
+          theme: 'bootstrap-5',
+          width: 'style',
+          placeholder: $(this).attr('placeholder'),
+          allowClear: Boolean($(this).data('allow-clear')),
         });
     });
 });
