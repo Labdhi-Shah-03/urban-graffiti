@@ -8,6 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="icon" type="image/ico" href="./assets/images/urban-graffiti.ico">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css"/>
+    <!-- Bootstrap Datepicker CSS -->
+    <link rel="stylesheet" href="assets/css/bootstrap-datepicker.min.css">
+     <!-- Bootstrap Datetimepicker CSS
+     <link rel="stylesheet" href="assets/css/bootstrap-datetimepicker.min.css"> -->
     <!-- select 2 link -->
     <link rel="stylesheet" href="assets/css/select2.min.css" />
     <link rel="stylesheet" href="assets/css/select2-bootstrap-5-theme.min.css" />
@@ -177,46 +181,54 @@
                                         <form action="" class="form">
                                             <div class="form-group">
                                                 <label for="accountName" class="label">Account Name</label>
-                                                <input type="text" name="" id="accountName" placeholder="Account Name">
+                                                <input type="text" name="" id="accountName" placeholder="Account Name" class="required">
                                             </div>
                                             <div class="form-group">
                                                 <label for="contractType">Contract Type</label>
-                                                <select name="" id="contractType">
+                                                <select name="" id="contractType" class="required">
                                                     <option value="Graffiti">Graffiti</option>
                                                     <option value="Brea Graffiti">Brea Graffiti</option>
                                                 </select>
                                             </div>
                                             <div class="form-group">
                                                 <label for="hotspotRoute" class="label">Hotspot Route</label>
-                                                <select name="" id="hotspotRoute">
+                                                <select name="" id="hotspotRoute" class="required">
                                                     <option value="Graffiti">Graffiti</option>
                                                     <option value="Brea Graffiti">Brea Graffiti</option>
                                                 </select>
                                             </div>
                                             <div class="form-group">
                                                 <label for="contractName" class="label">Contract Name</label>
-                                                <input type="text" name="" id="contractName" placeholder="Contract Name">
+                                                <input type="text" name="" id="contractName" placeholder="Contract Name" class="required">
                                             </div>
                                             <div class="form-group">
                                                 <label for="contractCode" class="label">Contract Code</label>
-                                                <input type="text" name="" id="contractCode" placeholder="Contract Code">
+                                                <input type="text" name="" id="contractCode" placeholder="Contract Code" class="required">
                                             </div>
                                             <div class="form-group">
                                                 <label for="serviceSchedule" class="label">Service Schedule</label>
-                                                <input type="text" name="" id="serviceSchedule" placeholder="">
+                                                <select multiple placeholder="Choose Services" data-allow-clear="1" id="serviceSchedule" class="required">
+                                                    <option>HTML</option>
+                                                    <option>CSS</option>
+                                                    <option>JavaScript</option>
+                                                    <option>PHP</option>
+                                                    <option>MySQL</option>
+                                                </select>
                                             </div>
                                             <div class="form-group form-group-halfwidth">
-                                                <label for="datepicker">Start Date</label>
-                                                <input type="datetime" id="datepicker" class="date-picker" placeholder="Select date">
+                                                <label for="startDate">Start Date</label>
+                                                <input type="text" class="date-picker required" id="startDate" placeholder="Select Start Date" class="required">
                                             </div>
                                             <div class="form-group form-group-halfwidth">
-                                                <label for="datepicker">End Date</label>
-                                                <input type="datetime" id="datepicker" class="date-picker" placeholder="Select date">
+                                                <label for="endDate">End Date:</label>
+                                                <input type="text" class="date-picker required" id="endDate" placeholder="Select End Date" class="required">
                                             </div>
                                             <div class="form-group form-group-fullwidth">
                                                 <label for="completionDays" class="label">Completion Days</label>
-                                                <input type="text" name="" id="completionDays" placeholder="">
+                                                <input type="text" name="" id="completionDays" placeholder="" class="required">
                                             </div>
+                                            <!-- Error messages -->
+                                            <div class="error-message" style="display:none;"></div>
                                         </form>
                                     </div>
                                 </div>
@@ -235,37 +247,39 @@
                                         <form action="" class="form">
                                             <div class="form-group">
                                                 <label for="firstName" class="label">First Name</label>
-                                                <input type="text" name="" id="firstName" placeholder="First Name">
+                                                <input type="text" name="" id="firstName" placeholder="First Name" class="required">
                                             </div>
                                             <div class="form-group">
                                                 <label for="lastName" class="label">Last Name</label>
-                                                <input type="text" name="" id="lastName" placeholder="Last Name">
+                                                <input type="text" name="" id="lastName" placeholder="Last Name" class="required">
                                             </div>
                                             <div class="form-group">
                                                 <label for="department" class="label">Department</label>
-                                                <input type="text" name="" id="department" placeholder="Department">
+                                                <input type="text" name="" id="department" placeholder="Department" class="required">
                                             </div>
                                             <div class="form-group">
                                                 <label for="title" class="label">Title</label>
-                                                <input type="text" name="" id="title" placeholder="Title">
+                                                <input type="text" name="" id="title" placeholder="Title" class="required">
                                             </div>
                                             <div class="form-group">
                                                 <label for="email" class="label">Email</label>
-                                                <input type="email" name="" id="email" placeholder="Email">
+                                                <input type="email" name="" id="email" placeholder="Email" class="required">
                                             </div>
                                             <div class="form-group">
                                                 <label for="phone" class="label">Phone Number</label>
-                                                <input type="number" name="" id="phone" placeholder="Phone Number" class="phone-field">
+                                                <input type="number" name="" id="phone" placeholder="Phone Number" class="phone-field required">
                                             </div>
                                             <div class="form-group form-group-fullwidth">
                                                 <label for="extension" class="label">Extension</label>
-                                                <input type="text" name="" id="extension" placeholder="Extension">
+                                                <input type="text" name="" id="extension" placeholder="Extension" class="required">
                                             </div>
+                                            <!-- Error messages -->
+                                            <div class="error-message" style="display:none;"></div>
                                         </form>
                                     </div>
                                     <div class="edit-button-div">
                                         <a href="javascript:void(0)" title="Cancel" class="btn-cta btn-cta-cancel">Cancel</a>
-                                        <a href="javascript:void(0)" title="Save Contract" class="btn-cta btn-cta-save">Save Contract</a>
+                                        <a href="javascript:void(0)" title="Save Contract" class="btn-cta btn-cta-save" id="save-button">Save Contract</a>
                                     </div>
                                 </div>
                             </div>
@@ -280,6 +294,11 @@
     <!-- script link -->
     <script src="assets/js/jquery-3.7.1.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
+    <!-- Bootstrap Datepicker JS -->
+    <script src="assets/js/bootstrap-datepicker.min.js"></script>
+    <!-- Bootstrap Datetimepicker JS
+    <script src="assets/js/moment.min.js"></script>
+    <script src="assets/js/bootstrap-datetimepicker.min.js"></script> -->
     <script src="assets/js/select2.min.js"></script>
     <!-- <script src="assets/js/datatables.js"></script>
     <script src="assets/js/datatables.min.js"></script> -->

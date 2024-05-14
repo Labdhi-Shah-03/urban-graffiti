@@ -160,20 +160,20 @@ $(document).ready(function() {
 
         // Remove active class from .accordion-sub-box
         $('.accordion-sub-box').removeClass('active');
+
+        // Remove active class from all .acordion-subtitle elements if they don't have active class
+        $('.acordion-subtitle').not('.active').removeClass('active');
     });
 
-    // Add click event listener to .accordion-sub-box to toggle .form-wrapper and apply active class
-    $('.accordion-wrapper .accordion-box .accordion-sub-box').click(function(e) {
+    // Add click event listener to .accordion-sub-box-title to toggle .form-wrapper and apply active class
+    $('.accordion-wrapper .accordion-box .accordion-sub-box-title').click(function(e) {
         e.stopPropagation(); // Prevent event from bubbling up to .accordion-inner-box
-        
-        // Toggle active class on clicked .accordion-sub-box
-        $(this).toggleClass('active');
 
-        // Remove active class from all other .accordion-sub-box elements
-        $('.accordion-sub-box').not(this).removeClass('active');
+        // Toggle active class on .acordion-subtitle
+        $(this).find('.acordion-subtitle').toggleClass('active');
 
         // Toggle (show/hide) the .form-wrapper
-        $(this).find('.form-wrapper').slideToggle();
+        $(this).siblings('.form-wrapper').slideToggle();
     });
 
     // Prevent closing of form wrapper when clicking inside it
@@ -182,9 +182,10 @@ $(document).ready(function() {
     });
 
     // Open the first accordion and its sibling by adding the "active" class
-    $('.accordion-wrapper .accordion-box:first .accordion-inner-box').addClass('active');
-    $('.accordion-wrapper .accordion-box:first .accordion-sub-box').slideDown();
-    $('.accordion-wrapper .accordion-box:first').next().css('display', 'block');
+    var $firstAccordion = $('.accordion-wrapper .accordion-box:first');
+    $firstAccordion.find('.accordion-inner-box').addClass('active');
+    $firstAccordion.find('.accordion-sub-box').slideDown();
+    $firstAccordion.next().css('display', 'block');
     
     // Open only the first accordion-content-box
     $('.accordion-content-box:first').css('display', 'block');
@@ -194,88 +195,90 @@ $(document).ready(function() {
         $('.accordion-wrapper .accordion-box:first .accordion-sub-box:first .form-wrapper').slideDown();
     }
 
+    // Toggle active class on .acordion-subtitle if the first accordion-sub-box is open by default
+    if ($firstAccordion.find('.accordion-sub-box:first').is(':visible')) {
+        $firstAccordion.find('.accordion-sub-box-title:first .acordion-subtitle').toggleClass('active');
+    }
 
     // accordion when click on inner-box and opens content-box for new user page
     $('.accordion-inner-box').click(function() {
         var contentBox = $(this).next('.accordion-content-box');
         $('.accordion-content-box').not(contentBox).slideUp();
         contentBox.slideToggle();
-        $('.accordion-content-box').not(contentBox).removeClass('active');
-        contentBox.toggleClass('active');
     });
 
+    // Remove active class from .acordion-subtitle when clicking on another .accordion-inner-box
+    $('.accordion-inner-box').click(function() {
+        var $currentInnerBox = $(this);
+        $('.accordion-inner-box').not($currentInnerBox).each(function() {
+            var $siblingAccordionSubtitle = $(this).siblings('.accordion-sub-box').find('.acordion-subtitle');
+            if ($siblingAccordionSubtitle.hasClass('active')) {
+                $siblingAccordionSubtitle.removeClass('active');
+            }
+        });
+    });
+    // ####### //
 
-    // // images upload functionality
-    //    // Initialize Slick Slider for the main image
-    // $('.main-slider').slick({
-    //     slidesToShow: 1,
-    //     slidesToScroll: 1,
-    //     arrows: true,
-    //     fade: false,
-    //     asNavFor: '.thumbnail-slider'
-    // });
-  
-    //   // Initialize Slick Slider for the thumbnail carousel
-    // $('.thumbnail-slider').slick({
-    //     slidesToShow: 3,
-    //     slidesToScroll: 1,
-    //     asNavFor: '.main-slider',
-    //     dots: false,
-    //     centerMode: true,
-    //     focusOnSelect: true
-    // });
-  
-    //   // Click event for zoom icons
-    // $('.zoom-icon').on('click', function() {
-    //     var imageSrc = $(this).data('image');
-    //     openPopup(imageSrc);
-    // });
 
-    // zoom functionality
-    //full screen view
-    $('.zoom-icon').click(function(e){
+   // Validate form fields when clicking on "Save Contract" button
+    $('#save-button').click(function(e) {
         e.preventDefault();
 
-        // Click event for Full Screen
-        $('.upload-image-box').removeClass('card-full-screen');
-        
-        $(this).closest('.upload-image-box').addClass('card-full-screen');
+        var $form = $(this).closest('.accordion-box').find('form');
+        var isValid = true;
 
-        // Add overlay class to the body
-        $('body').addClass('overlay-class-view');
+        // Loop through each form field and validate
+        $form.find('.required').each(function() {
+            if ($(this).val() === '') {
+                $(this).addClass('error');
+                isValid = false;
+            } else {
+                $(this).removeClass('error');
+            }
+        });
 
-        // // Smooth scroll to the top of the body
-        // $('html, body').animate({
-        //     scrollTop: 0
-        // }, .5);
-    })
-
-     // Click event for Full Screen Close
-     $('.full-view-close').click(function(e) {
-        e.preventDefault(); // Prevent default behavior of anchor tag
-        
-        $(this).closest('.upload-image-box').removeClass('card-full-screen');
-
-        // Remove overlay class from the body
-        $('body').removeClass('overlay-class-view');
+        // If any required field is blank, show error messages
+        if (!isValid) {
+            $form.find('.error-message').text('Please fill in all required fields.').slideDown();
+        } else {
+            $form.find('.error-message').slideUp();
+        }
     });
 
+    // Add event listener for input fields to remove error class on typing
+    $('.accordion-box form .required').not('.date-picker').on('input', function() {
+        var $form = $(this).closest('form');
+        if ($(this).val() !== '') {
+            $(this).removeClass('error');
+            checkAllFieldsFilled($form); // Check if all fields are filled whenever a field is updated
+        }
+    });
 
-    // Define the scroll threshold
-    var scrollThreshold = 120; // Adjust this value as needed
-    
-    // // Function to add or remove the sticky class based on scroll position
-    // function toggleStickyClass() {
-    //     if ($(window).scrollTop() >= scrollThreshold) {
-    //         $('.work-order-section').addClass('sticky');
-    //     } else {
-    //         $('.work-order-section').removeClass('sticky');
-    //     }
-    // }
+    // Add event listener for date fields to remove error class on value change
+    $('.accordion-box form .required.date-picker').on('change', function() {
+        var $form = $(this).closest('form');
+        if ($(this).val() !== '') {
+            $(this).removeClass('error');
+            checkAllFieldsFilled($form); // Check if all fields are filled whenever a field is updated
+        }
+    });
 
-    // // Add event listener for scroll
-    // $(window).on('scroll', toggleStickyClass);
+    // Function to check if all required fields are filled for a specific form
+    function checkAllFieldsFilled($form) {
+        var allFilled = true;
+        $form.find('.required').each(function() {
+            if ($(this).val() === '') {
+                allFilled = false;
+                return false; // Exit the loop early if any field is not filled
+            }
+        });
 
+        if (allFilled) {
+            $form.find('.error-message').slideUp(); // Slide up error message if all fields are filled
+        }
+    }
+
+    // ####### //
 
     // Add click event listener to each checkbox
     $('#tree input[type=checkbox]').click(function(){
@@ -297,6 +300,66 @@ $(document).ready(function() {
           allowClear: Boolean($(this).data('allow-clear')),
         });
     });
+
+    // date picker snippet
+    $('#startDate').datepicker({
+        format: 'mm/dd/yyyy',
+        autoclose: true,
+        todayHighlight: true
+    });
+
+    $('#endDate').datepicker({
+        format: 'mm/dd/yyyy',
+        autoclose: true,
+        todayHighlight: true
+    });
+
+
+    // // validate the form fields and slide down to its next sibiling that shows that this form is still left
+    //    // Function to validate the first form
+    //    function validateFirstForm() {
+    //     var isValid = true;
+    //     $('#contract-form .required').each(function() {
+    //         if ($.trim($(this).val()).length === 0) {
+    //             isValid = false;
+    //             // Display error message
+    //             $(this).next('.error-message').text('This field is required').show();
+    //         }
+    //     });
+    //     return isValid;
+    // }
+
+    // // Function to validate the second form
+    // function validateSecondForm() {
+    //     var isValid = true;
+    //     $('#contact-form .required').each(function() {
+    //         if ($.trim($(this).val()).length === 0) {
+    //             isValid = false;
+    //             // Display error message
+    //             $(this).next('.error-message').text('This field is required').show();
+    //         }
+    //     });
+    //     return isValid;
+    // }
+
+    // // Function to slide down the second form wrapper
+    // function slideDownFormWrapper() {
+    //     $('.form-wrapper').slideDown();
+    // }
+
+    // // Event listener for Save Contract button
+    // $('#save-button').click(function(event) {
+    //     event.preventDefault(); // Prevent form submission
+    //     // Validate first form
+    //     var isFirstFormValid = validateFirstForm();
+    //     if (isFirstFormValid) {
+    //         // Slide down form wrapper
+    //         slideDownFormWrapper();
+    //         // Validate second form
+    //         var isSecondFormValid = validateSecondForm();
+    //         // You can perform further actions here based on the validation result of the second form
+    //     }
+    // });
 });
 
 // datatable snippet
@@ -346,14 +409,6 @@ document.addEventListener("DOMContentLoaded", function() {
         workOrderSection.classList.remove('sidebar-collapsed');
     });
 });
-
-// $(document).ready(function () {
-//     $("#datepicker").flatpickr({
-//         enableTime: true, // Enable time selection
-//         dateFormat: "d/m/Y H:i", // Date and time format
-//         defaultDate: "today" // Set default time to current time
-//     });
-// });
 
 // select input checkbox that will apply class on targeted tr
 document.addEventListener("DOMContentLoaded", function () {
@@ -435,8 +490,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 // pagination
-
-
 const ulTag = document.querySelector(".pagination ul");
 
 function pagination(totalPages, page) {
@@ -510,10 +563,6 @@ function pagination(totalPages, page) {
   ulTag.innerHTML = liTag;
 }
 pagination(100, 1);
-
-
-// permission selection checkbox
-// Get header checkbox and all checkboxes inside dropdowns
 
 
 
