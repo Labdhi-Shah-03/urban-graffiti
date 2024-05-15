@@ -174,19 +174,21 @@
                                         <form action="" class="form">
                                             <div class="form-group form-group-fullwidth">
                                                 <label for="accountName" class="label">Account Name</label>
-                                                <input type="text" name="" id="accountName" placeholder="Account Name">
+                                                <input type="text" name="" id="accountName" placeholder="Account Name" class="required">
                                             </div>
                                             <div class="form-group form-group-fullwidth">
                                                 <label for="contract">Contract</label>
-                                                <select name="" id="contract">
+                                                <select name="" id="contract" class="required">
                                                     <option value="Select Contract">Select Contract</option>
                                                     <option value="Brea Graffiti">Brea Graffiti</option>
                                                 </select>
                                             </div>
                                             <div class="form-group form-group-fullwidth">
                                                 <label for="zoneName" class="label">Zone Name</label>
-                                                <input type="text" name="" id="zoneName" placeholder="Zone Name">
+                                                <input type="text" name="" id="zoneName" placeholder="Zone Name" class="required">
                                             </div>
+                                             <!-- Error messages -->
+                                             <div class="error-message" style="display:none;"></div>
                                         </form>
                                     </div>
                                 </div>
@@ -208,7 +210,7 @@
                                     </div>
                                     <div class="edit-button-div">
                                         <a href="javascript:void(0)" title="Cancel" class="btn-cta btn-cta-cancel">Cancel</a>
-                                        <a href="javascript:void(0)" title="Save Zone" class="btn-cta btn-cta-save">Save Zone</a>
+                                        <a href="javascript:void(0)" title="Save Zone" class="btn-cta btn-cta-save" id="save-button">Save Zone</a>
                                     </div>
                                 </div>
                             </div>

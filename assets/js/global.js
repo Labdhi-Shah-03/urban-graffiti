@@ -219,32 +219,76 @@ $(document).ready(function() {
     });
     // ####### //
 
-
-   // Validate form fields when clicking on "Save Contract" button
-    $('#save-button').click(function(e) {
+    // user information validation start
+    $('#save-user-button').click(function(e) {
         e.preventDefault();
-
-        var $form = $(this).closest('.accordion-box').find('form');
-        var isValid = true;
-
-        // Loop through each form field and validate
-        $form.find('.required').each(function() {
+    
+        // Remove any existing error messages and error classes
+        $('.required').removeClass('error');
+        $('.error-message').empty().hide();
+    
+        // Check for empty required fields
+        var hasErrors = false;
+        $('.required').each(function() {
             if ($(this).val() === '') {
                 $(this).addClass('error');
-                isValid = false;
-            } else {
-                $(this).removeClass('error');
+                hasErrors = true;
             }
         });
-
-        // If any required field is blank, show error messages
-        if (!isValid) {
-            $form.find('.error-message').text('Please fill in all required fields.').slideDown();
+    
+        // Show error messages at the bottom in the error-message div
+        if (hasErrors) {
+            $('.error-message').html('Please fill in all required fields.').slideDown();
         } else {
-            $form.find('.error-message').slideUp();
+            $('.error-message').slideUp();
         }
+    
+        // Open accordion-content-box with active class if it contains form with empty required fields
+        $('.accordion-box').each(function() {
+            var $accordionContentBox = $(this).find('.accordion-content-box');
+            var $form = $accordionContentBox.find('form');
+            if ($form.length > 0 && $form.find('.required.error').length > 0) {
+                $(this).addClass('active');
+                $accordionContentBox.slideDown();
+                $(this).find('.accordion-inner-box').addClass('active'); // Add active class to accordion-inner-box
+            }
+        });
     });
+    // ##### //
 
+
+    // Validate form fields when clicking on "Save Contract" button
+    $('#save-button').click(function(e) {
+        e.preventDefault();
+    
+        var $accordionBox = $(this).closest('.accordion-box');
+    
+        // Find all forms within the accordion box
+        $accordionBox.find('form').each(function() {
+            var $form = $(this);
+            var isValid = true;
+    
+            // Loop through each form field and validate
+            $form.find('.required').each(function() {
+                if ($(this).val() === '') {
+                    $(this).addClass('error');
+                    isValid = false;
+                } else {
+                    $(this).removeClass('error');
+                }
+            });
+    
+            // If any required field is blank, show error messages
+            if (!isValid) {
+                $form.find('.error-message').text('Please fill in all required fields.').slideDown();
+                // Slide down the form wrapper if any required field has the error class applied
+                openFormWrapper($accordionBox, true);
+            } else {
+                $form.find('.error-message').slideUp();
+            }
+        });
+    });
+    
     // Add event listener for input fields to remove error class on typing
     $('.accordion-box form .required').not('.date-picker').on('input', function() {
         var $form = $(this).closest('form');
@@ -253,7 +297,7 @@ $(document).ready(function() {
             checkAllFieldsFilled($form); // Check if all fields are filled whenever a field is updated
         }
     });
-
+    
     // Add event listener for date fields to remove error class on value change
     $('.accordion-box form .required.date-picker').on('change', function() {
         var $form = $(this).closest('form');
@@ -262,7 +306,7 @@ $(document).ready(function() {
             checkAllFieldsFilled($form); // Check if all fields are filled whenever a field is updated
         }
     });
-
+    
     // Function to check if all required fields are filled for a specific form
     function checkAllFieldsFilled($form) {
         var allFilled = true;
@@ -272,12 +316,23 @@ $(document).ready(function() {
                 return false; // Exit the loop early if any field is not filled
             }
         });
-
+    
         if (allFilled) {
             $form.find('.error-message').slideUp(); // Slide up error message if all fields are filled
+            openFormWrapper($form.closest('.accordion-sub-box'), false);
         }
     }
-
+    
+    // Function to open form wrapper if all required fields are filled or if there are errors
+    function openFormWrapper($accordionSubBox, hasErrors) {
+        var $formWrapper = $accordionSubBox.find('.form-wrapper');
+        if ($formWrapper.find('form').length > 0) { // Check if form wrapper contains form elements
+            if (hasErrors || $formWrapper.find('.required.error').length > 0) {
+                $formWrapper.slideDown();
+                $accordionSubBox.find('.acordion-subtitle').addClass('active');
+            }
+        }
+    }
     // ####### //
 
     // Add click event listener to each checkbox
@@ -314,52 +369,6 @@ $(document).ready(function() {
         todayHighlight: true
     });
 
-
-    // // validate the form fields and slide down to its next sibiling that shows that this form is still left
-    //    // Function to validate the first form
-    //    function validateFirstForm() {
-    //     var isValid = true;
-    //     $('#contract-form .required').each(function() {
-    //         if ($.trim($(this).val()).length === 0) {
-    //             isValid = false;
-    //             // Display error message
-    //             $(this).next('.error-message').text('This field is required').show();
-    //         }
-    //     });
-    //     return isValid;
-    // }
-
-    // // Function to validate the second form
-    // function validateSecondForm() {
-    //     var isValid = true;
-    //     $('#contact-form .required').each(function() {
-    //         if ($.trim($(this).val()).length === 0) {
-    //             isValid = false;
-    //             // Display error message
-    //             $(this).next('.error-message').text('This field is required').show();
-    //         }
-    //     });
-    //     return isValid;
-    // }
-
-    // // Function to slide down the second form wrapper
-    // function slideDownFormWrapper() {
-    //     $('.form-wrapper').slideDown();
-    // }
-
-    // // Event listener for Save Contract button
-    // $('#save-button').click(function(event) {
-    //     event.preventDefault(); // Prevent form submission
-    //     // Validate first form
-    //     var isFirstFormValid = validateFirstForm();
-    //     if (isFirstFormValid) {
-    //         // Slide down form wrapper
-    //         slideDownFormWrapper();
-    //         // Validate second form
-    //         var isSecondFormValid = validateSecondForm();
-    //         // You can perform further actions here based on the validation result of the second form
-    //     }
-    // });
 });
 
 // datatable snippet
@@ -393,6 +402,35 @@ $(document).ready(function() {
 //     }
 
 // });
+
+// modal popup
+document.getElementById('openModalBtn').onclick = function() {
+    var modal = document.getElementById('myModal');
+    modal.classList.remove('fadeOut');
+    modal.style.display = "block";
+    document.body.classList.add('modal-open'); // Add class to body when modal is opened
+}
+
+document.getElementById('closeModalBtn').onclick = function() {
+    var modal = document.getElementById('myModal');
+    modal.classList.add('fadeOut');
+    setTimeout(function() {
+        modal.style.display = "none";
+        document.body.classList.remove('modal-open'); // Remove class from body when modal is closed
+    }, 400); // 400ms - duration of animation
+}
+
+window.onclick = function(event) {
+    var modal = document.getElementById('myModal');
+    if (event.target == modal) {
+        modal.classList.add('fadeOut');
+        setTimeout(function() {
+            modal.style.display = "none";
+            document.body.classList.remove('modal-open'); // Remove class from body when modal is closed
+        }, 400); // 400ms - duration of animation
+    }
+}
+
 
 document.addEventListener("DOMContentLoaded", function() {
     const collapsedArrow = document.getElementById('collapsed-arrow');

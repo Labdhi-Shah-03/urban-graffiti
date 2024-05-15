@@ -165,8 +165,8 @@
                         </nav>
                     </div>
                    
-                     <!-- form design start with accordion -->
-                     <div class="expandable-section">
+                    <!-- form design start with accordion -->
+                    <div class="expandable-section">
                         <div class="accordion-wrapper">
                             <div class="accordion-box order-details-accordion new-zone-expand-div">
                                 <div class="accordion-inner-box accordion-inner-wrapper">
@@ -278,7 +278,7 @@
                                         </form>
                                     </div>
                                     <div class="edit-button-div">
-                                        <a href="javascript:void(0)" title="Cancel" class="btn-cta btn-cta-cancel">Cancel</a>
+                                        <a href="javascript:void(0)" title="Cancel" class="btn-cta btn-cta-cancel" id="openModalBtn">Cancel</a>
                                         <a href="javascript:void(0)" title="Save Contract" class="btn-cta btn-cta-save" id="save-button">Save Contract</a>
                                     </div>
                                 </div>
@@ -286,6 +286,27 @@
                         </div>
                     </div>
                     <!-- form design end with accordion -->
+
+                    <!-- Modal -->
+                    <div id="myModal" class="modal">
+                        <div class="modal-content">
+                            <div class="modal-body">
+                                <span id="closeModalBtn" class="close">&times;</span>
+                                <div class="modal-wrapper">
+                                    <div class="icon-wrapper">
+                                        <img src="./assets/images/alert-triangle.svg" alt="Alert" title="Alert" width="24" height="24" class="modal-icon">
+                                    </div>
+                                    <h5 class="child-heading">Unsaved Changes</h5>
+                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Porro, nobis?</p>
+                                    <div class="modal-btn-wrapper">
+                                        <a href="javascript:void(0)" title="Discard" class="btn-cta modal-cta">Discard</a>
+                                        <a href="javascript:void(0)" title="Discard" class="btn-cta btn-cta-save modal-cta">Save Changes</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Modal -->
                 </div>
             </div>
         </section>
