@@ -1,16 +1,4 @@
 $(document).ready(function() {
-    // for only single dropdown
-    // $('.nav-items-sub-dropdown .nav-links').click(function(){
-    //     // Check if the sidebar is collapsed
-    //     if (!$('#work-order').hasClass('sidebar-collapsed')) {
-    //         // Toggle visibility of the dropdown
-    //         $(this).siblings('.nav-list-dropdown').slideToggle();
-            
-    //         // Toggle active class
-    //         $(this).toggleClass('active');
-    //     }
-    // });
-
     // for multiple dropdown with collapsed sidebar
     $('.nav-items-sub-dropdown .nav-links').click(function(){
         // Check if the sidebar is collapsed
@@ -25,26 +13,6 @@ $(document).ready(function() {
             $(this).toggleClass('active');
         }
     });
-
-    // // for multiple dropdowns (for accordion content box)
-    // $('.accordion-inner-box').click(function(){
-    //     // Check if the clicked accordion-inner-box is active
-    //     var isActive = $(this).hasClass("active");
-        
-    //     // Remove active class from all accordion-inner-boxes
-    //     $('.accordion-inner-box').removeClass('active');
-        
-    //     // Toggle active class for the clicked accordion-inner-box
-    //     if (!isActive) {
-    //         $(this).addClass('active');
-    //     }
-        
-    //     // Toggle the visibility of the next accordion content box
-    //     $(this).next('.accordion-content-box').slideToggle();
-        
-    //     // Hide the other accordion content boxes
-    //     $(".accordion-content-box").not($(this).next('.accordion-content-box')).slideUp();
-    // });
 
 
     // for user profile dropdown
@@ -369,67 +337,34 @@ $(document).ready(function() {
         todayHighlight: true
     });
 
-});
+    // modal popup
+    $('#openModalBtn').click(function() {
+        var modal = $('#myModal');
+        modal.removeClass('fadeOut');
+        modal.css('display', 'block');
+        $('body').addClass('modal-open');
+    });
 
-// datatable snippet
-// new DataTable('table', {
-//     // Options
-//     // paging: false,
-//     info: false,
-//     // filter: false,
-//     ordering: false,
-//     searching: false,
-//     // Paging type
-//     lengthMenu: [5, 10, 15, 25, { label: 'All', value: -1 }],
-//     // responsive: true,
-//     layout: {
-//         topEnd: {
-//             search: {
-//                 placeholder: 'Search Keywords...'
-//             }
-//         },
-//         bottomEnd: {
-//             paging: {
-//                 type: 'full_numbers',
-//                 // boundaryNumbers: false,
-//             }
-//         }
-//     },
-//     language: {
-//         entries: {
-//             _: 'Users ',
-//         }
-//     }
-
-// });
-
-// modal popup
-document.getElementById('openModalBtn').onclick = function() {
-    var modal = document.getElementById('myModal');
-    modal.classList.remove('fadeOut');
-    modal.style.display = "block";
-    document.body.classList.add('modal-open'); // Add class to body when modal is opened
-}
-
-document.getElementById('closeModalBtn').onclick = function() {
-    var modal = document.getElementById('myModal');
-    modal.classList.add('fadeOut');
-    setTimeout(function() {
-        modal.style.display = "none";
-        document.body.classList.remove('modal-open'); // Remove class from body when modal is closed
-    }, 400); // 400ms - duration of animation
-}
-
-window.onclick = function(event) {
-    var modal = document.getElementById('myModal');
-    if (event.target == modal) {
-        modal.classList.add('fadeOut');
+    $('#closeModalBtn').click(function() {
+        var modal = $('#myModal');
+        modal.addClass('fadeOut');
         setTimeout(function() {
-            modal.style.display = "none";
-            document.body.classList.remove('modal-open'); // Remove class from body when modal is closed
+            modal.css('display', 'none');
+            $('body').removeClass('modal-open');
         }, 400); // 400ms - duration of animation
-    }
-}
+    });
+
+    $(window).click(function(event) {
+        var modal = $('#myModal');
+        if (event.target == modal[0]) {
+            modal.addClass('fadeOut');
+            setTimeout(function() {
+                modal.css('display', 'none');
+                $('body').removeClass('modal-open');
+            }, 400); // 400ms - duration of animation
+        }
+    });
+});
 
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -450,16 +385,16 @@ document.addEventListener("DOMContentLoaded", function() {
 
 // select input checkbox that will apply class on targeted tr
 document.addEventListener("DOMContentLoaded", function () {
-    // Get all the checkboxes with the class 'table-input-checkbox' in the body
     var checkboxes = document.querySelectorAll('.users-details .table-input-checkbox');
-
-    // Get the header checkbox
-    var headerCheckbox = document.querySelector('thead .table-input-checkbox');
-
-    // Get the header tr element
+    var headerCheckbox = document.getElementById('select-all-header');
     var headerTr = document.querySelector('thead tr');
+    var editPanel = document.querySelector('.edit-panel');
 
-    // Function to update header checkbox state based on body checkboxes
+    if (!headerCheckbox) {
+        console.error("Header checkbox not found. Make sure your HTML structure is correct.");
+        return; // Exit the function if headerCheckbox is null
+    }
+
     function updateHeaderCheckboxState() {
         var anyChecked = false;
         checkboxes.forEach(function (checkbox) {
@@ -468,56 +403,48 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
         headerCheckbox.checked = anyChecked;
-        // Add or remove class from header tr based on header checkbox state
         if (headerCheckbox.checked) {
             headerTr.classList.add('selected');
+            editPanel.style.display = 'block'; // Show the edit panel when any checkbox is checked
         } else {
             headerTr.classList.remove('selected');
+            editPanel.style.display = 'none'; // Hide the edit panel when all checkboxes are unchecked
         }
     }
 
-    // Add event listener to each checkbox in the body
     checkboxes.forEach(function (checkbox) {
         checkbox.addEventListener('change', function () {
-            // Get the parent tr element of the checkbox
             var parentTr = this.closest('.tr_list');
-
-            // If the checkbox is checked
             if (this.checked) {
-                // Add a class to the parent tr
                 parentTr.classList.add('selected');
+                editPanel.style.display = 'block'; // Show the edit panel when any checkbox is checked
             } else {
-                // Remove the class from the parent tr
                 parentTr.classList.remove('selected');
+                // Check if any checkbox is still checked
+                var anyChecked = Array.from(checkboxes).some(function (checkbox) {
+                    return checkbox.checked;
+                });
+                if (!anyChecked) {
+                    editPanel.style.display = 'none'; // Hide the edit panel when all checkboxes are unchecked
+                }
             }
-
-            // Update the state of the header checkbox
             updateHeaderCheckboxState();
         });
     });
 
-    // Add event listener to the header checkbox
     headerCheckbox.addEventListener('change', function () {
         var isChecked = headerCheckbox.checked;
-
-        // Update the state of all body checkboxes based on the header checkbox
         checkboxes.forEach(function (checkbox) {
             checkbox.checked = isChecked;
-
-            // Get the parent tr element of the checkbox
             var parentTr = checkbox.closest('.tr_list');
-
-            // If the checkbox is checked
             if (isChecked) {
-                // Add a class to the parent tr
                 parentTr.classList.add('selected');
+                editPanel.style.display = 'block'; // Show the edit panel when header checkbox is checked
             } else {
-                // Remove the class from the parent tr
                 parentTr.classList.remove('selected');
+                editPanel.style.display = 'none'; // Hide the edit panel when header checkbox is unchecked
             }
         });
-
-        // Add or remove class from header tr based on header checkbox state
         if (isChecked) {
             headerTr.classList.add('selected');
         } else {
@@ -525,6 +452,8 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+
+
 
 
 // pagination
@@ -600,7 +529,4 @@ function pagination(totalPages, page) {
 
   ulTag.innerHTML = liTag;
 }
-pagination(100, 1);
-
-
-
+pagination(100, 1); 
