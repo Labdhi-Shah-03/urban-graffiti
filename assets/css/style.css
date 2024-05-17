@@ -111,24 +111,20 @@ body {
 
 /* custom scrollbar */
 body::-webkit-scrollbar {
-  width: 5px;
+  width: 14px;
 }
 
 /* Track */
 body::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px grey; 
-  border-radius: 10px;
+  box-shadow: inset 0 0 14px 14px transparent;
+  border: solid 5px transparent;
 }
  
 /* Handle */
 body::-webkit-scrollbar-thumb {
-  background: var(--dark-grey-bg); 
   border-radius: 10px;
-}
-
-/* Handle on hover */
-body::-webkit-scrollbar-thumb:hover {
-  background: var(--dark-grey-bg); 
+  box-shadow: inset 0 0 14px 14px #919FB6;
+  border: solid 5px transparent;
 }
 
 h1, .heading-title{
@@ -373,7 +369,7 @@ select:visited, select:focus, select:active {
   outline: 0;
 }
 
-input{
+input, select{
   height: 56px;
 }
 
@@ -1276,13 +1272,14 @@ input[type=checkbox]:checked::before{
 
 /* Track */
 .table-wrapper::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px grey; 
+  /* box-shadow: inset 0 0 5px grey;  */
+  box-shadow: inset 0 0 7px #eee6e6;
   border-radius: 10px;
 }
  
 /* Handle */
 .table-wrapper::-webkit-scrollbar-thumb {
-  background: var(--dark-grey-bg); 
+  background: var(--grey-placeholder); 
   border-radius: 10px;
 }
 
@@ -1299,13 +1296,14 @@ input[type=checkbox]:checked::before{
 
 /* Track */
 .table-wrapper .row:nth-child(2) > div.col-12::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px grey; 
+  /* box-shadow: inset 0 0 5px grey;  */
+  box-shadow: inset 0 0 7px #eee6e6;
   border-radius: 10px;
 }
  
 /* Handle */
 .table-wrapper .row:nth-child(2) > div.col-12::-webkit-scrollbar-thumb {
-  background: var(--dark-grey-bg); 
+  background: var(--grey-placeholder); 
   border-radius: 10px;
 }
 
@@ -1399,8 +1397,8 @@ table input[type=checkbox]:checked::before{
   border-bottom: 1px solid var(--border-color-dasboard);
   border-bottom-color: var(--border-color-dasboard);
   padding: 15px 15px 15px 0;
-  font-size: var(--primary-font-size);
-  line-height: var(--primary-line-height);
+  font-size: var(--secondary-font-size);
+  line-height: var(--secondary-line-height);
   font-family: var(--font-family);
   font-weight: var(--font-weight-bold);
   color: var(--accordion-text-color);
@@ -1771,18 +1769,16 @@ div.dt-container div.dt-paging{
   overflow: auto;
 }
 .filter-wrapper .filter-box .filter-inner-box-wrapper::-webkit-scrollbar {
-  width: 5px;
+  width: 14px;
 }
 .filter-wrapper .filter-box .filter-inner-box-wrapper::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px grey; 
-  border-radius: 10px;
+  box-shadow: inset 0 0 14px 14px transparent;
+  border: solid 5px transparent;
 }
 .filter-wrapper .filter-box .filter-inner-box-wrapper::-webkit-scrollbar-thumb {
-  background: var(--dark-grey-bg); 
   border-radius: 10px;
-}
-.filter-wrapper .filter-box .filter-inner-box-wrapper::-webkit-scrollbar-thumb:hover {
-  background: var(--dark-grey-bg); 
+  box-shadow: inset 0 0 14px 14px #919FB6;
+  border: solid 5px transparent;
 }
 .filter-wrapper .filter-box .box-title{
   display: flex;
@@ -2254,24 +2250,20 @@ div.dt-container div.dt-paging{
 }
 /* custom scrollbar */
 .select2-results__options::-webkit-scrollbar {
-  width: 5px;
+  width: 14px;
 }
 
 /* Track */
 .select2-results__options::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px rgb(182, 182, 182); 
-  border-radius: 10px;
+  box-shadow: inset 0 0 14px 14px transparent;
+  border: solid 5px transparent;
 }
  
 /* Handle */
 .select2-results__options::-webkit-scrollbar-thumb {
-  background: var(--dark-grey-bg); 
   border-radius: 10px;
-}
-
-/* Handle on hover */
-.select2-results__options::-webkit-scrollbar-thumb:hover {
-  background: var(--dark-grey-bg); 
+  box-shadow: inset 0 0 14px 14px #919FB6;
+  border: solid 5px transparent;
 }
 
 /* edit panel work order page start */
@@ -2348,6 +2340,9 @@ div.dt-container div.dt-paging{
   line-height: var(--secondary-line-height);
   font-weight: var(--font-weight-bold);
   color: var(--white);
+  display: block;
+  position: relative;
+  transition: all .3s ease-in;
 }
 .edit-panel .select-panel-box .panel-listing .tools-icon{
   position: relative;
@@ -2363,13 +2358,33 @@ div.dt-container div.dt-paging{
   height: 18px;
   vertical-align: middle;
   right: 0;
-  top: -1px;
+  top: 0;
+  will-change: transform;
+  transition: all .3s ease-in;
 }
 .edit-panel .select-panel-box .panel-listing .tool-edit-icon::after{
   background-image: url('../images/edit-icon.svg');
 }
 .edit-panel .select-panel-box .panel-listing .tool-download-icon::after{
   background-image: url('../images/download-icon.svg');
+}
+.edit-panel .select-panel-box .panel-listing li a.tools-icon:hover::after{
+  transform: scale(0.8);
+}
+.edit-panel .select-panel-box .panel-listing li a.cancel-link:after {   
+  bottom: 0;
+  content: "";
+  display: block;
+  height: 1.5px;
+  left: 50%;
+  position: absolute;
+  background: #fff;
+  transition: width 0.3s ease-in 0s, left 0.3s ease-in 0s;
+  width: 0;
+}
+.edit-panel .select-panel-box .panel-listing li a.cancel-link:hover:after { 
+  width: 100%; 
+  left: 0; 
 }
 
 /* list button design */
@@ -2635,6 +2650,7 @@ div.dt-container div.dt-paging{
   color: var(--dashboard-fonts-primary);
   border: 1px solid var(--border-color-dasboard);
   margin-top: 10px;
+  box-shadow: 0px 8px 25px 0px rgba(0, 0, 0, 0.102);
 }
 .datepicker-dropdown::before, .datepicker-dropdown::after{
   display: none;
@@ -2736,25 +2752,129 @@ body.modal-open{
   animation-name: fadeIn;
   animation-duration: 0.4s;
 }
-
-.confirmation-modal .modal-content {
-  position: fixed;
+.modal-dialog{
+  margin: 0 1rem;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 0;
+}
+@media (min-width: 576px) {
+  .modal-dialog {
+      max-width: 500px;
+      margin: auto;
+  }
+}
+.modal-content{
+  /* position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); */
   background-color: var(--white);
   border: 1px solid var(--border-color-dasboard);
+  border-radius: 12px;
+  box-shadow: 0px 20px 24px -4px rgba(16, 24, 40, 0.078);
+  animation-name: zoomFadeIn;
+  animation-duration: 0.4s;
+}
+
+.modal .modal-header{
+  position: sticky;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: var(--white);
+  z-index: 1;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+  padding: 24px;
+}
+.modal .modal-header .modal-title{
+  font-family: var(--font-family);
+  font-size: 18px;
+  line-height: 26px;
+  color: var(--dashboard-fonts-primary);
+  font-weight: var(--font-weight-bold);
+}
+.modal .modal-body{
+  max-height: 480px;
+  overflow: auto;
+  padding: 20px 24px 0;
+}
+.modal-footer{
+  justify-content: space-between;
+  flex-wrap: wrap;
+  position: sticky;
+  width: 100%;
+  left: 0;
+  background-color: #fff;
+  z-index: 1;
+  border-bottom-left-radius: inherit;
+  border-bottom-right-radius: inherit;
+  padding: 24px 24px 14px 24px;
+}
+.modal-footer a{
+  margin: 0 0 10px 0;
+  max-width: calc(50% - 10px);
+  flex: 0 0 calc(50% - 10px);
+}
+.modal .modal-body form .form-group{
+  max-width: 100%;
+  flex: 0 0 100%;
+}
+
+/* custom scrollbar */
+.modal .modal-body::-webkit-scrollbar {
+  /* width: 5px; */
+  width: 14px;
+}
+
+/* Track */
+.modal .modal-body::-webkit-scrollbar-track {
+  /* box-shadow: inset 0 0 7px #eee6e6; */
+  box-shadow: inset 0 0 14px 14px transparent;
+  border: solid 5px transparent;
+}
+ 
+/* Handle */
+.modal .modal-body::-webkit-scrollbar-thumb {
+  /* background: var(--grey-placeholder); 
+  border-radius: 10px; */
+  border-radius: 10px;
+  box-shadow: inset 0 0 14px 14px #919FB6;
+  border: solid 5px transparent;
+}
+
+.close {
+  color: var(--grey-placeholder);
+  position: absolute;
+  font-size: 28px;
+  font-weight: var(--font-weight-bold);
+  font-family: var(--font-family);
+  right: 24px;
+  top: 24px;
+  transition: all .3s ease-in;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: var(--dashboard-fonts-primary);
+  text-decoration: none;
+  cursor: pointer;
+  transition: all .3s ease-in;
+}
+
+.confirmation-modal .modal-content {
   max-width: 400px;
   width: 100%;
-  /* max-height: 300px; */
   min-height: 240px;
-  border-radius: 12px;
-  /* min-height: 50vh; Set minimum height to 70% of viewport height */
-  /* box-shadow: 0px 8px 8px -4px rgba(16, 24, 40, 0.031); */
-  box-shadow: 0px 20px 24px -4px rgba(16, 24, 40, 0.078);
-  animation-name: slideIn;
-  animation-duration: 0.4s;
   overflow: auto;
+}
+.confirmation-modal .modal .modal-body{
+  max-height: auto;
+  padding: 0;
 }
 
 /* custom scrollbar */
@@ -2764,13 +2884,14 @@ body.modal-open{
 
 /* Track */
 .confirmation-modal .modal-content::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px grey; 
+  /* box-shadow: inset 0 0 5px grey;  */
+  box-shadow: inset 0 0 7px #eee6e6;
   border-radius: 10px;
 }
  
 /* Handle */
 .confirmation-modal .modal-content::-webkit-scrollbar-thumb {
-  background: var(--dark-grey-bg); 
+  background: var(--grey-placeholder); 
   border-radius: 10px;
 }
 
@@ -2810,6 +2931,7 @@ body.modal-open{
   border-radius: 50%;
   position: relative;
   margin: 0 auto 20px;
+  z-index: 0;
 }
 .confirmation-modal .icon-wrapper:hover{
   cursor: pointer;
@@ -2833,16 +2955,6 @@ body.modal-open{
 .confirmation-modal .icon-wrapper::before{
   background-color: rgb(191, 158, 59, 0.6);
   animation-delay: -0.5s;
-}
-@keyframes grow{
-  0%{
-      transform: scale(1,1);
-      opacity: 1;
-  }
-  100%{
-      transform: scale(1.8,1.8);
-      opacity: 0;
-  }
 }
 
 .confirmation-modal .modal-wrapper .child-heading{
@@ -2876,40 +2988,36 @@ body.modal-open{
   margin: 10px 0 0 0;
 }
 
-.close {
-  color: var(--grey-placeholder);
-  position: absolute;
-  font-size: 28px;
-  font-weight: var(--font-weight-bold);
-  font-family: var(--font-family);
-  right: 24px;
-  top: 24px;
-  transition: all .3s ease-in;
-  cursor: pointer;
+@keyframes grow{
+  0%{
+      transform: scale(1,1);
+      opacity: 1;
+  }
+  100%{
+      transform: scale(1.8,1.8);
+      opacity: 0;
+  }
 }
 
-.close:hover,
-.close:focus {
-  color: var(--dashboard-fonts-primary);
-  text-decoration: none;
-  cursor: pointer;
-  transition: all .3s ease-in;
+@keyframes zoomFadeIn {
+  from {scale: 0.7; opacity: 0;}
+  to {scale: 1; opacity: 1;}
 }
 
-@keyframes slideIn {
-  from {transform: translate(-50%, -300px); opacity: 0} 
-  to {transform: translate(-50%, -50%); opacity: 1}
-}
+/* @keyframes slideIn {
+  from {bottom: -300px; opacity: 0;} 
+  to {bottom: 0; opacity: 1;}
+} */
 
 @keyframes fadeIn {
-  from {opacity: 0} 
-  to {opacity: 1}
+  from {opacity: 0;} 
+  to {opacity: 1;}
 }
 /* Добавить в конец файла style.css */
 
 @keyframes fadeOut {
-  from {opacity: 1} 
-  to {opacity: 0}
+  from {opacity: 1;} 
+  to {opacity: 0;}
 }
 
 .modal.fadeOut {
@@ -2917,7 +3025,7 @@ body.modal-open{
   animation-duration: 0.4s;
 }
 
-@media screen and (max-width: 575px){
+/* @media screen and (max-width: 575px){
   .confirmation-modal .modal-content{
     max-width: 320px;
   }
@@ -2925,4 +3033,127 @@ body.modal-open{
     max-width: 100%;
     flex: 0 0 100%;
   }
+} */
+
+/* Override background and text colors for a light theme */
+.tempus-dominus-widget {
+  padding: 16px;
+  -webkit-border-radius: 16px;
+  -moz-border-radius: 16px;
+  border-radius: 16px;
+  max-width: 368px;
+  width: 100%;
+  color: var(--dashboard-fonts-primary);
+  border: 1px solid var(--border-color-dasboard);
+  box-shadow: 0px 8px 25px 0px rgba(0, 0, 0, 0.102);
+}
+.tempus-dominus-widget.dark {
+  background-color: var(--white);
+  color: var(--dashboard-fonts-primary);
+}
+.tempus-dominus-widget.dark .date-container-days div:not(.no-highlight).new, .tempus-dominus-widget.dark .date-container-days div:not(.no-highlight).old, .tempus-dominus-widget.dark .date-container-decades div:not(.no-highlight).new, .tempus-dominus-widget.dark .date-container-decades div:not(.no-highlight).old, .tempus-dominus-widget.dark .date-container-months div:not(.no-highlight).new, .tempus-dominus-widget.dark .date-container-months div:not(.no-highlight).old, .tempus-dominus-widget.dark .date-container-years div:not(.no-highlight).new, .tempus-dominus-widget.dark .date-container-years div:not(.no-highlight).old, .tempus-dominus-widget.dark .time-container-clock div:not(.no-highlight).new, .tempus-dominus-widget.dark .time-container-clock div:not(.no-highlight).old, .tempus-dominus-widget.dark .time-container-hour div:not(.no-highlight).new, .tempus-dominus-widget.dark .time-container-hour div:not(.no-highlight).old, .tempus-dominus-widget.dark .time-container-minute div:not(.no-highlight).new, .tempus-dominus-widget.dark .time-container-minute div:not(.no-highlight).old, .tempus-dominus-widget.dark .time-container-second div:not(.no-highlight).new, .tempus-dominus-widget.dark .time-container-second div:not(.no-highlight).old{
+  color: #919FB6;
+}
+.tempus-dominus-widget.dark .date-container-days .dow{
+  font-family: var(--font-family);
+  font-size: var(--primary-font-size);
+  line-height: var(--primary-line-height);
+  font-weight: var(--font-weight-bold);
+  color: var(--dashboard-fonts-primary);
+  width: 42px;
+  height: 42px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+.tempus-dominus-widget .date-container-days div:not(.no-highlight), .tempus-dominus-widget .date-container-decades div:not(.no-highlight), .tempus-dominus-widget .date-container-months div:not(.no-highlight), .tempus-dominus-widget .date-container-years div:not(.no-highlight), .tempus-dominus-widget .time-container-clock div:not(.no-highlight), .tempus-dominus-widget .time-container-hour div:not(.no-highlight), .tempus-dominus-widget .time-container-minute div:not(.no-highlight), .tempus-dominus-widget .time-container-second div:not(.no-highlight){
+  font-family: var(--font-family);
+  font-size: var(--secondary-font-size);
+  line-height: var(--secondary-line-height);
+  font-weight: var(--font-weight-normal);
+  color: var(--dashboard-fonts-primary);
+  width: 42px;
+  height: 42px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+}
+.tempus-dominus-widget.dark .date-container-days div.range-end:not(.no-highlight), .tempus-dominus-widget.dark .date-container-days div.range-in:not(.no-highlight), .tempus-dominus-widget.dark .date-container-days div.range-start:not(.no-highlight), .tempus-dominus-widget.dark .date-container-days div:not(.no-highlight).active, .tempus-dominus-widget.dark .date-container-decades div:not(.no-highlight).active, .tempus-dominus-widget.dark .date-container-months div:not(.no-highlight).active, .tempus-dominus-widget.dark .date-container-years div:not(.no-highlight).active, .tempus-dominus-widget.dark .time-container-clock div:not(.no-highlight).active, .tempus-dominus-widget.dark .time-container-hour div:not(.no-highlight).active, .tempus-dominus-widget.dark .time-container-minute div:not(.no-highlight).active, .tempus-dominus-widget.dark .time-container-second div:not(.no-highlight).active{
+  background-color: var(--purple-color);
+  background-image: -moz-linear-gradient(to bottom, #8D35C1, #8D35C1);
+  background-image: -ms-linear-gradient(to bottom, #8D35C1, #8D35C1);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#8D35C1), to(#8D35C1));
+  background-image: -webkit-linear-gradient(to bottom, #8D35C1, #8D35C1);
+  background-image: -o-linear-gradient(to bottom, #8D35C1, #8D35C1);
+  background-image: linear-gradient(to bottom, #8D35C1, #8D35C1);
+  background-repeat: repeat-x;
+  color: var(--white);
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, .25);
+}
+/* .tempus-dominus-widget.dark .date-container-days div.range-end:not(.no-highlight), .tempus-dominus-widget.dark .date-container-days div.range-in:not(.no-highlight), .tempus-dominus-widget.dark .date-container-days div.range-start:not(.no-highlight), .tempus-dominus-widget.dark .date-container-days div:not(.no-highlight).active, .tempus-dominus-widget.dark .date-container-decades div:not(.no-highlight).active, .tempus-dominus-widget.dark .date-container-months div:not(.no-highlight).active, .tempus-dominus-widget.dark .date-container-years div:not(.no-highlight).active, .tempus-dominus-widget.dark .time-container-clock div:not(.no-highlight).active, .tempus-dominus-widget.dark .time-container-hour div:not(.no-highlight).active, .tempus-dominus-widget.dark .time-container-minute div:not(.no-highlight).active, .tempus-dominus-widget.dark .time-container-second div:not(.no-highlight).active{
+  background-color: var(--purple-color);
+  background-image: -moz-linear-gradient(to bottom, #8D35C1, #d2b4e3);
+  background-image: -ms-linear-gradient(to bottom, #8D35C1, #d2b4e3);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#8D35C1), to(#d2b4e3));
+  background-image: -webkit-linear-gradient(to bottom, #8D35C1, #d2b4e3);
+  background-image: -o-linear-gradient(to bottom, #8D35C1, #d2b4e3);
+  background-image: linear-gradient(to bottom, #8D35C1, #d2b4e3);
+  background-repeat: repeat-x;
+  color: var(--white);
+} */
+
+.tempus-dominus-widget.dark .date-container-days div:not(.no-highlight):hover, .tempus-dominus-widget.dark .date-container-decades div:not(.no-highlight):hover, .tempus-dominus-widget.dark .date-container-months div:not(.no-highlight):hover, .tempus-dominus-widget.dark .date-container-years div:not(.no-highlight):hover, .tempus-dominus-widget.dark .time-container-clock div:not(.no-highlight):hover, .tempus-dominus-widget.dark .time-container-hour div:not(.no-highlight):hover, .tempus-dominus-widget.dark .time-container-minute div:not(.no-highlight):hover, .tempus-dominus-widget.dark .time-container-second div:not(.no-highlight):hover{
+  background: rgb(224, 204, 234, 0.4);
+  color: var(--dashboard-fonts-primary);
+}
+
+.tempus-dominus-widget.dark .date-container-days div:not(.no-highlight).today:before, .tempus-dominus-widget.dark .date-container-decades div:not(.no-highlight).today:before, .tempus-dominus-widget.dark .date-container-months div:not(.no-highlight).today:before, .tempus-dominus-widget.dark .date-container-years div:not(.no-highlight).today:before, .tempus-dominus-widget.dark .time-container-clock div:not(.no-highlight).today:before, .tempus-dominus-widget.dark .time-container-hour div:not(.no-highlight).today:before, .tempus-dominus-widget.dark .time-container-minute div:not(.no-highlight).today:before, .tempus-dominus-widget.dark .time-container-second div:not(.no-highlight).today:before{
+  border-bottom-color: #8d35c1;
+}
+
+.tempus-dominus-widget.dark .toolbar div:hover{
+  background: rgb(224, 204, 234, 0.4);
+  color: var(--purple-color);
+}
+
+.tempus-dominus-widget.dark button{
+  background-color: var(--purple-color);
+  color: var(--white);
+  border-color: var(--purple-color);
+  font-family: var(--font-family);
+  font-size: var(--secondary-font-size);
+  line-height: var(--secondary-line-height);
+  font-weight: var(--font-weight-normal);
+}
+.tempus-dominus-widget.dark button:hover{
+  background-color: var(--purple-bg);
+  color: var(--purple-color);
+}
+.tempus-dominus-widget .toggleMeridiem {
+  height: 40px;
+  text-align: center;
+  width: 40px;
+}
+.tempus-dominus-widget .calendar-header .previous{
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.tempus-dominus-widget .calendar-header .picker-switch {
+  text-align: center;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.tempus-dominus-widget .calendar-header .next{
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }

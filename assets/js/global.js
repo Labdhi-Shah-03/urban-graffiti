@@ -314,6 +314,51 @@ $(document).ready(function() {
         });
     });
 
+    // (multiple modals)
+    function openModal(modalId) {
+        var modal = $(modalId);
+        modal.removeClass('fadeOut');
+        modal.css('display', 'block');
+        $('body').addClass('modal-open');
+    }
+
+    function closeModal(modalId) {
+        var modal = $(modalId);
+        modal.addClass('fadeOut');
+        setTimeout(function() {
+            modal.css('display', 'none');
+            $('body').removeClass('modal-open');
+        }, 400); // 400ms - duration of animation
+    }
+
+    // Open modals
+    $('#openModalBtn').click(function() {
+        openModal('#myModal');
+    });
+
+    $('#editModalBtn').click(function() {
+        openModal('#editModal');
+    });
+
+    $('#advancedSearchBtn').click(function(){
+        openModal('#advancedSearchModal');
+    })
+
+    // Close modals with close buttons
+    $('.close-btn, .close').click(function() {
+        var modal = $(this).closest('.modal');
+        closeModal('#' + modal.attr('id'));
+    });
+
+    // Close modals when clicking outside of them
+    $(window).click(function(event) {
+        $('.modal').each(function() {
+            if (event.target === this) {
+                closeModal('#' + this.id);
+            }
+        });
+    });
+
     // select 2 js snippet
     $('#serviceSchedule').each(function () {
         $(this).select2({
@@ -336,36 +381,36 @@ $(document).ready(function() {
         autoclose: true,
         todayHighlight: true
     });
-
-    // modal popup
-    $('#openModalBtn').click(function() {
-        var modal = $('#myModal');
-        modal.removeClass('fadeOut');
-        modal.css('display', 'block');
-        $('body').addClass('modal-open');
-    });
-
-    $('#closeModalBtn').click(function() {
-        var modal = $('#myModal');
-        modal.addClass('fadeOut');
-        setTimeout(function() {
-            modal.css('display', 'none');
-            $('body').removeClass('modal-open');
-        }, 400); // 400ms - duration of animation
-    });
-
-    $(window).click(function(event) {
-        var modal = $('#myModal');
-        if (event.target == modal[0]) {
-            modal.addClass('fadeOut');
-            setTimeout(function() {
-                modal.css('display', 'none');
-                $('body').removeClass('modal-open');
-            }, 400); // 400ms - duration of animation
-        }
-    });
 });
 
+// date and time picker
+const picker = new tempusDominus.TempusDominus(document.getElementById('datetimepicker'), {
+    display: {
+        components: {
+            calendar: true,
+            date: true,
+            month: true,
+            year: true,
+            decades: true,
+            clock: true,
+            hours: true,
+            minutes: true,
+            seconds: true
+        },
+        icons: {
+            type: 'icons',
+            time: 'fa-solid fa-clock',
+            date: 'fa-solid fa-calendar',
+            up: 'fa-solid fa-arrow-up',
+            down: 'fa-solid fa-arrow-down',
+            previous: 'fa-solid fa-chevron-left',
+            next: 'fa-solid fa-chevron-right',
+            today: 'fa-solid fa-calendar-check',
+            clear: 'fa-solid fa-trash',
+            close: 'fa-solid fa-xmark'
+        },
+    }
+});
 
 document.addEventListener("DOMContentLoaded", function() {
     const collapsedArrow = document.getElementById('collapsed-arrow');
