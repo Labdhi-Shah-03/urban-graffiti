@@ -2877,29 +2877,6 @@ body.modal-open{
   padding: 0;
 }
 
-/* custom scrollbar */
-.confirmation-modal .modal-content::-webkit-scrollbar {
-  width: 5px;
-}
-
-/* Track */
-.confirmation-modal .modal-content::-webkit-scrollbar-track {
-  /* box-shadow: inset 0 0 5px grey;  */
-  box-shadow: inset 0 0 7px #eee6e6;
-  border-radius: 10px;
-}
- 
-/* Handle */
-.confirmation-modal .modal-content::-webkit-scrollbar-thumb {
-  background: var(--grey-placeholder); 
-  border-radius: 10px;
-}
-
-/* Handle on hover */
-.confirmation-modal .modal-content::-webkit-scrollbar-thumb:hover {
-  background: var(--dark-grey-bg); 
-}
-
 .confirmation-modal .modal-body {
   position: relative;
   flex: 1 1 auto;
@@ -3156,4 +3133,245 @@ body.modal-open{
   display: flex;
   align-items: center;
   justify-content: flex-end;
+}
+
+/* daterangepicker start */
+.daterangepicker{
+  border-radius: 8px;
+  border: 1px solid var(--border-color-dasboard);
+  max-height: 300px;
+  overflow: auto;
+}
+.daterangepicker .calendar-table th, .daterangepicker .calendar-table td{
+  color: var(--dashboard-fonts-primary);
+}
+.daterangepicker td.in-range{
+  background-color: var(--purple-bg);
+}
+.daterangepicker td.in-range.available:hover{
+  background-color: var(--purple-color);
+  color: var(--white);
+}
+.daterangepicker td.active, .daterangepicker td.active:hover{
+  background-color: var(--purple-color);
+  color: var(--white);
+}
+.daterangepicker::before, .daterangepicker::after{
+  display: none;
+}
+.daterangepicker .drp-buttons .btn.btn-primary{
+  background-color: var(--purple-color);
+  border-color: var(--purple-color);
+}
+.daterangepicker .drp-buttons .btn.btn-primary:hover{
+  background-color: var(--purple-bg);
+  color: var(--purple-color);
+}
+.daterangepicker td.available:hover, .daterangepicker th.available:hover{
+  background-color: var(--purple-bg);
+}
+.btn-check:focus+.btn, .btn:focus{
+  box-shadow: none;
+}
+.btn-check:focus-visible+.btn, .btn:focus-visible{
+  outline: none;
+}
+
+/* custom scrollbar */
+.daterangepicker::-webkit-scrollbar {
+  width: 14px;
+}
+
+/* Track */
+.daterangepicker::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 14px 14px transparent;
+  border: solid 5px transparent;
+}
+ 
+/* Handle */
+.daterangepicker::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  box-shadow: inset 0 0 14px 14px #919FB6;
+  border: solid 5px transparent;
+}
+
+/* search with custom select dropdown start */
+select#status-select {
+  display: none !important;
+}
+
+.dropdown-select {
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#40FFFFFF', endColorstr='#00FFFFFF', GradientType=0);
+  background-color: #fff;
+  border-radius: 6px;
+  border: solid 1px #eee;
+  box-shadow: 0px 2px 5px 0px rgba(155, 155, 155, 0.5);
+  box-sizing: border-box;
+  cursor: pointer;
+  display: block;
+  float: left;
+  font-size: 14px;
+  font-weight: normal;
+  height: 42px;
+  line-height: 40px;
+  outline: none;
+  padding-left: 18px;
+  padding-right: 30px;
+  position: relative;
+  text-align: left !important;
+  transition: all 0.2s ease-in-out;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  white-space: nowrap;
+  width: auto;
+
+}
+
+.dropdown-select:focus {
+  background-color: #fff;
+}
+
+.dropdown-select:hover {
+  background-color: #fff;
+}
+
+.dropdown-select:active,
+.dropdown-select.open {
+  background-color: #fff !important;
+  border-color: #bbb;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05) inset;
+}
+
+.dropdown-select:after {
+  height: 0;
+  width: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 4px solid #777;
+  -webkit-transform: origin(50% 20%);
+  transform: origin(50% 20%);
+  transition: all 0.125s ease-in-out;
+  content: '';
+  display: block;
+  margin-top: -2px;
+  pointer-events: none;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+}
+
+.dropdown-select.open:after {
+  -webkit-transform: rotate(-180deg);
+  transform: rotate(-180deg);
+}
+
+.dropdown-select.open .list {
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.dropdown-select.open .option {
+  cursor: pointer;
+}
+
+.dropdown-select.wide {
+  width: 100%;
+}
+
+.dropdown-select.wide .list {
+  left: 0 !important;
+  right: 0 !important;
+}
+
+.dropdown-select .list {
+  box-sizing: border-box;
+  transition: all 0.15s ease-in, opacity 0.1s linear;
+  -webkit-transform: translateY(-20px);
+  transform: translateY(-20px);
+  -webkit-transform-origin: 50% 0;
+  transform-origin: 50% 0;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.09);
+  background-color: #fff;
+  border-radius: 6px;
+  margin-top: 4px;
+  padding: 3px 0;
+  opacity: 0;
+  overflow: hidden;
+  pointer-events: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 999;
+  max-height: 250px;
+  overflow: auto;
+  border: 1px solid #ddd;
+}
+
+.dropdown-select .list:hover .option:not(:hover) {
+  background-color: transparent !important;
+}
+.dropdown-select .dd-search{
+overflow:hidden;
+display:flex;
+align-items:center;
+justify-content:center;
+margin:0.5rem;
+}
+
+.dropdown-select .dd-searchbox{
+width:90%;
+padding:0.5rem;
+border:1px solid #999;
+border-color:#999;
+border-radius:4px;
+outline:none;
+}
+.dropdown-select .dd-searchbox:focus{
+border-color:#12CBC4;
+}
+
+.dropdown-select .list ul {
+  padding: 0;
+}
+
+.dropdown-select .option {
+  cursor: default;
+  font-weight: 400;
+  line-height: 40px;
+  outline: none;
+  padding-left: 18px;
+  padding-right: 29px;
+  text-align: left;
+  transition: all 0.2s;
+  list-style: none;
+}
+
+.dropdown-select .option:hover,
+.dropdown-select .option:focus {
+  background-color: #f6f6f6 !important;
+}
+
+.dropdown-select .option.selected {
+  font-weight: 600;
+  color: #12cbc4;
+}
+
+.dropdown-select .option.selected:focus {
+  background: #f6f6f6;
+}
+
+.dropdown-select a {
+  color: #aaa;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.dropdown-select a:hover {
+  color: #666;
 }

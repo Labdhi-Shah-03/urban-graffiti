@@ -9,6 +9,7 @@
     <link rel="icon" type="image/ico" href="./assets/images/urban-graffiti.ico">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/daterangepicker.css">
     <link rel="stylesheet" href="assets/css/tempus-dominus.min.css">
     <link rel="stylesheet" href="assets/css/style.css"/>
 </head>
@@ -483,7 +484,7 @@
                                    </form>
                                 </div>
                                 <div class="modal-footer">
-                                    <a href="javascript:void(0)" title="Close" class="btn-cta btn-cta-cancel close-btn">Close</a>
+                                    <a href="javascript:void(0)" title="Close" class="btn-cta btn-cta-cancel close-btn close-btn-icon">Close</a>
                                     <a href="javascript:void(0)" title="Save Changes" class="btn-cta btn-cta-save">Save Changes</a>
                                 </div>
                             </div>
@@ -501,6 +502,15 @@
                                 </div>
                                 <div class="modal-body">
                                     <form action="" class="form">
+                                        <div class="form-group">
+                                            <label for="status" class="label">Status&colon;</label>
+                                            <select name="" class="required" id="status-select">
+                                                <option value="1">One</option>
+                                                <option value="2">Two</option>
+                                                <option value="3">Three</option>
+                                                <option value="4">Four</option>
+                                            </select>
+                                        </div>
                                         <div class="form-group">
                                             <label for="agency" class="label">Agency Ref#&colon;</label>
                                             <input type="text" name="" id="agency" placeholder="" class="required">
@@ -542,8 +552,8 @@
                                             <input type="text" name="" id="footage" placeholder="" class="required">
                                         </div>
                                         <div class="form-group">
-                                            <label for="datetimepicker">Received</label>
-                                            <input type="text" id="datetimepicker" class="date-picker">
+                                            <label for="daterangepicker">Received</label>
+                                            <input type="text" name="daterange" id="daterangepicker" class="date-picker" />
                                         </div>
                                     </form>
                                 </div>
@@ -564,6 +574,8 @@
     <script src="assets/js/jquery-3.7.1.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/moment.min.js"></script>
+    <script src="assets/js/daterangepicker.min.js"></script>
     <script src="assets/js/tempus-dominus.min.js"></script>
     <script src="./assets/js/global.js"></script>   
 </body>
