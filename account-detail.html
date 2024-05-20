@@ -8,8 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="icon" type="image/ico" href="./assets/images/urban-graffiti.ico">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css"/>
-    <!-- <link rel="stylesheet" href="assets/css/datatables.css">
-    <link rel="stylesheet" href="assets/css/datatables.min.css"> -->
     <link rel="stylesheet" href="assets/css/style.css"/>
 </head>
 <body class="order-dashboard">
@@ -233,11 +231,11 @@
                                         </div>
                                     </div>
                                     <div class="form-wrapper">
-                                        <div class="image-upload-section">
+                                        <div class="image-upload-section agency-image-upload">
                                             <div class="upload-wrapper d-flex align-items-center flex-wrap">
                                                 <div class="add-image-box">
-                                                    <input type="file" id="upload-file" accept=".jpg,.jpeg.,.gif,.png,.mov,.mp4,.svg" hidden />
-                                                    <label class="btn-up upload-btn" for="upload-file">
+                                                    <input type="file" id="files" name="files[]" accept=".jpg,.jpeg.,.gif,.png,.mov,.mp4,.svg" hidden />
+                                                    <label class="btn-up upload-btn" for="files">
                                                         <span class="upload-icon">
                                                             <img src="./assets/images/image-upload.svg" alt="Upload" title="Upload" width="24" height="24">
                                                         </span>
@@ -245,28 +243,14 @@
                                                     </label>
                                                 </div>
                                                 <div class="upload-image-box">
-                                                    <div class="image-container">
-                                                        <div class="image-box-wrapper">
-                                                            <img src="./assets/images/image-1.png" alt="Image 1" title="Image 1" width="280" height="160">
-                                                            <div class="delete-icon custom-icon">
-                                                                <img src="./assets/images/delete-icon.svg" alt="delete" title="delete" width="24" height="24">
-                                                            </div>
-                                                            <div class="zoom-icon custom-icon" data-image="image1.jpg">
-                                                                <img src="./assets/images/zoom-icon.svg" alt="zoom" title="zoom" width="24" height="24">
-                                                            </div>
+                                                    <!-- <output id="list">
+                                                        <div class="delete-icon custom-icon">
+                                                            <img src="./assets/images/delete-icon.svg" alt="delete" title="delete" width="24" height="24">
                                                         </div>
-                                                    </div>
-                                                    <div class="image-container">
-                                                        <div class="image-box-wrapper">
-                                                            <img src="./assets/images/image-2.png" alt="Image 2" title="Image 2" width="280" height="160">
-                                                            <div class="delete-icon custom-icon">
-                                                                <img src="./assets/images/delete-icon.svg" alt="delete" title="delete" width="24" height="24">
-                                                            </div>
-                                                            <div class="zoom-icon custom-icon" data-image="image1.jpg">
-                                                                <img src="./assets/images/zoom-icon.svg" alt="zoom" title="zoom" width="24" height="24">
-                                                            </div>
+                                                        <div class="zoom-icon custom-icon" data-image="image1.jpg">
+                                                            <img src="./assets/images/zoom-icon.svg" alt="zoom" title="zoom" width="24" height="24">
                                                         </div>
-                                                    </div>
+                                                    </output> -->
                                                 </div>
                                             </div>
                                         </div>
@@ -1077,8 +1061,6 @@
     <!-- script link -->
     <script src="assets/js/jquery-3.7.1.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
-    <!-- <script src="assets/js/datatables.js"></script>
-    <script src="assets/js/datatables.min.js"></script> -->
     <script src="./assets/js/global.js"></script>   
 </body>
 </html>

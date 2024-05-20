@@ -1155,7 +1155,7 @@ input[type=checkbox]:checked::before{
   overflow: hidden;
   border-radius: 8px;
 }
-.image-upload-section .upload-wrapper .upload-image-box .image-container .image-box-wrapper .custom-icon{
+.image-upload-section .upload-wrapper .upload-image-box .custom-icon{
   background-color: rgb(25, 25, 25, 0.5);
   width: 36px;
   height: 36px;
@@ -1173,13 +1173,13 @@ input[type=checkbox]:checked::before{
   transform: translateY(-100px);
   transition: all .5s ease-in-out;
 }
-.image-upload-section .upload-wrapper .upload-image-box .image-container .image-box-wrapper .custom-icon.delete-icon{
+.image-upload-section .upload-wrapper .upload-image-box .custom-icon.delete-icon{
   right: 44px;
 }
-.image-upload-section .upload-wrapper .upload-image-box .image-container .image-box-wrapper .custom-icon img{
+.image-upload-section .upload-wrapper .upload-image-box .custom-icon img{
   height: 24px;
 }
-.image-upload-section .upload-wrapper .upload-image-box .image-container .image-box-wrapper:hover .custom-icon{
+.image-upload-section .upload-wrapper .upload-image-box .image-box-wrapper:hover .custom-icon{
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
@@ -2442,6 +2442,44 @@ div.dt-container div.dt-paging{
   font-size: var(--secondary-font-size);
   line-height: var(--secondary-line-height);
   color: var(--dashboard-fonts-primary);
+}
+
+/* agency image upload design start */
+.agency-image-upload.image-upload-section .upload-wrapper .upload-image-box{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  margin: 0;
+  /* width: 100%; */
+}
+.agency-image-upload.image-upload-section .upload-wrapper .upload-image-box output.image-output{
+  max-width: calc(50% - 10px);
+  flex: 0 0 calc(50% - 10px);
+  position: relative;
+  border-radius: 8px;
+  height: 160px;
+  border: 2px dashed var(--border-color-dasboard);
+  transition: all .5s ease-in-out;
+  overflow: hidden;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+.agency-image-upload.image-upload-section .upload-wrapper .upload-image-box output.image-output span{
+  width: 100%;
+  display: block;
+  height: 100%;
+}
+.agency-image-upload.image-upload-section .upload-wrapper .upload-image-box output.image-output span img.thumb {
+  object-fit: cover;
+  height: 100%;
+  margin: 0 auto;
+}
+.agency-image-upload.image-upload-section .upload-wrapper .upload-image-box output#list:hover .custom-icon{
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  transition: all .5s ease-in-out;
 }
 
 @media (max-width: 1199px){

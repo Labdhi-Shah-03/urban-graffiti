@@ -1,3 +1,76 @@
+document.addEventListener("DOMContentLoaded", function() {
+    const collapsedArrow = document.getElementById('collapsed-arrow');
+    const menuArrow = document.getElementById('menu-arrow');
+    const workOrderSection = document.getElementById('work-order');
+
+    collapsedArrow.addEventListener('click', function() {
+        if (!workOrderSection.classList.contains('sidebar-collapsed')) {
+            workOrderSection.classList.add('sidebar-collapsed');
+        }
+    });
+
+    menuArrow.addEventListener('click', function() {
+        workOrderSection.classList.remove('sidebar-collapsed');
+    });
+});
+
+// image upload 
+function handleFileSelect(evt) {
+    var files = evt.target.files; // FileList object
+  
+    // Loop through the FileList and render image files as thumbnails.
+    for (var i = 0, f; f = files[i]; i++) {
+  
+        // Only process image files.
+        if (!f.type.match('image.*')) {
+            continue;
+        }
+  
+        var reader = new FileReader();
+  
+        // Closure to capture the file information.
+        reader.onload = (function(theFile) {
+            return function(e) {
+                // Create a new output element for each image.
+                var output = document.createElement('output');
+                output.classList.add('image-output');
+  
+                // Create delete and zoom icons.
+                var deleteIcon = document.createElement('div');
+                deleteIcon.classList.add('delete-icon', 'custom-icon');
+                deleteIcon.innerHTML = '<img src="./assets/images/delete-icon.svg" alt="delete" title="delete" width="24" height="24">';
+  
+                var zoomIcon = document.createElement('div');
+                zoomIcon.classList.add('zoom-icon', 'custom-icon');
+                zoomIcon.dataset.image = escape(theFile.name);
+                zoomIcon.innerHTML = '<img src="./assets/images/zoom-icon.svg" alt="zoom" title="zoom" width="24" height="24">';
+  
+                // Render thumbnail.
+                var span = document.createElement('span');
+                span.innerHTML = ['<img class="thumb" src="', e.target.result,
+                    '" title="', escape(theFile.name), '"/>'
+                ].join('');
+  
+                // Append elements to the output.
+                output.appendChild(span);
+                output.appendChild(deleteIcon);
+                output.appendChild(zoomIcon);
+  
+                // Append the output to the upload-image-box.
+                document.querySelector('.upload-image-box').appendChild(output);
+            };
+        })(f);
+  
+        // Read in the image file as a data URL.
+        reader.readAsDataURL(f);
+    }
+}
+  
+document.getElementById('files').addEventListener('change', handleFileSelect, false);
+
+
+// ###### //
+
 $(document).ready(function() {
     // for multiple dropdown with collapsed sidebar
     $('.nav-items-sub-dropdown .nav-links').click(function(){
@@ -594,22 +667,6 @@ const picker = new tempusDominus.TempusDominus(document.getElementById('datetime
             close: 'fa-solid fa-xmark'
         },
     }
-});
-
-document.addEventListener("DOMContentLoaded", function() {
-    const collapsedArrow = document.getElementById('collapsed-arrow');
-    const menuArrow = document.getElementById('menu-arrow');
-    const workOrderSection = document.getElementById('work-order');
-
-    collapsedArrow.addEventListener('click', function() {
-        if (!workOrderSection.classList.contains('sidebar-collapsed')) {
-            workOrderSection.classList.add('sidebar-collapsed');
-        }
-    });
-
-    menuArrow.addEventListener('click', function() {
-        workOrderSection.classList.remove('sidebar-collapsed');
-    });
 });
 
 // select input checkbox that will apply class on targeted tr
