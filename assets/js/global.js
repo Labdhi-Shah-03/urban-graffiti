@@ -370,115 +370,158 @@ $(document).ready(function() {
     });
 
     // search with custom select dropdown
-    function create_custom_dropdowns() {
-        $('#status-select').each(function (i, select) {
-            if (!$(this).next().hasClass('dropdown-select')) {
-                $(this).after('<div class="dropdown-select wide ' + ($(this).attr('class') || '') + '" tabindex="0"><span class="current"></span><div class="list"><ul></ul></div></div>');
-                var dropdown = $(this).next();
-                var options = $(select).find('option');
-                var selected = $(this).find('option:selected');
-                dropdown.find('.current').html(selected.data('display-text') || selected.text());
-                options.each(function (j, o) {
-                    var display = $(o).data('display-text') || '';
-                    dropdown.find('ul').append('<li class="option ' + ($(o).is(':selected') ? 'selected' : '') + '" data-value="' + $(o).val() + '" data-display-text="' + display + '">' + $(o).text() + '</li>');
-                });
-            }
-        });
-    
-        // Adding the search box
-        $('.dropdown-select ul').before('<div class="dd-search"><input id="txtSearchValue" autocomplete="off" class="dd-searchbox" type="text"></div>');
-    
-        // Assigning the onkeyup event using jQuery
-        $(document).on('keyup', '#txtSearchValue', function() {
-            filter();
-        });
+    // Function to add active class to .custom-select
+    function addActiveClass() {
+        $('.custom-select').addClass('active');
     }
-    
-    // Event listeners
-    
-    // Open/close
-    $(document).on('click', '.dropdown-select', function (event) {
-        if($(event.target).hasClass('dd-searchbox')){
-            return;
-        }
-        $('.dropdown-select').not($(this)).removeClass('open');
-        $(this).toggleClass('open');
-        if ($(this).hasClass('open')) {
-            $(this).find('.option').attr('tabindex', 0);
-            $(this).find('.selected').focus();
+
+    // Function to remove active class from .custom-select
+    function removeActiveClass() {
+        $('.custom-select').removeClass('active');
+    }
+
+    // Function to toggle active class from .custom-select
+    function removeActiveClass() {
+        $('.custom-select').toggleClass('active');
+    }
+
+    var firstCharTyped = false;
+
+    $('#mainInput').on('click', function() {
+        $('.dropdown').toggle();
+        removeActiveClass();
+        toggleClass();
+        $('#searchInput').focus();
+    });
+
+    $('#searchInput').on('input', function() {
+        var filter = $(this).val().toLowerCase();
+        if (filter === '') {
+            // If the search input is empty, show all options
+            $('#optionsList li[data-value]').show();
+            firstCharTyped = false;
         } else {
-            $(this).find('.option').removeAttr('tabindex');
-            $(this).focus();
+            // Filter options based on input
+            $('#optionsList li[data-value]').each(function() {
+                var text = $(this).text().toLowerCase();
+                var value = $(this).data('value');
+                if (value !== undefined && text.includes(filter)) {
+                    $(this).show();
+                } else {
+                    $(this).hide();
+                }
+            });
+            // Highlight the first matching item
+            var visibleOptions = $('#optionsList li:visible[data-value]');
+            visibleOptions.removeClass('highlighted');
+            visibleOptions.first().addClass('highlighted');
+            firstCharTyped = true;
+        }
+        $('.dropdown').show(); // Show the dropdown when typing
+    });
+
+    $('#searchInput').on('keydown', function(e) {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            var highlightedOption = $('#optionsList li.highlighted');
+            if (highlightedOption.length > 0) {
+                highlightedOption.trigger('click');
+                $('.dropdown').hide(); // Hide dropdown
+                removeActiveClass(); // Remove active class of .custom-select
+            }
+        } else if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+            e.preventDefault();
+            var visibleOptions = $('#optionsList li:visible[data-value]');
+            if (visibleOptions.length > 0) {
+                var highlightedOption = $('#optionsList li.highlighted');
+                if (highlightedOption.length === 0) {
+                    // If no option is currently highlighted, highlight the first one
+                    highlightedOption = visibleOptions.first();
+                } else {
+                    var index = visibleOptions.index(highlightedOption);
+                    if (e.key === 'ArrowDown') {
+                        index = (index + 1) % visibleOptions.length;
+                    } else if (e.key === 'ArrowUp') {
+                        index = (index - 1 + visibleOptions.length) % visibleOptions.length;
+                    }
+                    highlightedOption.removeClass('highlighted');
+                    highlightedOption = visibleOptions.eq(index);
+                }
+                highlightedOption.addClass('highlighted');
+            }
         }
     });
-    
-    // Close when clicking outside
-    $(document).on('click', function (event) {
-        if ($(event.target).closest('.dropdown-select').length === 0) {
-            $('.dropdown-select').removeClass('open');
-            $('.dropdown-select .option').removeAttr('tabindex');
-        }
-        event.stopPropagation();
-    });
-    
-    // Filter function
-    function filter() {
-        var valThis = $('#txtSearchValue').val().toLowerCase();
-        $('.dropdown-select ul > li').each(function() {
-            var text = $(this).text().toLowerCase();
-            if (text.indexOf(valThis) > -1) {
-                $(this).show();
-            } else {
-                $(this).hide();
-            }
-        });
-    }
-    
-    // Option click
-    $(document).on('click', '.dropdown-select .option', function (event) {
-        $(this).closest('.list').find('.selected').removeClass('selected');
-        $(this).addClass('selected');
-        var text = $(this).data('display-text') || $(this).text();
-        $(this).closest('.dropdown-select').find('.current').text(text);
-        $(this).closest('.dropdown-select').prev('select').val($(this).data('value')).trigger('change');
-    });
-    
-    // Keyboard events
-    $(document).on('keydown', '.dropdown-select', function (event) {
-        var focused_option = $($(this).find('.list .option:focus')[0] || $(this).find('.list .option.selected')[0]);
-        if (event.keyCode == 13) { // Enter
-            if ($(this).hasClass('open')) {
-                focused_option.trigger('click');
-            } else {
-                $(this).trigger('click');
-            }
-            return false;
-        } else if (event.keyCode == 40) { // Down
-            if (!$(this).hasClass('open')) {
-                $(this).trigger('click');
-            } else {
-                focused_option.next().focus();
-            }
-            return false;
-        } else if (event.keyCode == 38) { // Up
-            if (!$(this).hasClass('open')) {
-                $(this).trigger('click');
-            } else {
-                focused_option.prev().focus();
-            }
-            return false;
-        } else if (event.keyCode == 27) { // Esc
-            if ($(this).hasClass('open')) {
-                $(this).trigger('click');
-            }
-            return false;
+
+    $('#searchInput').on('keyup', function(e) {
+        if (e.key === 'Backspace' && !firstCharTyped) {
+            // Remove highlighted class when backspace is pressed and first character is not typed
+            $('#optionsList li').removeClass('highlighted');
         }
     });
-    
-    create_custom_dropdowns();
+
+    $('#optionsList').on('click', 'li[data-value]', function() {
+        $('#optionsList li').removeClass('highlighted'); // Remove highlighted class from all items
+        $(this).addClass('highlighted'); // Add highlighted class to the clicked item
+        var value = $(this).data('value');
+        var text = $(this).text();
+        $('#mainInput').val(text);
+        $('#selectedValue').val(value);
+        $('#searchInput').val(''); // Clear the search input field
+        $('#optionsList li').show(); // Show all options
+        $('.dropdown').hide();
+        removeActiveClass(); // Remove active class of .custom-select
+    });
+
+    $('.dropdown').on('hide.bs.dropdown', function() {
+        removeActiveClass(); // Remove active class of .custom-select when dropdown is hidden
+    });
+
+    $(document).on('click', function(e) {
+        if (!$(e.target).closest('.custom-select-container').length) {
+            $('.dropdown').hide();
+            removeActiveClass(); // Remove active class of .custom-select
+        }
+    });
     
     // #### //
 
+    // multiselect dropdown snippet
+    // Toggle dropdown menu
+    $('.select-box').on('click', function() {
+        var dropdownMenu = $(this).siblings('.dropdown-menu');
+        $('.dropdown-menu').not(dropdownMenu).hide(); // Close other dropdowns
+        dropdownMenu.toggle();
+        $(this).toggleClass('active'); // Add or remove 'active' class on select-box
+    });
+
+    // Update selected items
+    $('.dropdown-menu input[type="checkbox"]').on('change', function() {
+        var dropdownMenu = $(this).closest('.dropdown-menu');
+        updateSelected(dropdownMenu);
+    });
+
+    // Hide dropdown if click outside
+    $(document).on('click', function(e) {
+        if (!$(e.target).closest('.multiselect-dropdown').length) {
+            $('.dropdown-menu').hide();
+            $('.select-box').removeClass('active'); // Remove 'active' class on select-box
+        }
+    });
+
+    function updateSelected(dropdownMenu) {
+        let selected = [];
+        dropdownMenu.find('input[type="checkbox"]:checked').each(function() {
+            selected.push($(this).val());
+        });
+        var selectBox = dropdownMenu.siblings('.select-box');
+        if (selected.length > 2) {
+            selectBox.find('.selected').text(selected.length + ' selected');
+        } else {
+            selectBox.find('.selected').text(selected.length > 0 ? selected.join(', ') : 'Select options');
+        }
+    }
+
+    //  ###### //
     
     //date range picker snippet
     $(function() {
