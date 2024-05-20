@@ -2419,11 +2419,20 @@ div.dt-container div.dt-paging{
 }
 
 /* filter status design in work order start */
-.status-filter .status-filter-listing{
+.status-filter-wrapper{
   display: flex;
   align-items: center;
   flex-wrap: wrap;
   margin-bottom: 10px;
+}
+.status-filter-wrapper .status-filter{
+  flex: 1;
+  padding-right: 10px;
+}
+.status-filter .status-filter-listing{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
 }
 .status-filter .status-filter-listing li{
   margin: 0 16px 10px 0;
@@ -2443,6 +2452,11 @@ div.dt-container div.dt-paging{
   }
   .detail-sub-page-section .accordion-content-box .order-title-right .search-input-container input{
     min-width: 290px;
+  }
+  .filter-div-wrapper .filter-box{
+    left: auto;
+    right: 0;
+    transform: unset;
   }
 }
 
@@ -3306,6 +3320,9 @@ body.modal-open{
 .custom-select-container #optionsList li[data-value]:hover {
   background-color: var(--grey-bg);
   color: var(--dashboard-fonts-primary);
+}
+.filter-div-wrapper .filter-inner-box-wrapper{
+  min-height: 320px;
 }
 
 /* multiselect dropdown start */

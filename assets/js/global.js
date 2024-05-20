@@ -370,75 +370,81 @@ $(document).ready(function() {
     });
 
     // search with custom select dropdown
-    // Function to add active class to .custom-select
-    function addActiveClass() {
-        $('.custom-select').addClass('active');
+   // Function to add active class to .custom-select
+    function addActiveClass(container) {
+        container.find('.custom-select').addClass('active');
     }
 
     // Function to remove active class from .custom-select
-    function removeActiveClass() {
-        $('.custom-select').removeClass('active');
+    function removeActiveClass(container) {
+        container.find('.custom-select').removeClass('active');
     }
 
     // Function to toggle active class from .custom-select
-    function removeActiveClass() {
-        $('.custom-select').toggleClass('active');
+    function toggleActiveClass(container) {
+        container.find('.custom-select').toggleClass('active');
     }
 
-    var firstCharTyped = false;
+    $('.custom-select-container').each(function () {
+        const container = $(this);
+        const mainInput = container.find('#mainInput');
+        const dropdown = container.find('.dropdown');
+        const searchInput = container.find('#searchInput');
+        const optionsList = container.find('#optionsList');
+        const hiddenInput = container.find('#selectedValue');
+        const chevron = container.find('.chevron');
+        let firstCharTyped = false;
 
-    $('#mainInput').on('click', function() {
-        $('.dropdown').toggle();
-        removeActiveClass();
-        toggleClass();
-        $('#searchInput').focus();
-    });
+        mainInput.on('click', function () {
+            dropdown.toggle();
+            toggleActiveClass(container);
+            searchInput.focus();
+        });
 
-    $('#searchInput').on('input', function() {
-        var filter = $(this).val().toLowerCase();
-        if (filter === '') {
-            // If the search input is empty, show all options
-            $('#optionsList li[data-value]').show();
-            firstCharTyped = false;
-        } else {
-            // Filter options based on input
-            $('#optionsList li[data-value]').each(function() {
-                var text = $(this).text().toLowerCase();
-                var value = $(this).data('value');
-                if (value !== undefined && text.includes(filter)) {
-                    $(this).show();
-                } else {
-                    $(this).hide();
-                }
-            });
-            // Highlight the first matching item
-            var visibleOptions = $('#optionsList li:visible[data-value]');
-            visibleOptions.removeClass('highlighted');
-            visibleOptions.first().addClass('highlighted');
-            firstCharTyped = true;
-        }
-        $('.dropdown').show(); // Show the dropdown when typing
-    });
+        chevron.on('click', function () {
+            dropdown.toggle();
+            toggleActiveClass(container);
+            searchInput.focus();
+        });
 
-    $('#searchInput').on('keydown', function(e) {
-        if (e.key === 'Enter') {
-            e.preventDefault();
-            var highlightedOption = $('#optionsList li.highlighted');
-            if (highlightedOption.length > 0) {
-                highlightedOption.trigger('click');
-                $('.dropdown').hide(); // Hide dropdown
-                removeActiveClass(); // Remove active class of .custom-select
+        searchInput.on('input', function () {
+            const filter = $(this).val().toLowerCase();
+            if (filter === '') {
+                optionsList.find('li[data-value]').show();
+                firstCharTyped = false;
+            } else {
+                optionsList.find('li[data-value]').each(function () {
+                    const text = $(this).text().toLowerCase();
+                    const value = $(this).data('value');
+                    if (value !== undefined && text.includes(filter)) {
+                        $(this).show();
+                    } else {
+                        $(this).hide();
+                    }
+                });
+                const visibleOptions = optionsList.find('li:visible[data-value]');
+                visibleOptions.removeClass('highlighted');
+                visibleOptions.first().addClass('highlighted');
+                firstCharTyped = true;
             }
-        } else if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
-            e.preventDefault();
-            var visibleOptions = $('#optionsList li:visible[data-value]');
-            if (visibleOptions.length > 0) {
-                var highlightedOption = $('#optionsList li.highlighted');
-                if (highlightedOption.length === 0) {
-                    // If no option is currently highlighted, highlight the first one
-                    highlightedOption = visibleOptions.first();
-                } else {
-                    var index = visibleOptions.index(highlightedOption);
+            dropdown.show();
+        });
+
+        searchInput.on('keydown', function (e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                const highlightedOption = optionsList.find('li.highlighted');
+                if (highlightedOption.length > 0) {
+                    highlightedOption.trigger('click');
+                    dropdown.hide();
+                    removeActiveClass(container);
+                }
+            } else if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+                e.preventDefault();
+                const visibleOptions = optionsList.find('li:visible[data-value]');
+                if (visibleOptions.length > 0) {
+                    let highlightedOption = optionsList.find('li.highlighted');
+                    let index = visibleOptions.index(highlightedOption);
                     if (e.key === 'ArrowDown') {
                         index = (index + 1) % visibleOptions.length;
                     } else if (e.key === 'ArrowUp') {
@@ -446,41 +452,55 @@ $(document).ready(function() {
                     }
                     highlightedOption.removeClass('highlighted');
                     highlightedOption = visibleOptions.eq(index);
+                    highlightedOption.addClass('highlighted');
+                    
+                    // Ensure the highlighted option is in view
+                    const dropdownHeight = dropdown.height();
+                    const optionHeight = highlightedOption.outerHeight();
+                    const optionTop = highlightedOption.position().top;
+                    const scrollTop = optionsList.scrollTop();
+                    
+                    if (optionTop < 0) {
+                        optionsList.scrollTop(scrollTop + optionTop);
+                    } else if (optionTop + optionHeight > dropdownHeight) {
+                        optionsList.scrollTop(scrollTop + optionTop - dropdownHeight + optionHeight);
+                    }
+                    
+                    // Ensure scroll when moving from last to first or vice versa
+                    if (index === 0) {
+                        optionsList.scrollTop(0);
+                    } else if (index === visibleOptions.length - 1) {
+                        optionsList.scrollTop(optionsList[0].scrollHeight);
+                    }
                 }
-                highlightedOption.addClass('highlighted');
             }
-        }
-    });
+        });
 
-    $('#searchInput').on('keyup', function(e) {
-        if (e.key === 'Backspace' && !firstCharTyped) {
-            // Remove highlighted class when backspace is pressed and first character is not typed
-            $('#optionsList li').removeClass('highlighted');
-        }
-    });
+        searchInput.on('keyup', function (e) {
+            if (e.key === 'Backspace' && !firstCharTyped) {
+                optionsList.find('li').removeClass('highlighted');
+            }
+        });
 
-    $('#optionsList').on('click', 'li[data-value]', function() {
-        $('#optionsList li').removeClass('highlighted'); // Remove highlighted class from all items
-        $(this).addClass('highlighted'); // Add highlighted class to the clicked item
-        var value = $(this).data('value');
-        var text = $(this).text();
-        $('#mainInput').val(text);
-        $('#selectedValue').val(value);
-        $('#searchInput').val(''); // Clear the search input field
-        $('#optionsList li').show(); // Show all options
-        $('.dropdown').hide();
-        removeActiveClass(); // Remove active class of .custom-select
-    });
+        optionsList.on('click', 'li[data-value]', function () {
+            optionsList.find('li').removeClass('highlighted');
+            $(this).addClass('highlighted');
+            const value = $(this).data('value');
+            const text = $(this).text();
+            mainInput.val(text);
+            hiddenInput.val(value);
+            searchInput.val('');
+            optionsList.find('li').show();
+            dropdown.hide();
+            removeActiveClass(container);
+        });
 
-    $('.dropdown').on('hide.bs.dropdown', function() {
-        removeActiveClass(); // Remove active class of .custom-select when dropdown is hidden
-    });
-
-    $(document).on('click', function(e) {
-        if (!$(e.target).closest('.custom-select-container').length) {
-            $('.dropdown').hide();
-            removeActiveClass(); // Remove active class of .custom-select
-        }
+        $(document).on('click', function (e) {
+            if (!$(e.target).closest('.custom-select-container').length) {
+                dropdown.hide();
+                removeActiveClass(container);
+            }
+        });
     });
     
     // #### //

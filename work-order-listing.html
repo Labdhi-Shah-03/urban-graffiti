@@ -157,8 +157,43 @@
                             <div class="advanced-search-wrapper">
                                 <a href="javascript:void(0)" title="List" class="btn-cta filter-btn advanced-btn" id="advancedSearchBtn">Advanced Search</a>
                             </div>
-                            <div class="filter-div-wrapper">
+                            <div class="filter-wrapper filter-div-wrapper">
                                 <a href="javascript:void(0)" title="Filter" class="btn-cta filter-btn">Filter</a>
+                                <div class="filter-box" style="display: none;">
+                                    <div class="box-title">
+                                        <h5 class="child-heading">Status Filter</h5>
+                                        <img src="assets/images/close-icon.svg" alt="Close" title="Close" width="12" height="12" class="close-filter">
+                                    </div>
+                                    <div class="filter-inner-box-wrapper">
+                                        <div class="form-group">
+                                            <label for="status" class="label">Status&colon;</label>
+                                            <div class="custom-select-container">
+                                                <div class="custom-select">
+                                                    <input type="text" id="mainInput" readonly placeholder="Select an option">
+                                                    <img src="./assets/images/chevron-default.svg" alt="select" title="select" width="14" height="8" class="chevron">
+                                                    <div class="dropdown">
+                                                        <input type="text" id="searchInput" placeholder="Search..." autocomplete="off">
+                                                        <ul id="optionsList">
+                                                            <li>
+                                                                <strong>Open</strong>
+                                                                <ul>
+                                                                    <li data-value="All Open">All Open</li>
+                                                                    <li data-value="Assigned">Assigned</li>
+                                                                    <li data-value="Reassign">Reassign</li>
+                                                                    <li data-value="Unassigned">Unassigned</li>
+                                                                    <li data-value="Rejected">Rejected</li>
+                                                                </ul>
+                                                            </li>
+                                                            <li data-value="Closed"><strong>Closed</strong></li>
+                                                            <li data-value="Complete"><strong>Complete</strong></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <input type="hidden" id="selectedValue">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <div class="add-new-div">
                                 <a href="./new-user.html" title="New" class="detailed-btn btn-cta btn-cta-save icon-btn-div">New</a>
@@ -168,27 +203,32 @@
                     
                     <!-- table view start -->
                     <div class="table-view">
-                        <div class="status-filter">
-                            <ul class="status-filter-listing">
-                                <li>
-                                    <span class="status-title">
-                                        <strong>Status&colon;&nbsp;</strong>
-                                    </span>
-                                    <span class="filter-status">All Open</span>
-                                </li>
-                                <li>
-                                    <span class="status-title">
-                                        <strong>Contract Status&colon;&nbsp;</strong>
-                                    </span>
-                                    <span class="filter-status">Active</span>
-                                </li>
-                                <li>
-                                    <span class="status-title">
-                                        <strong>Count&colon;&nbsp;</strong>
-                                    </span>
-                                    <span class="filter-status">26</span>
-                                </li>
-                            </ul>
+                        <div class="status-filter-wrapper">
+                            <div class="status-filter">
+                                <ul class="status-filter-listing">
+                                    <li>
+                                        <span class="status-title">
+                                            <strong>Status&colon;&nbsp;</strong>
+                                        </span>
+                                        <span class="filter-status">All Open</span>
+                                    </li>
+                                    <li>
+                                        <span class="status-title">
+                                            <strong>Contract Status&colon;&nbsp;</strong>
+                                        </span>
+                                        <span class="filter-status">Active</span>
+                                    </li>
+                                    <li>
+                                        <span class="status-title">
+                                            <strong>Count&colon;&nbsp;</strong>
+                                        </span>
+                                        <span class="filter-status">26</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="status-filter-btn">
+                                <a href="javascript:void(0)" title="Reset Filter" class="btn-cta filter-btn">Reset Filter</a>
+                            </div>
                         </div>
                         <div class="edit-panel">
                             <div class="select-panel-box">
