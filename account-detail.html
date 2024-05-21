@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="icon" type="image/ico" href="./assets/images/urban-graffiti.ico">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" rel="stylesheet" />
     <link rel="stylesheet" href="assets/css/style.css"/>
 </head>
 <body class="order-dashboard">
@@ -231,8 +232,8 @@
                                         </div>
                                     </div>
                                     <div class="form-wrapper">
-                                        <div class="image-upload-section agency-image-upload">
-                                            <div class="upload-wrapper d-flex align-items-center flex-wrap">
+                                        <div class="image-upload-section agency-image-upload" id="gallery-wrap-a">
+                                            <div class="upload-wrapper">
                                                 <div class="add-image-box">
                                                     <input type="file" id="files" name="files[]" accept=".jpg,.jpeg.,.gif,.png,.mov,.mp4,.svg" hidden />
                                                     <label class="btn-up upload-btn" for="files">
@@ -242,16 +243,7 @@
                                                         <span class="add-iamge-text">Add Image</span>
                                                     </label>
                                                 </div>
-                                                <div class="upload-image-box">
-                                                    <!-- <output id="list">
-                                                        <div class="delete-icon custom-icon">
-                                                            <img src="./assets/images/delete-icon.svg" alt="delete" title="delete" width="24" height="24">
-                                                        </div>
-                                                        <div class="zoom-icon custom-icon" data-image="image1.jpg">
-                                                            <img src="./assets/images/zoom-icon.svg" alt="zoom" title="zoom" width="24" height="24">
-                                                        </div>
-                                                    </output> -->
-                                                </div>
+                                                <div class="upload-image-box"></div>
                                             </div>
                                         </div>
                                     </div>
@@ -1061,6 +1053,7 @@
     <!-- script link -->
     <script src="assets/js/jquery-3.7.1.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
     <script src="./assets/js/global.js"></script>   
 </body>
 </html>

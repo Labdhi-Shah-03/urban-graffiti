@@ -1156,7 +1156,7 @@ input[type=checkbox]:checked::before{
   border-radius: 8px;
 }
 .image-upload-section .upload-wrapper .upload-image-box .custom-icon{
-  background-color: rgb(25, 25, 25, 0.5);
+  background-color: rgb(25, 25, 25, 0.7);
   width: 36px;
   height: 36px;
   padding: 4px;
@@ -2445,41 +2445,63 @@ div.dt-container div.dt-paging{
 }
 
 /* agency image upload design start */
+.agency-image-upload.image-upload-section .upload-wrapper{
+  display: flex;
+  align-items: flex-start;
+  column-gap: 20px;
+}
 .agency-image-upload.image-upload-section .upload-wrapper .upload-image-box{
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
+  flex-wrap: wrap;
   position: relative;
   margin: 0;
-  /* width: 100%; */
+  max-width: 100%;
+  column-gap: 10px;
+}
+.agency-image-upload.image-upload-section .upload-wrapper .add-image-box .upload-btn{
+  margin-bottom: 20px;
+}
+.agency-image-upload.image-upload-section .upload-wrapper .add-image-box{
+  max-width: 160px;
+  flex: 0 0 160px;
+  margin: 0;
 }
 .agency-image-upload.image-upload-section .upload-wrapper .upload-image-box output.image-output{
-  max-width: calc(50% - 10px);
-  flex: 0 0 calc(50% - 10px);
+  width: 214px;
   position: relative;
   border-radius: 8px;
-  height: 160px;
+  height: 161px;
   border: 2px dashed var(--border-color-dasboard);
   transition: all .5s ease-in-out;
   overflow: hidden;
   cursor: pointer;
   margin-bottom: 10px;
 }
-.agency-image-upload.image-upload-section .upload-wrapper .upload-image-box output.image-output span{
+.agency-image-upload.image-upload-section .upload-wrapper .upload-image-box output.image-output a{
   width: 100%;
   display: block;
   height: 100%;
 }
-.agency-image-upload.image-upload-section .upload-wrapper .upload-image-box output.image-output span img.thumb {
+.agency-image-upload.image-upload-section .upload-wrapper .upload-image-box output.image-output a img.thumb {
   object-fit: cover;
   height: 100%;
   margin: 0 auto;
 }
-.agency-image-upload.image-upload-section .upload-wrapper .upload-image-box output#list:hover .custom-icon{
+.agency-image-upload.image-upload-section .upload-wrapper .upload-image-box output.image-output:hover .custom-icon{
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
   transition: all .5s ease-in-out;
+}
+.agency-image-upload.image-upload-section .upload-wrapper .upload-image-box .image-container{
+  max-width: 100%;
+  flex: 1;
+  width: 100%;
+  padding: 0;
+  height: 100%;
+  margin-bottom: 0;
 }
 
 @media (max-width: 1199px){
@@ -2570,6 +2592,9 @@ div.dt-container div.dt-paging{
   .edit-panel .select-panel-box .panel-listing{
     max-width: 100%;
     flex: 0 0 100%;
+  }
+  .agency-image-upload.image-upload-section .upload-wrapper{
+    flex-wrap: wrap;
   }
 }
 @media screen and (max-width: 767px) {

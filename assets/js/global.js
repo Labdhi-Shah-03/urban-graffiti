@@ -15,58 +15,80 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 // image upload 
-function handleFileSelect(evt) {
-    var files = evt.target.files; // FileList object
-  
-    // Loop through the FileList and render image files as thumbnails.
-    for (var i = 0, f; f = files[i]; i++) {
-  
-        // Only process image files.
-        if (!f.type.match('image.*')) {
-            continue;
-        }
-  
-        var reader = new FileReader();
-  
-        // Closure to capture the file information.
-        reader.onload = (function(theFile) {
-            return function(e) {
-                // Create a new output element for each image.
-                var output = document.createElement('output');
-                output.classList.add('image-output');
-  
-                // Create delete and zoom icons.
-                var deleteIcon = document.createElement('div');
-                deleteIcon.classList.add('delete-icon', 'custom-icon');
-                deleteIcon.innerHTML = '<img src="./assets/images/delete-icon.svg" alt="delete" title="delete" width="24" height="24">';
-  
-                var zoomIcon = document.createElement('div');
-                zoomIcon.classList.add('zoom-icon', 'custom-icon');
-                zoomIcon.dataset.image = escape(theFile.name);
-                zoomIcon.innerHTML = '<img src="./assets/images/zoom-icon.svg" alt="zoom" title="zoom" width="24" height="24">';
-  
-                // Render thumbnail.
-                var span = document.createElement('span');
-                span.innerHTML = ['<img class="thumb" src="', e.target.result,
-                    '" title="', escape(theFile.name), '"/>'
-                ].join('');
-  
-                // Append elements to the output.
-                output.appendChild(span);
-                output.appendChild(deleteIcon);
-                output.appendChild(zoomIcon);
-  
-                // Append the output to the upload-image-box.
-                document.querySelector('.upload-image-box').appendChild(output);
-            };
-        })(f);
-  
-        // Read in the image file as a data URL.
-        reader.readAsDataURL(f);
+document.addEventListener('DOMContentLoaded', function () {
+    // Ensure Fancybox is loaded
+    if (typeof Fancybox === 'undefined') {
+        console.error('Fancybox is not loaded.');
+        return;
     }
-}
-  
-document.getElementById('files').addEventListener('change', handleFileSelect, false);
+
+    // Image upload handler
+    function handleFileSelect(evt) {
+        var files = evt.target.files; // FileList object
+
+        // Loop through the FileList and render image files as thumbnails.
+        for (var i = 0, f; f = files[i]; i++) {
+
+            // Only process image files.
+            if (!f.type.match('image.*')) {
+                continue;
+            }
+
+            var reader = new FileReader();
+
+            // Closure to capture the file information.
+            reader.onload = (function(theFile) {
+                return function(e) {
+                    // Create a new output element for each image.
+                    var output = document.createElement('output');
+                    output.classList.add('image-output');
+
+                    // Create delete and zoom icons.
+                    var deleteIcon = document.createElement('div');
+                    deleteIcon.classList.add('delete-icon', 'custom-icon');
+                    deleteIcon.innerHTML = '<img src="./assets/images/delete-icon.svg" alt="delete" title="delete" width="24" height="24">';
+
+                    var zoomIcon = document.createElement('div');
+                    zoomIcon.classList.add('zoom-icon', 'custom-icon');
+                    zoomIcon.innerHTML = '<img src="./assets/images/zoom-icon.svg" alt="zoom" title="zoom" width="24" height="24">';
+
+                    // Render thumbnail.
+                    var anchor = document.createElement('a'); // Change span to anchor tag
+                    anchor.setAttribute('data-fancybox', 'gallery'); // Add data-fancybox attribute
+                    anchor.setAttribute('data-src', e.target.result); // Add data-src attribute
+                    var img = document.createElement('img');
+                    img.classList.add('thumb');
+                    img.src = e.target.result;
+                    img.title = escape(theFile.name);
+                    anchor.appendChild(img);
+
+                    // Append elements to the output.
+                    output.appendChild(anchor);
+                    output.appendChild(deleteIcon);
+                    output.appendChild(zoomIcon);
+
+                    // Append the output to the upload-image-box.
+                    document.querySelector('.upload-image-box').appendChild(output);
+                };
+            })(f);
+
+            // Read in the image file as a data URL.
+            reader.readAsDataURL(f);
+        }
+    }
+
+    document.getElementById('files').addEventListener('change', handleFileSelect, false);
+
+    // Initialize Fancybox with bottom thumbnails
+    Fancybox.bind('[data-fancybox="gallery"]', {
+        Thumbs: {
+            autoStart: true, // Display thumbnails on gallery load
+            axis: 'x' // Display thumbnails at the bottom
+        }
+    });
+});
+
+
 
 
 // ###### //
