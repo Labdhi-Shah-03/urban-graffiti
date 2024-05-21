@@ -1173,9 +1173,9 @@ input[type=checkbox]:checked::before{
   transform: translateY(-100px);
   transition: all .5s ease-in-out;
 }
-.image-upload-section .upload-wrapper .upload-image-box .custom-icon.delete-icon{
+/* .image-upload-section .upload-wrapper .upload-image-box .custom-icon.delete-icon{
   right: 44px;
-}
+} */
 .image-upload-section .upload-wrapper .upload-image-box .custom-icon img{
   height: 24px;
 }
@@ -2503,6 +2503,9 @@ div.dt-container div.dt-paging{
   height: 100%;
   margin-bottom: 0;
 }
+.fancybox__slide.has-image>.fancybox__content{
+  max-width: 100%;
+}
 
 @media (max-width: 1199px){
   .filter-wrapper .filter-box{
@@ -2642,13 +2645,7 @@ div.dt-container div.dt-paging{
 .pagination span {
   display: block;
 }
-/* .pagination .prev span,
-.pagination .next span {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.5rem;
-} */
+
 .pagination .num,
 .pagination .prev,
 .pagination .next{
@@ -2963,10 +2960,6 @@ body.modal-open{
 .confirmation-modal .modal-wrapper{
   text-align: center;
   padding: 24px;
-  /* display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column; */
 }
 .confirmation-modal .modal-wrapper img{
   height: 24px;
@@ -3079,16 +3072,6 @@ body.modal-open{
   animation-duration: 0.4s;
 }
 
-/* @media screen and (max-width: 575px){
-  .confirmation-modal .modal-content{
-    max-width: 320px;
-  }
-  .confirmation-modal .modal-wrapper .modal-btn-wrapper .modal-cta{
-    max-width: 100%;
-    flex: 0 0 100%;
-  }
-} */
-
 /* Override background and text colors for a light theme */
 .tempus-dominus-widget {
   padding: 16px;
@@ -3148,17 +3131,6 @@ body.modal-open{
   color: var(--white);
   text-shadow: 0 -1px 0 rgba(0, 0, 0, .25);
 }
-/* .tempus-dominus-widget.dark .date-container-days div.range-end:not(.no-highlight), .tempus-dominus-widget.dark .date-container-days div.range-in:not(.no-highlight), .tempus-dominus-widget.dark .date-container-days div.range-start:not(.no-highlight), .tempus-dominus-widget.dark .date-container-days div:not(.no-highlight).active, .tempus-dominus-widget.dark .date-container-decades div:not(.no-highlight).active, .tempus-dominus-widget.dark .date-container-months div:not(.no-highlight).active, .tempus-dominus-widget.dark .date-container-years div:not(.no-highlight).active, .tempus-dominus-widget.dark .time-container-clock div:not(.no-highlight).active, .tempus-dominus-widget.dark .time-container-hour div:not(.no-highlight).active, .tempus-dominus-widget.dark .time-container-minute div:not(.no-highlight).active, .tempus-dominus-widget.dark .time-container-second div:not(.no-highlight).active{
-  background-color: var(--purple-color);
-  background-image: -moz-linear-gradient(to bottom, #8D35C1, #d2b4e3);
-  background-image: -ms-linear-gradient(to bottom, #8D35C1, #d2b4e3);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#8D35C1), to(#d2b4e3));
-  background-image: -webkit-linear-gradient(to bottom, #8D35C1, #d2b4e3);
-  background-image: -o-linear-gradient(to bottom, #8D35C1, #d2b4e3);
-  background-image: linear-gradient(to bottom, #8D35C1, #d2b4e3);
-  background-repeat: repeat-x;
-  color: var(--white);
-} */
 
 .tempus-dominus-widget.dark .date-container-days div:not(.no-highlight):hover, .tempus-dominus-widget.dark .date-container-decades div:not(.no-highlight):hover, .tempus-dominus-widget.dark .date-container-months div:not(.no-highlight):hover, .tempus-dominus-widget.dark .date-container-years div:not(.no-highlight):hover, .tempus-dominus-widget.dark .time-container-clock div:not(.no-highlight):hover, .tempus-dominus-widget.dark .time-container-hour div:not(.no-highlight):hover, .tempus-dominus-widget.dark .time-container-minute div:not(.no-highlight):hover, .tempus-dominus-widget.dark .time-container-second div:not(.no-highlight):hover{
   background: rgb(224, 204, 234, 0.4);

@@ -48,9 +48,9 @@ document.addEventListener('DOMContentLoaded', function () {
                     deleteIcon.classList.add('delete-icon', 'custom-icon');
                     deleteIcon.innerHTML = '<img src="./assets/images/delete-icon.svg" alt="delete" title="delete" width="24" height="24">';
 
-                    var zoomIcon = document.createElement('div');
-                    zoomIcon.classList.add('zoom-icon', 'custom-icon');
-                    zoomIcon.innerHTML = '<img src="./assets/images/zoom-icon.svg" alt="zoom" title="zoom" width="24" height="24">';
+                    // var zoomIcon = document.createElement('div');
+                    // zoomIcon.classList.add('zoom-icon', 'custom-icon');
+                    // zoomIcon.innerHTML = '<img src="./assets/images/zoom-icon.svg" alt="zoom" title="zoom" width="24" height="24">';
 
                     // Render thumbnail.
                     var anchor = document.createElement('a'); // Change span to anchor tag
@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     // Append elements to the output.
                     output.appendChild(anchor);
                     output.appendChild(deleteIcon);
-                    output.appendChild(zoomIcon);
+                    // output.appendChild(zoomIcon);
 
                     // Append the output to the upload-image-box.
                     document.querySelector('.upload-image-box').appendChild(output);
@@ -81,15 +81,20 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Initialize Fancybox with bottom thumbnails
     Fancybox.bind('[data-fancybox="gallery"]', {
+        Carousel : {
+            transition: "slide"
+        },
         Thumbs: {
             autoStart: true, // Display thumbnails on gallery load
-            axis: 'x' // Display thumbnails at the bottom
-        }
+            axis: 'x', // Display thumbnails at the bottom
+        },
+        Toolbar: {
+            display: {
+              right: ["zoomIn",  "zoomOut", "close"],
+            },
+        },
     });
 });
-
-
-
 
 // ###### //
 
@@ -239,10 +244,10 @@ $(document).ready(function() {
         $(this).siblings('.form-wrapper').slideToggle();
     });
 
-    // Prevent closing of form wrapper when clicking inside it
-    $('.form-wrapper').click(function(e) {
-        e.stopPropagation(); // Prevent event from bubbling up
-    });
+    // // Prevent closing of form wrapper when clicking inside it
+    // $('.form-wrapper').click(function(e) {
+    //     e.stopPropagation(); // Prevent event from bubbling up
+    // });
 
     // Open the first accordion and its sibling by adding the "active" class
     var $firstAccordion = $('.accordion-wrapper .accordion-box:first');
