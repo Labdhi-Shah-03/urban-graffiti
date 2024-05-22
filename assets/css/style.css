@@ -2507,6 +2507,37 @@ div.dt-container div.dt-paging{
   max-width: 100%;
 }
 
+/* build report modal eye design start */
+#buildReportModal .icon_eye{
+  position: relative;
+  padding-left: 25px;
+  cursor: pointer;
+}
+#buildReportModal .icon_eye{
+  text-decoration: line-through;
+}
+#buildReportModal .icon_eye.icon_active{
+  color: #0367A1;
+  text-decoration: unset;
+}
+#buildReportModal .icon_eye::before{
+  content: '';
+  position: absolute;
+  background-repeat: no-repeat;
+  width: 22px;
+  height: 18px;
+  background-size: 18px 14px;
+  background-position: left center;
+  vertical-align: middle;
+  margin-right: 4px;
+  left: 0;
+}
+#buildReportModal .icon_eye.icon_active::before{
+  background-image: url(../images/blue-eye-icon.svg);
+}
+#buildReportModal .icon_eye::before{
+  background-image: url(../images/pass-hide.svg);
+}
 @media (max-width: 1199px){
   .filter-wrapper .filter-box{
     left: 50%;

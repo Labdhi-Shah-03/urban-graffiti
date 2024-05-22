@@ -227,7 +227,7 @@
                                 </ul>
                             </div>
                             <div class="status-filter-btn">
-                                <a href="javascript:void(0)" title="Reset Filter" class="btn-cta filter-btn">Reset Filter</a>
+                                <a href="javascript:void(0)" title="Reset Filter" class="btn-cta filter-btn" id="buildReportModalBtn">Reset Filter</a>
                             </div>
                         </div>
                         <div class="edit-panel">
@@ -657,6 +657,138 @@
                         </div>
                     </div>
                     <!-- advanced search modal end -->
+
+                      <!-- build report modal start -->
+                      <div id="buildReportModal" class="modal edit-modal">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Advanced Search</h4>
+                                    <span id="closeModalBtn" class="close">&times;</span>
+                                </div>
+                                <div class="modal-body">
+                                    <form action="" class="form">
+                                        <div class="form-group">
+                                            <label for="status" class="label icon_eye icon_active">Status&colon;</label>
+                                            <div class="custom-select-container">
+                                                <div class="custom-select">
+                                                    <input type="text" id="mainInput" readonly placeholder="Select an option">
+                                                    <img src="./assets/images/chevron-default.svg" alt="select" title="select" width="14" height="8" class="chevron">
+                                                    <div class="dropdown">
+                                                        <input type="text" id="searchInput" placeholder="Search..." autocomplete="off">
+                                                        <ul id="optionsList">
+                                                            <li>
+                                                                <strong>Open</strong>
+                                                                <ul>
+                                                                    <li data-value="All Open">All Open</li>
+                                                                    <li data-value="Assigned">Assigned</li>
+                                                                    <li data-value="Reassign">Reassign</li>
+                                                                    <li data-value="Unassigned">Unassigned</li>
+                                                                    <li data-value="Rejected">Rejected</li>
+                                                                </ul>
+                                                            </li>
+                                                            <li data-value="Closed"><strong>Closed</strong></li>
+                                                            <li data-value="Complete"><strong>Complete</strong></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <input type="hidden" id="selectedValue">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="searchId" class="label icon_eye icon_active">ID&colon;</label>
+                                            <input type="text" name="" id="searchId" placeholder="" class="required">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="completed" class="label icon_eye icon_active">Completed&colon;</label>
+                                            <input type="text" name="" id="completed" placeholder="" class="required">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="address" class="label icon_eye icon_active">Address&colon;</label>
+                                            <input type="text" name="" id="address" placeholder="" class="required">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="multiselect" class="label icon_eye icon_active">MultiSelect&colon;</label>
+                                            <div class="multiselect-dropdown">
+                                                <div class="select-box">
+                                                    <span class="selected">Select options</span>
+                                                    <img src="./assets/images/chevron-default.svg" alt="select" title="select" width="14" height="8" class="arrow">
+                                                </div>
+                                                <div class="dropdown-menu">
+                                                    <label><input type="checkbox" value="Option 1">Option 1</label>
+                                                    <label><input type="checkbox" value="Option 2">Option 2</label>
+                                                    <label><input type="checkbox" value="Option 3">Option 3</label>
+                                                    <label><input type="checkbox" value="Option 4">Option 4</label>
+                                                    <label><input type="checkbox" value="Option 5">Option 5</label>
+                                                    <label><input type="checkbox" value="Option 6">Option 6</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="status" class="label icon_eye icon_active">Status&colon;</label>
+                                            <select name="" id="status" class="required">
+                                                <option value="Select">Select</option>
+                                                <option value="Graffiti">Graffiti</option>
+                                                <option value="Brea Graffiti">Brea Graffiti</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="service" class="label icon_eye icon_active">Service&colon;</label>
+                                            <select name="" id="service" class="required">
+                                                <option value="Select">Select</option>
+                                                <option value="Graffiti">Graffiti</option>
+                                                <option value="Brea Graffiti">Brea Graffiti</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="multiselect" class="label icon_eye icon_active">MultiSelect 2&colon;</label>
+                                            <div class="multiselect-dropdown">
+                                                <div class="select-box">
+                                                    <span class="selected">Select options</span>
+                                                    <img src="./assets/images/chevron-default.svg" alt="select" title="select" width="14" height="8" class="arrow">
+                                                </div>
+                                                <div class="dropdown-menu">
+                                                    <label><input type="checkbox" value="Option 1">Option 1</label>
+                                                    <label><input type="checkbox" value="Option 2">Option 2</label>
+                                                    <label><input type="checkbox" value="Option 3">Option 3</label>
+                                                    <label><input type="checkbox" value="Option 4">Option 4</label>
+                                                    <label><input type="checkbox" value="Option 5">Option 5</label>
+                                                    <label><input type="checkbox" value="Option 6">Option 6</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="surface" class="label icon_eye icon_active">Surface&colon;</label>
+                                            <select name="" id="surface" class="required">
+                                                <option value="Select">Select</option>
+                                                <option value="Graffiti">Graffiti</option>
+                                                <option value="Brea Graffiti">Brea Graffiti</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="footage" class="label icon_eye icon_active">Square Footage&colon;</label>
+                                            <input type="text" name="" id="footage" placeholder="" class="required">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="daterangepicker" class="label icon_eye icon_active">Received</label>
+                                            <input type="text" name="daterange" id="daterangepicker" class="date-picker" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="due" class="label icon_eye icon_active">Due</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="timer" class="label icon_eye icon_active">Timer</label>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <a href="javascript:void(0)" title="Reset Filters" class="btn-cta btn-cta-cancel close-btn">Reset Filters</a>
+                                    <a href="javascript:void(0)" title="Apply Filters" class="btn-cta btn-cta-save">Apply Filters</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- build report modal end -->
                 </div>
             </div>
         </section>

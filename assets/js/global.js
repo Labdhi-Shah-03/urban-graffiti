@@ -444,6 +444,10 @@ $(document).ready(function() {
         openModal('#advancedSearchModal');
     })
 
+    $('#buildReportModalBtn').click(function(){
+        openModal('#buildReportModal');
+    })
+
     // Close modals with close buttons
     $('.close-btn-icon, .close').click(function() {
         var modal = $(this).closest('.modal');
