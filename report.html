@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Urban Graffiti Admin</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="icon" type="image/ico" href="./assets/images/urban-graffiti.ico">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/daterangepicker.css">
+    <link rel="stylesheet" href="assets/css/tempus-dominus.min.css">
+    <link rel="stylesheet" href="assets/css/style.css"/>
+</head>
+<body class="order-dashboard">
+    <div class="work-order-section d-flex" id="work-order">
+        <nav class="side-navbar">
+            <div class="nav-top d-flex align-items-center">
+                <div class="nav-logo d-flex align-items-center flex-grow-1">
+                    <a href="javascript:void(0)" title="Urban Graffiti" class="logo d-flex align-items-center">
+                        <img src="./assets/images/urban-graffiti-logo.svg" alt="Urban Graffiti" title="Urban Graffiti" width="40" height="40" class="logo-img">
+                        <p class="nav-title">Urban Graffiti</p>
+                    </a>
+                </div>
+                <div class="nav-back-arrow">
+                    <img src="./assets/images/left-circle-arrow.svg" alt="BacK" title="Back" width="24" height="24" class="collapsed-arrow" id="collapsed-arrow">
+                    <img src="./assets/images/hamburger-menu.svg" alt="Menu" title="Menu" width="24" height="24" class="menu-arrow" id="menu-arrow">
+                </div>
+            </div>
+            <div class="nav-bottom">
+                <ul class="nav-list">
+                    <li class="nav-items">
+                        <a href="javascript:void(0)" class="nav-links d-flex align-items-center" title="Dashboard">
+                            <img src="./assets/images/home.svg" alt="Dashboard" title="Dashboard" width="20" height="20" class="list-icons">
+                            <span class="flex-grow-1">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-items nav-items-sub-dropdown">
+                        <a href="javascript:void(0)" class="nav-links d-flex align-items-center" title="Agency" id="work-orders-trigger">
+                            <img src="./assets/images/file-plus.svg" alt="Agency" title="Agency" width="20" height="20" class="list-icons">
+                            <span class="flex-grow-1">Agency</span>
+                            <img src="./assets/images/chevron-light-grey.svg" alt="Work Orders" title="Work Orders" width="20" height="20" class="dropdown-arrow">
+                        </a>
+                        <ul class="nav-list-dropdown">
+                            <li class="dropdown-list">
+                                <a href="./account.html" title="Account">Account</a>
+                            </li>
+                            <li class="dropdown-list">
+                                <a href="javascript:void(0)" title="Users">Users</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-items nav-items-sub-dropdown">
+                        <a href="javascript:void(0)" class="nav-links d-flex align-items-center" title="Work Orders" id="work-orders-trigger">
+                            <img src="./assets/images/briefcase.svg" alt="Work Orders" title="Work Orders" width="20" height="20" class="list-icons">
+                            <span class="flex-grow-1">Work Orders</span>
+                            <img src="./assets/images/chevron-light-grey.svg" alt="Work Orders" title="Work Orders" width="20" height="20" class="dropdown-arrow">
+                        </a>
+                        <ul class="nav-list-dropdown">
+                            <li class="dropdown-list">
+                                <a href="javascript:void(0)" title="Graffiti">Graffiti</a>
+                            </li>
+                            <li class="dropdown-list">
+                                <a href="javascript:void(0)" title="Transit">Transit</a>
+                            </li>
+                            <li class="dropdown-list">
+                                <a href="javascript:void(0)" title="Public"> Public</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-items nav-items-sub-dropdown">
+                        <a href="javascript:void(0)" class="nav-links d-flex align-items-center" title="Service Routes" id="work-orders-trigger">
+                            <img src="./assets/images/server.svg" alt="Service Routes" title="Service Routes" width="20" height="20" class="list-icons">
+                            <span class="flex-grow-1">Service Routes</span>
+                        </a>
+                    </li>
+                    <li class="nav-items nav-items-sub-dropdown">
+                        <a href="javascript:void(0)" class="nav-links d-flex align-items-center" title="Admin" id="work-orders-trigger">
+                            <img src="./assets/images/user.svg" alt="Admin" title="Admin" width="20" height="20" class="list-icons">
+                            <span class="flex-grow-1">Admin</span>
+                            <img src="./assets/images/chevron-light-grey.svg" alt="Work Orders" title="Work Orders" width="20" height="20" class="dropdown-arrow">
+                        </a>
+                        <ul class="nav-list-dropdown">
+                            <li class="dropdown-list">
+                                <a href="./admin-user.html" title="Users">Users</a>
+                            </li>
+                            <li class="dropdown-list">
+                                <a href="./admin-service.html" title="Services">Services</a>
+                            </li>
+                            <li class="dropdown-list">
+                                <a href="javascript:void(0)" title="Surfaces">Surfaces</a>
+                            </li>
+                            <li class="dropdown-list">
+                                <a href="javascript:void(0)" title="Emails">Emails</a>
+                            </li>
+                            <li class="dropdown-list">
+                                <a href="javascript:void(0)" title="Reports">Reports</a>
+                            </li>
+                            <li class="dropdown-list">
+                                <a href="javascript:void(0)" title="Trash">Trash</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <section class="dashboard-wrapper flex-grow-1">
+            <div class="dashboard-topbar sticky d-flex align-items-center">
+                <div class="topbar-logo">
+                    <a href="javascript:void(0)" title="Urban Graffiti" class="logo d-flex align-items-center">
+                        <img src="./assets/images/urban-graffiti-logo.svg" alt="Urban Graffiti" title="Urban Graffiti" width="40" height="40" class="logo-img">
+                        <h1 class="nav-title">Urban Graffiti</h1>
+                    </a>
+                </div>
+                <div class="profile-wrapper d-flex align-items-center justify-content-end flex-grow-1">
+                    <div class="tool-box rotate-image">
+                        <img src="./assets/images/settings.svg" alt="Settings" title="Settings" width="20" height="20" class="tool-box-image">
+                    </div>
+                    <div class="tool-box bell-anim">
+                        <img src="./assets/images/bell.svg" alt="Notification" title="Notificaion" width="20" height="20" class="tool-box-image">
+                    </div>
+                    <div class="user-profile-box d-flex align-items-center">
+                        <div class="user-avatar">
+                            <img src="./assets/images/Avatar.png" alt="User" title="User" width="40" height="40" class="user-image">
+                        </div>
+                        <div class="user-info flex-grow-1">
+                            <p class="user-name">John Doe</p>
+                            <span class="user-title">Premium User</span>
+                        </div>
+                        <div class="user-dropdown">
+                            <img src="./assets/images/chevron-grey.svg" alt="Profile" title="Profile" width="24" height="24">
+                        </div>
+                        <ul class="profile-dropdown-list">
+                            <li class="profile-dropdown-list-item">
+                                <a href="javascript:void(0)" title="Profile">Profile</a>
+                            </li>
+                            <li class="profile-dropdown-list-item">
+                                <a href="javascript:void(0)" title="Settings">Advanced Settings</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="dashboard-detailed-section admin-detailed-section">
+                <div class="detail-section-wrapper">
+                    <div class="order-title d-flex align-items-center flex-wrap">
+                        <h2 class="heading-title flex-grow-1">Reports</h2>
+                        <div class="order-title-right d-flex align-items-center flex-wrap">
+                            <div class="filter-wrapper filter-div-wrapper">
+                                <a href="javascript:void(0)" title="Filter" class="btn-cta filter-btn">Filter</a>
+                                <div class="filter-box" style="display: none;">
+                                    <div class="box-title">
+                                        <h5 class="child-heading">Status Filter</h5>
+                                        <img src="assets/images/close-icon.svg" alt="Close" title="Close" width="12" height="12" class="close-filter">
+                                    </div>
+                                    <div class="filter-inner-box-wrapper">
+                                        <form action="" class="form">
+                                            <div class="form-group form-group-fullwidth">
+                                                <label for="multiselect" class="label icon_eye icon_active">MultiSelect&colon;</label>
+                                                <div class="multiselect-dropdown">
+                                                    <div class="select-box">
+                                                        <span class="selected">Select options</span>
+                                                        <img src="./assets/images/chevron-default.svg" alt="select" title="select" width="14" height="8" class="arrow">
+                                                    </div>
+                                                    <div class="dropdown-menu">
+                                                        <label><input type="checkbox" value="Option 1">Option 1</label>
+                                                        <label><input type="checkbox" value="Option 2">Option 2</label>
+                                                        <label><input type="checkbox" value="Option 3">Option 3</label>
+                                                        <label><input type="checkbox" value="Option 4">Option 4</label>
+                                                        <label><input type="checkbox" value="Option 5">Option 5</label>
+                                                        <label><input type="checkbox" value="Option 6">Option 6</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                        <div class="filter-div-wrapper filter-search-wrapper">
+                                            <a href="javascript:void(0)" title="Search" class="btn-cta btn-cta-save">Search</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="filter-div-wrapper">
+                                <a href="javascript:void(0)" title="Reset Filter" class="btn-cta filter-btn">Reset Filter</a>
+                            </div>
+                            <div class="advanced-search-wrapper">
+                                <a href="javascript:void(0)" title="Reset Filter" class="btn-cta filter-btn" id="buildReportModalBtn">Build Report</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- table view start -->
+                    <div class="table-view">
+                        <div class="status-filter-wrapper status-map-wrapper">
+                            <div class="status-filter">
+                                <ul class="status-filter-listing">
+                                    <li>
+                                        <span class="status-title">
+                                            <strong>Status&colon;&nbsp;</strong>
+                                        </span>
+                                        <span class="filter-status">All Open</span>
+                                    </li>
+                                    <li>
+                                        <span class="status-title">
+                                            <strong>Contract Status&colon;&nbsp;</strong>
+                                        </span>
+                                        <span class="filter-status">Active</span>
+                                    </li>
+                                    <li>
+                                        <span class="status-title">
+                                            <strong>Count&colon;&nbsp;</strong>
+                                        </span>
+                                        <span class="filter-status">26</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- <div class="status-filter-btn">
+                                <a href="javascript:void(0)" title="Reset Filter" class="btn-cta filter-btn">Reset Filter</a>
+                            </div> -->
+                            <div class="map-wrapper">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d52868.77864291487!2d-117.92512166054786!3d34.087488574486606!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c328515957e659%3A0x91002b97e41980ee!2sCovina%2C%20CA%2C%20USA!5e0!3m2!1sen!2sin!4v1714396044220!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            </div>
+                        </div>
+                        <div class="edit-panel">
+                            <div class="select-panel-box">
+                                <ul class="panel-listing panel-left-list">
+                                    <li>
+                                        <p>2 Items Selected</p>
+                                    </li>
+                                    <li>
+                                        <p>Select All (24)</p>
+                                    </li>
+                                </ul>
+                                <ul class="panel-listing panel-right-list">
+                                    <li>
+                                        <div class="panel-tool edit-box">
+                                            <a href="javascript:void(0)" title="Edit" class="tools-icon tool-edit-icon" id="editModalBtn">Edit</a>
+                                        </div>
+                                        <div class="panel-tool download-box">
+                                            <a href="javascript:void(0)" title="Download" class="tools-icon tool-download-icon">Download</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)" title="Cancel" class="cancel-link">Cancel</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="table-wrapper">
+                            <table class="table" style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 20px;">
+                                            <input type="checkbox" id="select-all-header" class="table-input-checkbox">
+                                        </th>
+                                        <th style="width: 10%;">
+                                            <span class="table-th-title">Status</span>
+                                            <span class="sort-div">
+                                                <img src="./assets/images/sort.svg" alt="Sort" title="Sort" width="24" height="24">
+                                            </span>
+                                        </th>
+                                        <th style="width: 10%;">
+                                            <span class="table-th-title">Agency Ref#</span>
+                                            <span class="sort-div">
+                                                <img src="./assets/images/sort.svg" alt="Sort" title="Sort" width="24" height="24">
+                                            </span>
+                                        </th>
+                                        <th style="width: 20%;">
+                                            <span class="table-th-title">R/R</span>
+                                            <span class="sort-div">
+                                                <img src="./assets/images/sort.svg" alt="Sort" title="Sort" width="24" height="24">
+                                            </span>
+                                        </th>
+                                        <th style="width: 10%;">
+                                            <span class="table-th-title">ID</span>
+                                            <span class="sort-div">
+                                                <img src="./assets/images/sort.svg" alt="Sort" title="Sort" width="24" height="24">
+                                            </span>
+                                        </th>
+                                        <th style="width: 15%;">
+                                            <span class="table-th-title">Contract</span>
+                                            <span class="sort-div">
+                                                <img src="./assets/images/sort.svg" alt="Sort" title="Sort" width="24" height="24">
+                                            </span>
+                                        </th>
+                                        <th style="width: 15%;">
+                                            <span class="table-th-title">Zone/Route</span>
+                                            <span class="sort-div">
+                                                <img src="./assets/images/sort.svg" alt="Sort" title="Sort" width="24" height="24">
+                                            </span>
+                                        </th>
+                                        <th style="width: 40%;">
+                                            <span class="table-th-title">Address</span>
+                                            <span class="sort-div">
+                                                <img src="./assets/images/sort.svg" alt="Sort" title="Sort" width="24" height="24">
+                                            </span>
+                                        </th>
+                                        <th style="width: 15%;">
+                                            <span class="table-th-title">Received</span>
+                                            <span class="sort-div">
+                                                <img src="./assets/images/sort.svg" alt="Sort" title="Sort" width="24" height="24">
+                                            </span>
+                                        </th>
+                                        <th style="width: 15%;">
+                                            <span class="table-th-title">Due</span>
+                                            <span class="sort-div">
+                                                <img src="./assets/images/sort.svg" alt="Sort" title="Sort" width="24" height="24">
+                                            </span>
+                                        </th>
+                                        <th style="width: 10%;">
+                                            <span class="table-th-title">Surface</span>
+                                            <span class="sort-div">
+                                                <img src="./assets/images/sort.svg" alt="Sort" title="Sort" width="24" height="24">
+                                            </span>
+                                        </th>
+                                        <th style="width: 25%;">
+                                            <span class="table-th-title">Request Comment</span>
+                                            <span class="sort-div">
+                                                <img src="./assets/images/sort.svg" alt="Sort" title="Sort" width="24" height="24">
+                                            </span>
+                                        </th>
+                                        <th style="width: 10%;">
+                                            <span class="table-th-title">Assigned To</span>
+                                            <span class="sort-div">
+                                                <img src="./assets/images/sort.svg" alt="Sort" title="Sort" width="24" height="24">
+                                            </span>
+                                        </th>
+                                        <th style="width: 10%;">
+                                            <span class="table-th-title">Job Type</span>
+                                            <span class="sort-div">
+                                                <img src="./assets/images/sort.svg" alt="Sort" title="Sort" width="24" height="24">
+                                            </span>
+                                        </th>
+                                        <th style="width: 10%;">
+                                            <span class="table-th-title">Image Count</span>
+                                            <span class="sort-div">
+                                                <img src="./assets/images/sort.svg" alt="Sort" title="Sort" width="24" height="24">
+                                            </span>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody class="users-details" id="users_table">
+                                    <tr class="tr_list">
+                                        <td class="user-input">
+                                            <input type="checkbox" id="select-1" class="table-input-checkbox">
+                                        </td>
+                                        <td id="status">Assigned</td>
+                                        <td id="agencyRef"></td>
+                                        <td id="r/r">We will need a big ladder</td>
+                                        <td id="statusId">COV-95029</td>
+                                        <td id="contract">Covina Graffiti</td>
+                                        <td id="zone-route">Covina Citywide</td>
+                                        <td id="address">426 Falcon Pl, Covina, CA 91723, USA</td>
+                                        <td id="received">01/22/2024 12:15 PM</td>
+                                        <td id="due" style="color: red;">01/24/2024 12:15 PM</td>
+                                        <td id="surface">Building</td>
+                                        <td id="requestComment">Pipe on Building on the side of alley way.</td>
+                                        <td id="assignedTo">Alex Sandovl</td>
+                                        <td id="jobType">Agency</td>
+                                        <td id="imageCount">B:2 A:0</td>
+                                    </tr>
+                                    <tr class="tr_list">
+                                        <td class="user-input">
+                                            <input type="checkbox" id="select-2" class="table-input-checkbox">
+                                        </td>
+                                        <td id="status">Assigned</td>
+                                        <td id="agencyRef"></td>
+                                        <td id="r/r"></td>
+                                        <td id="statusId">COV-95029</td>
+                                        <td id="contract">Covina Graffiti</td>
+                                        <td id="zone-route">Covina Citywide</td>
+                                        <td id="address">North Citrus Avenue & East Covina Boulevard, Covina, CA, USA</td>
+                                        <td id="received">01/22/2024 12:15 PM</td>
+                                        <td id="due" style="color: red;">01/24/2024 12:15 PM</td>
+                                        <td id="surface">Building</td>
+                                        <td id="requestComment">Graffiti in the parking lot along the pillars of the shopping center.</td>
+                                        <td id="assignedTo">Alex Sandovl</td>
+                                        <td id="jobType">Agency</td>
+                                        <td id="imageCount">B:2 A:0</td>
+                                    </tr>
+                                    <tr class="tr_list">
+                                        <td class="user-input">
+                                            <input type="checkbox" id="select-3" class="table-input-checkbox">
+                                        </td>
+                                        <td id="status">Assigned</td>
+                                        <td id="agencyRef">Test</td>
+                                        <td id="r/r"></td>
+                                        <td id="statusId">COV-95029</td>
+                                        <td id="contract">Covina Graffiti</td>
+                                        <td id="zone-route">Covina Citywide</td>
+                                        <td id="address">426 Falcon Pl, Covina, CA 91723, USA</td>
+                                        <td id="received">01/22/2024 12:15 PM</td>
+                                        <td id="due" style="color: red;">01/24/2024 12:15 PM</td>
+                                        <td id="surface">Building</td>
+                                        <td id="requestComment">Test</td>
+                                        <td id="assignedTo">Alex Sandovl</td>
+                                        <td id="jobType">Agency</td>
+                                        <td id="imageCount">B:2 A:0</td>
+                                    </tr>
+
+                                    <!--  -->
+                                    <tr class="tr_list">
+                                        <td class="user-input">
+                                            <input type="checkbox" id="select-4" class="table-input-checkbox">
+                                        </td>
+                                        <td id="status">Unassigned</td>
+                                        <td id="agencyRef"></td>
+                                        <td id="r/r"></td>
+                                        <td id="statusId">COV-95029</td>
+                                        <td id="contract">Covina Graffiti</td>
+                                        <td id="zone-route">Covina Citywide</td>
+                                        <td id="address">426 Falcon Pl, Covina, CA 91723, USA</td>
+                                        <td id="received">01/22/2024 12:15 PM</td>
+                                        <td id="due"style="color: red;">01/24/2024 12:15 PM</td>
+                                        <td id="surface">Building</td>
+                                        <td id="requestComment">Pipe on Building on the side of alley way.</td>
+                                        <td id="assignedTo">Alex Sandovl</td>
+                                        <td id="jobType">Agency</td>
+                                        <td id="imageCount">B:2 A:0</td>
+                                    </tr>
+                                    <tr class="tr_list">
+                                        <td class="user-input">
+                                            <input type="checkbox" id="select-5" class="table-input-checkbox">
+                                        </td>
+                                        <td id="status">Unassigned</td>
+                                        <td id="agencyRef"></td>
+                                        <td id="r/r"></td>
+                                        <td id="statusId">COV-95029</td>
+                                        <td id="contract">Covina Graffiti</td>
+                                        <td id="zone-route">Covina Citywide</td>
+                                        <td id="address">426 Falcon Pl, Covina, CA 91723, USA</td>
+                                        <td id="received">01/22/2024 12:15 PM</td>
+                                        <td id="due" style="color: red;">01/24/2024 12:15 PM</td>
+                                        <td id="surface">Building</td>
+                                        <td id="requestComment">Pipe on Building on the side of alley way.</td>
+                                        <td id="assignedTo">Alex Sandovl</td>
+                                        <td id="jobType">Agency</td>
+                                        <td id="imageCount">B:2 A:0</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="pagination">
+                            <ul>
+                              <li class="btn prev">
+                                <span>Prev</span>
+                              </li>
+                              <li class="num active"><span>1</span></li>
+                              <li class="num"><span>2</span></li>
+                              <li class="dots"><span>...</span></li>
+                              <li class="num"><span>4</span></li>
+                              <li class="btn next">
+                                <span>Next</span>
+                              </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- table view end -->
+
+                    <!-- edit modal start -->
+                    <div id="editModal" class="modal edit-modal">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Bulk Edit</h4>
+                                    <span id="closeModalBtn" class="close">&times;</span>
+                                </div>
+                                <div class="modal-body">
+                                   <form action="" class="form">
+                                        <div class="form-group">
+                                            <label for="agency" class="label">Agency Ref#&colon;</label>
+                                            <input type="text" name="" id="agency" placeholder="" class="required">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="assignTo" class="label">Assign To&colon;</label>
+                                            <select name="" id="assignTo" class="required">
+                                                <option value="Select">Select</option>
+                                                <option value="Graffiti">Graffiti</option>
+                                                <option value="Brea Graffiti">Brea Graffiti</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="status" class="label">Status&colon;</label>
+                                            <select name="" id="status" class="required">
+                                                <option value="Select">Select</option>
+                                                <option value="Graffiti">Graffiti</option>
+                                                <option value="Brea Graffiti">Brea Graffiti</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="service" class="label">Service&colon;</label>
+                                            <select name="" id="service" class="required">
+                                                <option value="Select">Select</option>
+                                                <option value="Graffiti">Graffiti</option>
+                                                <option value="Brea Graffiti">Brea Graffiti</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="surface" class="label">Surface&colon;</label>
+                                            <select name="" id="surface" class="required">
+                                                <option value="Select">Select</option>
+                                                <option value="Graffiti">Graffiti</option>
+                                                <option value="Brea Graffiti">Brea Graffiti</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="footage" class="label">Square Footage&colon;</label>
+                                            <input type="text" name="" id="footage" placeholder="" class="required">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="datetimepicker">Received</label>
+                                            <input type="text" id="datetimepicker" class="date-picker">
+                                        </div>
+                                   </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <a href="javascript:void(0)" title="Close" class="btn-cta btn-cta-cancel close-btn close-btn-icon">Close</a>
+                                    <a href="javascript:void(0)" title="Save Changes" class="btn-cta btn-cta-save">Save Changes</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- edit modal end -->
+
+                    <!-- build report modal start -->
+                    <div id="buildReportModal" class="modal edit-modal">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Advanced Search</h4>
+                                    <span id="closeModalBtn" class="close">&times;</span>
+                                </div>
+                                <div class="modal-body">
+                                    <form action="" class="form">
+                                        <div class="form-group">
+                                            <label for="status" class="label icon_eye icon_active">Status&colon;</label>
+                                            <div class="custom-select-container">
+                                                <div class="custom-select">
+                                                    <input type="text" id="mainInput" readonly placeholder="Select an option">
+                                                    <img src="./assets/images/chevron-default.svg" alt="select" title="select" width="14" height="8" class="chevron">
+                                                    <div class="dropdown">
+                                                        <input type="text" id="searchInput" placeholder="Search..." autocomplete="off">
+                                                        <ul id="optionsList">
+                                                            <li>
+                                                                <strong>Open</strong>
+                                                                <ul>
+                                                                    <li data-value="All Open">All Open</li>
+                                                                    <li data-value="Assigned">Assigned</li>
+                                                                    <li data-value="Reassign">Reassign</li>
+                                                                    <li data-value="Unassigned">Unassigned</li>
+                                                                    <li data-value="Rejected">Rejected</li>
+                                                                </ul>
+                                                            </li>
+                                                            <li data-value="Closed"><strong>Closed</strong></li>
+                                                            <li data-value="Complete"><strong>Complete</strong></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <input type="hidden" id="selectedValue">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="searchId" class="label icon_eye icon_active">ID&colon;</label>
+                                            <input type="text" name="" id="searchId" placeholder="" class="required">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="completed" class="label icon_eye icon_active">Completed&colon;</label>
+                                            <input type="text" name="" id="completed" placeholder="" class="required">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="address" class="label icon_eye icon_active">Address&colon;</label>
+                                            <input type="text" name="" id="address" placeholder="" class="required">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="multiselect" class="label icon_eye icon_active">MultiSelect&colon;</label>
+                                            <div class="multiselect-dropdown">
+                                                <div class="select-box">
+                                                    <span class="selected">Select options</span>
+                                                    <img src="./assets/images/chevron-default.svg" alt="select" title="select" width="14" height="8" class="arrow">
+                                                </div>
+                                                <div class="dropdown-menu">
+                                                    <label><input type="checkbox" value="Option 1">Option 1</label>
+                                                    <label><input type="checkbox" value="Option 2">Option 2</label>
+                                                    <label><input type="checkbox" value="Option 3">Option 3</label>
+                                                    <label><input type="checkbox" value="Option 4">Option 4</label>
+                                                    <label><input type="checkbox" value="Option 5">Option 5</label>
+                                                    <label><input type="checkbox" value="Option 6">Option 6</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="status" class="label icon_eye icon_active">Status&colon;</label>
+                                            <select name="" id="status" class="required">
+                                                <option value="Select">Select</option>
+                                                <option value="Graffiti">Graffiti</option>
+                                                <option value="Brea Graffiti">Brea Graffiti</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="service" class="label icon_eye icon_active">Service&colon;</label>
+                                            <select name="" id="service" class="required">
+                                                <option value="Select">Select</option>
+                                                <option value="Graffiti">Graffiti</option>
+                                                <option value="Brea Graffiti">Brea Graffiti</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="multiselect" class="label icon_eye icon_active">MultiSelect 2&colon;</label>
+                                            <div class="multiselect-dropdown">
+                                                <div class="select-box">
+                                                    <span class="selected">Select options</span>
+                                                    <img src="./assets/images/chevron-default.svg" alt="select" title="select" width="14" height="8" class="arrow">
+                                                </div>
+                                                <div class="dropdown-menu">
+                                                    <label><input type="checkbox" value="Option 1">Option 1</label>
+                                                    <label><input type="checkbox" value="Option 2">Option 2</label>
+                                                    <label><input type="checkbox" value="Option 3">Option 3</label>
+                                                    <label><input type="checkbox" value="Option 4">Option 4</label>
+                                                    <label><input type="checkbox" value="Option 5">Option 5</label>
+                                                    <label><input type="checkbox" value="Option 6">Option 6</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="surface" class="label icon_eye icon_active">Surface&colon;</label>
+                                            <select name="" id="surface" class="required">
+                                                <option value="Select">Select</option>
+                                                <option value="Graffiti">Graffiti</option>
+                                                <option value="Brea Graffiti">Brea Graffiti</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="footage" class="label icon_eye icon_active">Square Footage&colon;</label>
+                                            <input type="text" name="" id="footage" placeholder="" class="required">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="daterangepicker" class="label icon_eye icon_active">Received</label>
+                                            <input type="text" name="daterange" id="daterangepicker" class="date-picker" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="due" class="label icon_eye icon_active">Due</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="timer" class="label icon_eye icon_active">Timer</label>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <a href="javascript:void(0)" title="Reset Filters" class="btn-cta btn-cta-cancel close-btn">Reset Filters</a>
+                                    <a href="javascript:void(0)" title="Apply Filters" class="btn-cta btn-cta-save">Apply Filters</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- build report modal end -->
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- script link -->
+    <script src="assets/js/jquery-3.7.1.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/moment.min.js"></script>
+    <script src="assets/js/daterangepicker.min.js"></script>
+    <script src="assets/js/tempus-dominus.min.js"></script>
+    <script src="./assets/js/global.js"></script>   
+</body>
+</html>

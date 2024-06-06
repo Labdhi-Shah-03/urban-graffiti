@@ -1764,9 +1764,22 @@ div.dt-container div.dt-paging{
   display: none;
 }
 .filter-wrapper .filter-box .filter-inner-box-wrapper{
-  padding: 0 24px 24px;
+  padding: 0 24px 14px;
+  margin-bottom: 10px;
   max-height: 320px;
   overflow: auto;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.filter-wrapper .filter-box .filter-inner-box-wrapper .filter-search-wrapper{
+  display: flex;
+  justify-content: flex-end;
+  margin: 0;
+}
+.filter-wrapper .filter-box .filter-inner-box-wrapper .filter-search-wrapper .btn-cta{
+  margin: 0;
+  min-width: 120px;
 }
 .filter-wrapper .filter-box .filter-inner-box-wrapper::-webkit-scrollbar {
   width: 14px;
@@ -2573,6 +2586,22 @@ div.dt-container div.dt-paging{
   width: 100px;
 }
 
+/* build report page */
+.status-map-wrapper {
+  align-items: flex-start;
+}
+.status-map-wrapper .status-filter{
+  max-width: 30%;
+  flex: 0 0 30%;
+}
+.status-map-wrapper .map-wrapper{
+  flex: 1;
+  margin-bottom: 10px;
+}
+.status-map-wrapper .map-wrapper iframe{
+  width: 100%;
+}
+
 @media (max-width: 1199px){
   .filter-wrapper .filter-box{
     left: 50%;
@@ -2597,6 +2626,18 @@ div.dt-container div.dt-paging{
     max-width: 100%;
     flex: 0 0 100%;
     margin-right: 0;
+  }
+  .status-map-wrapper {
+    margin-bottom: 20px;
+  }
+  .status-map-wrapper .status-filter{
+    max-width: 100%;
+    flex: 0 0 100%;
+  }
+  .status-map-wrapper .map-wrapper{
+    max-width: 100%;
+    flex: 0 0 100%;
+    margin-top: 20px;
   }
 }
 
