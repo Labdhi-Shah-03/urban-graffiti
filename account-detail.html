@@ -233,21 +233,38 @@
                                         </div>
                                     </div>
                                     <div class="form-wrapper">
-                                        <div class="image-upload-section agency-image-upload" id="gallery-wrap-a">
+                                        <div class="image-upload-section agency-image-upload" id="gallery-wrap-before">
+                                            <h5 class="child-heading">Before</h5>
                                             <div class="upload-wrapper">
                                                 <div class="add-image-box">
-                                                    <input type="file" id="files" name="files[]" accept=".jpg,.jpeg.,.gif,.png,.mov,.mp4,.svg" hidden />
-                                                    <label class="btn-up upload-btn" for="files">
+                                                    <input type="file" id="files-before" name="files[]" accept=".jpg,.jpeg,.gif,.png,.mov,.mp4,.svg" hidden />
+                                                    <label class="btn-up upload-btn" for="files-before">
                                                         <span class="upload-icon">
                                                             <img src="./assets/images/image-upload.svg" alt="Upload" title="Upload" width="24" height="24">
                                                         </span>
-                                                        <span class="add-iamge-text">Add Image</span>
+                                                        <span class="add-image-text">Add Image</span>
                                                     </label>
                                                 </div>
-                                                <div class="upload-image-box"></div>
+                                                <div class="upload-image-box" id="upload-image-box-before"></div>
                                             </div>
                                         </div>
-                                    </div>
+                                    
+                                        <div class="image-upload-section agency-image-upload" id="gallery-wrap-after">
+                                            <h5 class="child-heading">After</h5>
+                                            <div class="upload-wrapper">
+                                                <div class="add-image-box">
+                                                    <input type="file" id="files-after" name="files[]" accept=".jpg,.jpeg,.gif,.png,.mov,.mp4,.svg" hidden />
+                                                    <label class="btn-up upload-btn" for="files-after">
+                                                        <span class="upload-icon">
+                                                            <img src="./assets/images/image-upload.svg" alt="Upload" title="Upload" width="24" height="24">
+                                                        </span>
+                                                        <span class="add-image-text">Add Image</span>
+                                                    </label>
+                                                </div>
+                                                <div class="upload-image-box" id="upload-image-box-after"></div>
+                                            </div>
+                                        </div>
+                                    </div>                                    
                                     <div class="edit-button-div">
                                         <a href="javascript:void(0)" title="Cancel" class="btn-cta btn-cta-cancel">Cancel</a>
                                         <a href="javascript:void(0)" title="Save Account" class="btn-cta btn-cta-save">Save Account</a>

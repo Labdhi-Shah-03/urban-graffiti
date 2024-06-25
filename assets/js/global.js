@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Image upload handler
-    function handleFileSelect(evt) {
+    function handleFileSelect(evt, target) {
         var files = evt.target.files; // FileList object
 
         // Loop through the FileList and render image files as thumbnails.
@@ -48,13 +48,9 @@ document.addEventListener('DOMContentLoaded', function () {
                     deleteIcon.classList.add('delete-icon', 'custom-icon');
                     deleteIcon.innerHTML = '<img src="./assets/images/delete-icon.svg" alt="delete" title="delete" width="24" height="24">';
 
-                    // var zoomIcon = document.createElement('div');
-                    // zoomIcon.classList.add('zoom-icon', 'custom-icon');
-                    // zoomIcon.innerHTML = '<img src="./assets/images/zoom-icon.svg" alt="zoom" title="zoom" width="24" height="24">';
-
                     // Render thumbnail.
                     var anchor = document.createElement('a'); // Change span to anchor tag
-                    anchor.setAttribute('data-fancybox', 'gallery'); // Add data-fancybox attribute
+                    anchor.setAttribute('data-fancybox', target); // Add data-fancybox attribute
                     anchor.setAttribute('data-src', e.target.result); // Add data-src attribute
                     var img = document.createElement('img');
                     img.classList.add('thumb');
@@ -65,10 +61,9 @@ document.addEventListener('DOMContentLoaded', function () {
                     // Append elements to the output.
                     output.appendChild(anchor);
                     output.appendChild(deleteIcon);
-                    // output.appendChild(zoomIcon);
 
                     // Append the output to the upload-image-box.
-                    document.querySelector('.upload-image-box').appendChild(output);
+                    document.getElementById(`upload-image-box-${target}`).appendChild(output);
                 };
             })(f);
 
@@ -77,10 +72,31 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    document.getElementById('files').addEventListener('change', handleFileSelect, false);
+    document.getElementById('files-before').addEventListener('change', function(evt) {
+        handleFileSelect(evt, 'before');
+    }, false);
 
-    // Initialize Fancybox with bottom thumbnails
-    Fancybox.bind('[data-fancybox="gallery"]', {
+    document.getElementById('files-after').addEventListener('change', function(evt) {
+        handleFileSelect(evt, 'after');
+    }, false);
+
+    // Initialize Fancybox with bottom thumbnails for both before and after galleries
+    Fancybox.bind('[data-fancybox="before"]', {
+        Carousel : {
+            transition: "slide"
+        },
+        Thumbs: {
+            autoStart: true, // Display thumbnails on gallery load
+            axis: 'x', // Display thumbnails at the bottom
+        },
+        Toolbar: {
+            display: {
+              right: ["zoomIn",  "zoomOut", "close"],
+            },
+        },
+    });
+
+    Fancybox.bind('[data-fancybox="after"]', {
         Carousel : {
             transition: "slide"
         },
@@ -95,7 +111,6 @@ document.addEventListener('DOMContentLoaded', function () {
         },
     });
 });
-
 // ###### //
 
 $(document).ready(function() {
